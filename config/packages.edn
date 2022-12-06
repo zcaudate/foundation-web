@@ -1,0 +1,7 @@
+{foundation/melbourne
+ {:description "blocks for platform building"
+  :include [[melbourne :complete]]}
+  
+ foundation/pune
+ {:description "blocks for platform building"
+  :include [[pune :complete]]}}

@@ -1,0 +1,198 @@
+(ns pune.ui-menu-top
+  (:use code.test)
+  (:require [std.lang :as  l]
+            [std.lib :as h]))
+
+(l/script :js
+  {:require [[js.core :as j]
+             [js.react :as r :include [:fn]]
+             [js.react-native :as n :include [:fn [:icon :entypo]]]
+             [xt.lang.base-lib :as k]
+             [xt.lang.base-text :as text]             
+             [js.react-native.ui-tooltip :as ui-tooltip]
+             [melbourne.base-palette :as base-palette]
+             [melbourne.ui-group :as ui-group]
+             [melbourne.ui-toggle-button :as ui-toggle-button]
+             [melbourne.ui-static :as ui-static]]
+   :export [MODULE]})
+
+(defn.js TopMenuTitle
+  [#{design
+     title}]
+  (return
+   [:% ui-static/Div
+    #{design
+      {:variant {:bg {:key "primary"
+                      :mix "background"
+                      :ratio 6}}
+       :style {:width 40
+               :flexDirection "column-reverse"}}}
+    [:% n/View
+     {:style {:transform [{:rotate "-90deg"}
+                          {:translateX 20}]}}
+     [:% ui-static/Text
+      #{design
+        {:style {:width 100}
+         :variant {:font "h4"
+                   :bg {:key "primary"
+                        :mix "background"
+                        :ratio 6}
+                   :fg {:key "neutral"}}}}
+      title]]]))
+
+(defn.js TopMenuList
+  "creates the top menu"
+  {:added "0.1"}
+  [#{[design
+      mini
+      miniTitle
+      variant
+      routeKey
+      setRouteKey
+      data
+      children
+      styleContainer
+      floating
+      (:.. rprops)]}]
+  (var __design design)
+  (var __variant (j/assign
+                  {:font "h4"
+                   :bg {:key "background"
+                        :tone "diminish"}
+                   :fg {:key "neutral"
+                        :tone "diminish"}
+                   :pressed {:bg  {:raw 1}
+                             :fg {:raw 1}}
+                   :hovered {:bg {:raw 1}
+                             :fg {:raw 1}}
+                   :active {:bg {:key "primary"}}}
+                  variant))
+  
+  (return
+   [:% n/Row
+    {:style [{:width 140 #_(:? mini 160 140)
+              :minHeight 80}
+             (:.. (j/arrayify styleContainer))]}
+    [:% ui-static/Div
+     {:design __design
+      :variant __variant
+      :style {:paddingHorizontal 10
+              :paddingVertical 5
+              :flex 1}}
+     [:% ui-group/List
+      #{[:design __design
+         :variant __variant
+         :value routeKey
+         :setValue setRouteKey
+         :allowNotFound true
+         :style {:width 120
+                 :fontWeight "600"
+                 :fontSize 12.5
+                 :borderRadius 1}
+         :format (fn:> [s] (k/capitalize (text/tag-string s)))
+         :transformations {:bg nil}
+         :data data
+         (:.. rprops)]}]
+     children]]))
+
+(defn.js TopMenuFloating
+  "constructs a background given design"
+  {:added "0.1"}
+  [#{design
+     mini
+     visible
+     setVisible
+     children
+     tooltip}]
+  (var palette (base-palette/designPalette design))
+  
+  (var buttonRef (r/ref))
+  (return
+   [:<>
+    [:% ui-toggle-button/ToggleButton
+     #{[:key mini
+        :design design
+        :variant (:? mini
+                     {:bg {:key "neutral"
+                           :mix "primary"
+                           :ratio 2}
+                      :fg {:key "background"}
+                      :pressing {:bg 1}
+                      :active {:bg {:key "neutral"}}}
+                     {:bg {:key "neutral"
+                           :mix "primary"
+                           :ratio 2}
+                      :fg {:key "background"}
+                      :pressing {:bg 1}
+                      :active {:bg {:key "neutral"}}})
+        :style {:paddingVertical 6
+                :borderRadius 2}
+        :refLink buttonRef
+        :selected visible
+        :onPress (fn:> (setVisible (not visible)))
+        :transformations
+        {:bg (fn:> [#{active}]
+               {:style {:transform [{:scale (- 1 active)}]}})}
+        :text [:% n/Icon
+               {:key  "menu"
+                :name "menu"
+                :size 18}]]}]
+    
+    (r/% ui-tooltip/Tooltip
+         (j/assign
+          {:hostRef buttonRef
+           :visible visible
+           :setVisible setVisible
+           :position "right_edge"
+           :alignment "start"
+           :children children
+           :arrow {:animate true
+                   :placement "none"
+                   :backdrop true
+                   :backdropStyle {:backgroundColor (base-palette/getColor
+                                                     palette
+                                                     {:key "neutral"}) 
+                                   :opacity 0.4}}}
+          tooltip))]))
+
+(defn.js TopMenu
+  [#{[design
+      mini
+      miniTitle
+      tooltip
+      routeKey
+      setRouteKey
+      data
+      format
+      narrowed
+      children
+      visible
+      setVisible
+      (:.. rprops)]}]
+  (var listProps
+       (j/assign
+        #{design
+          routeKey
+          setRouteKey
+          data
+          format
+          children}
+        {:floating true
+         :styleContainer {:padding 5
+                          :borderRadius 3
+                          :paddingLeft 10}
+         :onChange (fn [s]
+                     (setVisible false))}))
+  (var listElem (r/% -/TopMenuList listProps))
+  (return
+   (r/% -/TopMenuFloating
+    #{design
+      mini
+      tooltip
+      visible
+      setVisible
+      {:children (r/% -/TopMenuList listProps)}})))
+
+(def.js MODULE (!:module))
+
+
