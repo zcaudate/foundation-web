@@ -10,8 +10,7 @@
   {"publish"     ["exec" "-ep" "(use 'code.doc)     (deploy-template :all) (publish :all)"]
    "incomplete"  ["exec" "-ep" "(use 'code.manage)  (incomplete :all) (System/exit 0)"]
    "install"     ["exec" "-ep" "(use 'code.maven)  (install :all {:tag :all}) (System/exit 0)"]
-   
-   "push-web-code"  ["run" "-m" "component.task-native-index"]}
+   "push-web-code"  ["run" "-m" "component.task-web-index"]}
   
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [foundation/code.test           "4.0.1"]
