@@ -130,8 +130,7 @@
           :form form
           :fieldProps {:outlined true}
           :field "name"
-          :hideValidation true}]]] 
-#_))))
+          :hideValidation true}]]]))))
 
 ^{:refer melbourne.slim-common/FormInputXL :added "0.1"}
 (fact "creates a Form XL"
@@ -217,8 +216,8 @@
                {:agree []}))
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-common/FormCheckBox"} 
-[:% n/Row
+      {:label "melbourne.slim-common/FormCheckBox"} 
+      [:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -237,9 +236,8 @@
           :label "I AGREE TO TERMS AND CONDITIONS"
           :form form
           :field "agree"}]]] 
-[:% n/Text
-       (n/format-obj form.data)] 
-#_))))
+      [:% n/Text
+       (n/format-obj form.data)]))))
 
 ^{:refer melbourne.slim-common/FormToggleButton :added "0.1"}
 (fact "creates a Form Toggle Button"
@@ -273,10 +271,7 @@
           :label "Agree"
           :form form
           :field "agree"
-          :text "I AGREE TO TERMS AND CONDITIONS"}]]] 
-[:% n/Text
-       (n/format-obj form.data)] 
-#_))))
+          :text "I AGREE TO TERMS AND CONDITIONS"}]]]))))
 
 ^{:refer melbourne.slim-common/FormToggleSwitch :added "4.0"}
 (fact "creates a Form Toggle Switch"
@@ -308,10 +303,7 @@
          {:design {:type "dark"}
           :label "Agree"
           :form form
-          :field "agree"}]]] 
-[:% n/Text
-       (n/format-obj form.data)] 
-#_))))
+          :field "agree"}]]]))))
 
 ^{:refer melbourne.slim-common/FormEnumSingle :added "0.1"}
 (fact "creates an Enum Single"

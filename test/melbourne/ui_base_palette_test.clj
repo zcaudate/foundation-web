@@ -31,7 +31,7 @@
     (var palette (base-palette/createPalette type color))
     (return
      (n/EnclosedCode 
-{:label "melbourne.base-palette/PaletteBase"} 
+      {:label "melbourne.base-palette/PaletteBase"} 
 [:% n/Row
        [:% n/Tabs
                 {:data ["purple" "teal" "blue" "green"]
