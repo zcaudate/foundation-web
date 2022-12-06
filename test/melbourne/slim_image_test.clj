@@ -26,9 +26,9 @@
                (fn:> {:price nil})
                {:price []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-image/FormImage"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-image/FormImage"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -46,7 +46,7 @@
          {:brand  {:type "dark"}
           :label "Picture"
           :form form
-          :field "price"}]]]]))
+          :field "price"}]]])))
   
   (def.js MODULE (!:module))
   )

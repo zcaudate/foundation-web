@@ -32,12 +32,12 @@
     []
     (var control (slim/useLocalControl))
     (return
-     [:% n/Enclosed
-      {:label "slim-table-toolbar/TableToolbar"}
-      [:% ui-static/Div
+     (n/EnclosedCode 
+{:label "slim-table-toolbar/TableToolbar"} 
+[:% ui-static/Div
        {:design {:type "light"}}
        [:% slim-table-toolbar/TableToolbar
         {:design {:type "light"}
          :mini true
          :actions {}
-         :control control}]]])))
+         :control control}]]))))

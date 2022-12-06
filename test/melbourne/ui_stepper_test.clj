@@ -24,9 +24,9 @@
     []
     (var [index setIndex] (r/local 0))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-stepper/StepperTabs"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-stepper/StepperTabs"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -48,7 +48,7 @@
             index
             setIndex
             :itemProps [{}
-                        {}]]}]]]])))
+                        {}]]}]]]))))
 
 ^{:refer melbourne.ui-stepper/stepperOffset :added "0.1"}
 (fact "offset function for the stepper")
@@ -61,9 +61,9 @@
     []
     (var [index setIndex] (r/local (fn:> 0)))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-stepper/Stepper"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-stepper/Stepper"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -110,7 +110,7 @@
        [:% n/Row
         {:style {:backgroundColor "#333"
                  :flex 1
-                 :padding 30}}]]]))
+                 :padding 30}}]])))
   
   (def.js MODULE (!:module))
   )

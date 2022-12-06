@@ -27,9 +27,9 @@
     []
     (var [show setShow] (r/local true))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-menu-vert/MainMenuSeperator"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-menu-vert/MainMenuSeperator"} 
+[:% n/Row
        [:% n/View
         {:style {:padding 20
                  :backgroundColor "#eee"}}
@@ -41,7 +41,7 @@
                  :backgroundColor "#333"}}
         [:% ui-menu-vert/MainMenuSeperator
          #{[:design {:type "dark"
-                    :mode "minor"}]}]]]])))
+                    :mode "minor"}]}]]]))))
 
 ^{:refer pune.ui-menu-vert/MainMenuButton :added "0.1"}
 (fact  "creates the main menu button"
@@ -52,9 +52,9 @@
     (var [selected0 setSelected0] (r/local "home"))
     (var [selected1 setSelected1] (r/local "account"))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-menu-vert/MainMenuButton"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-menu-vert/MainMenuButton"} 
+[:% n/Row
        [:% n/View
         {:style {:padding 5
                  :paddingRight 100
@@ -74,7 +74,7 @@
             :item {:key "home"
                    :icon "home"
                    :label "HOME"}
-            :onPress (fn:> (alert "PRESSED"))]}]]]])))
+            :onPress (fn:> (alert "PRESSED"))]}]]]))))
 
 ^{:refer pune.ui-menu-vert/MainMenuToggle :added "0.1"}
 (fact "creates the main menu toggle"
@@ -85,9 +85,9 @@
     (var [selected0 setSelected0] (r/local true))
     (var [selected1 setSelected1] (r/local false))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-menu-vert/MainMenuToggle"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-menu-vert/MainMenuToggle"} 
+[:% n/Row
        [:% n/View
         {:style {:padding 5
                  :paddingRight 100
@@ -109,7 +109,7 @@
                    :icon "home"
                    :label "HOME"}
             :selected selected1
-            :onPress (fn:> (setSelected1 (not selected1)))]}]]]])))
+            :onPress (fn:> (setSelected1 (not selected1)))]}]]]))))
 
 ^{:refer pune.ui-menu-vert/MainMenuRoute :added "0.1"}
 (fact "creates the main menu routes"
@@ -120,9 +120,9 @@
     (var [routeKey0 setRouteKey0] (r/local "home"))
     (var [routeKey1 setRouteKey1] (r/local "account"))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-menu-vert/MainMenuRoute"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-menu-vert/MainMenuRoute"} 
+[:% n/Row
        [:% n/View
         {:style {:padding 5
                  :paddingRight 100
@@ -158,7 +158,7 @@
                    :icon "user"
                    :label "ACCOUNT"}
             :routeKey routeKey1 
-            :setRouteKey setRouteKey1]}]]]])))
+            :setRouteKey setRouteKey1]}]]]))))
 
 ^{:refer pune.ui-menu-vert/MainMenuMiniContext :added "0.1"}
 (fact "mini context for main menu"
@@ -168,9 +168,9 @@
     []
     (var [visible setVisible] (r/local false))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-menu-vert/MainMenuMiniContext"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-menu-vert/MainMenuMiniContext"} 
+[:% n/Row
        {:style {:paddingRight 90
                 :backgroundColor "#eee"}}
        [:% ui-menu-vert/MainMenuMiniContext
@@ -182,7 +182,7 @@
          [:% n/Button
           {:title "Link B"}]
          [:% n/Button
-          {:title "Link C"}]]]]])))
+          {:title "Link C"}]]]]))))
 
 ^{:refer pune.ui-menu-vert/MainMenu :added "0.1"}
 (fact "creates the main menu "
@@ -193,9 +193,9 @@
     (var [routeKey0 setRouteKey0] (r/local "home"))
     (var [routeKey1 setRouteKey1] (r/local "user"))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-menu-vert/MainMenu"}
-      [:% n/PortalSink
+     (n/EnclosedCode 
+{:label "pune.ui-menu-vert/MainMenu"} 
+[:% n/PortalSink
        [:% n/Row
         [:% n/View
          {:style {:paddingRight 90
@@ -230,7 +230,7 @@
                       :icon  "line-graph"
                       :label "MARKET"}]
              :routeKey routeKey1
-             :setRouteKey setRouteKey1]}]]]]]))
+             :setRouteKey setRouteKey1]}]]]])))
   
   (def.js MODULE (!:module)))
 

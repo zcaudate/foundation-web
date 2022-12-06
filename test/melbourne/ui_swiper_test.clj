@@ -26,9 +26,9 @@
     (var [highlighted setHighlighted] (r/local false))
     (var [disabled setDisabled] (r/local false))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-swiper/Swiper"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-swiper/Swiper"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -76,8 +76,8 @@
                            :overflow "hidden"}
           :style {:width 300
                   :height 100
-                  :cursor "grab"}}]]]
-      [:% n/Row
+                  :cursor "grab"}}]]] 
+[:% n/Row
        [:% n/Button
         {:title "+1"
          :onPress (fn:> (setFirst (+ first 1)))}]
@@ -92,7 +92,7 @@
         {:title "D"
          :onPress (fn:> (setDisabled (not disabled)))}]
        [:% n/Text
-        (n/format-entry #{first disabled highlighted})]]]))
+        (n/format-entry #{first disabled highlighted})]])))
   
   (def.js MODULE (!:module))
   )

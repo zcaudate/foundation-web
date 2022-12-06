@@ -72,9 +72,9 @@
     (var components {:entry-brief  EntryBrief})
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table-page/TableListPaged"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-table-page/TableListPaged"} 
+[:% n/Row
         {:style {:height 400}}
         [:% n/ScrollView
          [:% slim-table-list/TableList
@@ -83,7 +83,7 @@
              :style   {:minWidth 200}
              :display {:brief {:card {:component "mini"}}
                        :list  {:page {:display 5}}}}
-            views control components}]]]]])))
+            views control components}]]])])))
 
 ^{:refer melbourne.slim-table-list/TableList :adopt true :added "0.1"}
 (fact "creates the table list view"
@@ -135,9 +135,9 @@
     (var components {:entry-brief  EntryBrief})
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table-page/TableListRemotePaged"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-table-page/TableListRemotePaged"} 
+[:% n/Row
         {:style {:height 400}}
         [:% n/ScrollView
          [:% slim-table-list/TableList
@@ -148,6 +148,6 @@
                        :list  {:page {:remote true
                                       :total 200
                                       :display 5}}}}
-            views control components}]]]]]))
+            views control components}]]])]))
   
   (def.js MODULE (!:module)))

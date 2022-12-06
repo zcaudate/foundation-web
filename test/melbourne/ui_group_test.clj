@@ -23,14 +23,14 @@
     []
     (var [indices setIndices] (r/local [false true false]))
     (return
-     [:% n/Enclosed
-      {:label "ui-group/EnumMultiIndexed"}
-      [:% ui-group/EnumMultiIndexed
+     (n/EnclosedCode 
+{:label "ui-group/EnumMultiIndexed"} 
+[:% ui-group/EnumMultiIndexed
         {:design {:type "light"
                  }
          :items [" STATS " " XLM " " USD "]
          :indices indices
-        :setIndices setIndices}]])))
+        :setIndices setIndices}]))))
 
 ^{:refer melbourne.ui-group/EnumMulti :added "0.1"}
 (fact  "creates a multi-select horizontal tab bar"
@@ -40,13 +40,13 @@
     []
     (var [values setValues] (r/local ["USD"]))
     (return
-     [:% n/Enclosed
-      {:label "ui-group/EnumMulti"}
-      [:% ui-group/EnumMulti
+     (n/EnclosedCode 
+{:label "ui-group/EnumMulti"} 
+[:% ui-group/EnumMulti
        {:design {:type "light"}
         :data ["STATS" "XLM" "USD"]
         :values values
-        :setValues setValues}]])))
+        :setValues setValues}]))))
 
 ^{:refer melbourne.ui-group/TabsIndexed :added "0.1"}
 (fact "creates a indexed horizontal tab bar"
@@ -58,9 +58,9 @@
     (var [index1 setIndex1] (r/local 2))
     (var [index2 setIndex2] (r/local 0))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-group/TabsIndexed"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.ui-group/TabsIndexed"} 
+[:% n/View
        {:style {:backgroundColor "#eee"
                 :flex 1
                 :padding 20}}
@@ -84,8 +84,8 @@
                  :paddingVertical 2}
          :items ["123" "456" "789" "abc"]
          :index      index2
-         :setIndex   setIndex2}]]
-      [:% n/Row
+         :setIndex   setIndex2}]] 
+[:% n/Row
        {:style {:backgroundColor "#333"
                 :flex 1
                 :padding 10
@@ -128,7 +128,7 @@
           :styleContainer {:flexDirection "column"}
           :items ["123" "456" "789" "abc"]
           :index      index2
-          :setIndex   setIndex2}]]]])))
+          :setIndex   setIndex2}]]]))))
 
 ^{:refer melbourne.ui-group/Tabs :added "0.1"}
 (fact "creates a horizontal tab bar"
@@ -140,9 +140,9 @@
     (var [value1 setValue1] (r/local "CC"))
     (var [value2 setValue2] (r/local "789"))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-group/Tabs"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.ui-group/Tabs"} 
+[:% n/View
        {:style {:backgroundColor "#333"
                 :flex 1
                 :padding 20}}
@@ -167,8 +167,8 @@
                  :paddingVertical 2}
          :data ["123" "456" "789" "abc"]
          :value      value2
-         :setValue   setValue2}]]
-      [:% n/Row
+         :setValue   setValue2}]] 
+[:% n/Row
        {:style {:backgroundColor "#eee"
                 :flex 1
                 :padding 10
@@ -211,7 +211,7 @@
           :styleContainer {:flexDirection "column"}
           :data ["123" "456" "789" "abc"]
           :value      value2
-          :setValue   setValue2}]]]])))
+          :setValue   setValue2}]]]))))
 
 ^{:refer melbourne.ui-group/ListIndexed :added "0.1"}
 (fact "creates a indexed list"
@@ -223,9 +223,9 @@
     (var [index1 setIndex1] (r/local 2))
     (var [index2 setIndex2] (r/local 0))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-group/ListIndexed"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-group/ListIndexed"} 
+[:% n/Row
        {:style {:backgroundColor "#eee"
                 :flex 1
                 :padding 20}}
@@ -255,7 +255,7 @@
                   :paddingVertical 2}
           :items ["123" "456" "789" "abc"]
           :index      index2
-          :setIndex   setIndex2}]]]])))
+          :setIndex   setIndex2}]]]))))
 
 ^{:refer melbourne.ui-group/List :added "0.1"}
 (fact "creates a list"
@@ -267,9 +267,9 @@
     (var [value1 setValue1] (r/local "CC"))
     (var [value2 setValue2] (r/local "789"))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-group/List"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-group/List"} 
+[:% n/Row
        {:style {:backgroundColor "#333"
                 :flex 1
                 :padding 20}}
@@ -300,7 +300,7 @@
                   :paddingVertical 2}
           :data ["123" "456" "789" "abc"]
           :value      value2
-          :setValue   setValue2}]]]]))
+          :setValue   setValue2}]]])))
   
   (def.js MODULE (!:module))
   )

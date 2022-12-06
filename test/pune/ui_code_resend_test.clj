@@ -36,12 +36,12 @@
                                  {:email []
                                   :code  [(validators/is-length-n 6)]}))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-code-resend/CodeResendButton"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-code-resend/CodeResendButton"} 
+[:% n/Row
        [:% n/Button {:title "R"
-                     :onPress (fn:> (setKey (j/random)))}]]
-      [:% n/View
+                     :onPress (fn:> (setKey (j/random)))}]] 
+[:% n/View
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :padding 20}}
@@ -74,10 +74,10 @@
                                                 {:status "error"}))))}}}]
         [:% n/PortalSink
          {:name sink1Id
-          :style {:height 80}}]]]
-      [:% n/TextDisplay
+          :style {:height 80}}]]] 
+[:% n/TextDisplay
        {:content (n/format-entry
                   #{result0 result1
-                    {:data form.data}})}]]))
+                    {:data form.data}})}])))
 
   (def.js MODULE (!:module)))

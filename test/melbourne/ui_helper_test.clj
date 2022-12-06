@@ -24,9 +24,9 @@
     []
     (var [index setIndex] (r/local 1))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-helper/HelperControl"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-helper/HelperControl"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -44,7 +44,7 @@
          {:design {:type "dark"}
           :onLeft  (fn:> (setIndex (- index 1)))
           :onRight (fn:> (setIndex (+ index 1)))}
-         [:% n/Text (n/format-entry #{index})]]]]]))
+         [:% n/Text (n/format-entry #{index})]]]])))
   
   (def.js MODULE (!:module))
   )

@@ -24,14 +24,14 @@
     []
     (var [sectionKey setSectionKey] (r/local))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-sidebar/SidebarMenu"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.ui-sidebar/SidebarMenu"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% ui-sidebar/SidebarMenu
         #{sectionKey setSectionKey
           {:design {:type "dark"}
-           :sections ["A" "B" "C"]}}]]])))
+           :sections ["A" "B" "C"]}}]]))))
 
 ^{:refer pune.ui-sidebar/Sidebar :added "0.1"}
 (fact "creates a sidebar"
@@ -41,13 +41,13 @@
     []
     (var [sectionKey setSectionKey] (r/local))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-sidebar/Sidebar"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.ui-sidebar/Sidebar"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% ui-sidebar/Sidebar
         #{sectionKey setSectionKey
           {:design {:type "dark"}
-           :sections ["A" "B" "C"]}}]]]))
+           :sections ["A" "B" "C"]}}]])))
   
   (def.js MODULE (!:module)))

@@ -31,9 +31,9 @@
     (var palette (base-palette/createPalette type color))
     
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-button/ToggleButton"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-button/ToggleButton"} 
+[:% n/Row
        [:% n/Tabs
         {:data ["purple" "teal" "blue" "green"]
          :value color
@@ -42,12 +42,12 @@
        [:% n/Tabs
         {:data ["light" "dark"]
          :value type
-         :setValue setType}]]
-      [:% n/Tabs
+         :setValue setType}]] 
+[:% n/Tabs
        {:data ["background" "primary" "neutral" "error"]
         :value foil
-        :setValue setFoil}]
-      [:% n/View
+        :setValue setFoil}] 
+[:% n/View
        {:key (+ type "."  color)
         :style {:backgroundColor (base-palette/getColorRaw
                                   palette
@@ -122,6 +122,6 @@
           :text  "Color Light"
           #_#_:outlined true}]]
        [:% n/TextDisplay
-        #{s0 s1 s2}]]]))
+        #{s0 s1 s2}]])))
 
   (def.js MODULE (!:module)))

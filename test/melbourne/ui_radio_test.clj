@@ -27,9 +27,9 @@
     (var [s1 setS1] (r/local true))
     (var [s2 setS2] (r/local true))
     (return
-     [:% n/Enclosed
-      {:label " melbourne.ui-radio/RadioBox"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label " melbourne.ui-radio/RadioBox"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -61,7 +61,7 @@
                     :mode "secondary"}
             :style {:margin 2}
             :selected s1
-            :onPress (fn:> (setS1 (not s1)))]}]]]])))
+            :onPress (fn:> (setS1 (not s1)))]}]]]))))
 
 ^{:refer melbourne.ui-radio/RadioGroupIndexed :added "0.1"}
 (fact "creates a group of radio boxes"
@@ -71,9 +71,9 @@
     []
     (var [index setIndex] (r/local 1))
     (return
-     [:% n/Enclosed
-      {:label " melbourne.ui-radio/RadioGroupIndexed"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label " melbourne.ui-radio/RadioGroupIndexed"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -93,9 +93,9 @@
                   }
           :items [" STATS " " XLM " " USD "]
           :index index
-          :setIndex setIndex}]]]
-      [:% n/TextDisplay
-       {:content (k/js-encode index)}]])))
+          :setIndex setIndex}]]] 
+[:% n/TextDisplay
+       {:content (k/js-encode index)}]))))
 
 ^{:refer melbourne.ui-radio/RadioGroup :added "0.1"}
 (fact "creates a group of radio boxes"
@@ -105,9 +105,9 @@
     []
     (var [value setValue] (r/local "USD"))
     (return
-     [:% n/Enclosed
-      {:label " melbourne.ui-radio/RadioGroup"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label " melbourne.ui-radio/RadioGroup"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -129,9 +129,9 @@
           :data ["STATS" "XLM" "USD"]
           :value value
           :setValue setValue
-          :format (fn:> [s] (+ "  " s))}]]]
-      [:% n/TextDisplay
-       {:content (k/js-encode value)}]]))
+          :format (fn:> [s] (+ "  " s))}]]] 
+[:% n/TextDisplay
+       {:content (k/js-encode value)}])))
 
   (def.js MODULE (!:module))
   )

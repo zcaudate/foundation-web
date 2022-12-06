@@ -36,9 +36,9 @@
            onAction} (r/useSubmit #{setResult
                                     onSubmit}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-submit/useSubmit"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-submit/useSubmit"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :padding 10
@@ -51,10 +51,10 @@
          [:% n/Button
           {:title "Clear"
            :onPress (fn:> (setResult nil))}]
-         [:% n/Text " "]]]]
-      [:% n/TextDisplay
+         [:% n/Text " "]]]] 
+[:% n/TextDisplay
        {:content (n/format-entry #{waiting
-                                   result})}]])))
+                                   result})}]))))
 
 ^{:refer melbourne.slim-submit/SubmitButton :added "0.1"}
 (fact "constructs a submit button"
@@ -65,9 +65,9 @@
     (var [errored setErrored] (r/local true))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-submit/SubmitButton"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-submit/SubmitButton"} 
+[:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :padding 10}}
@@ -105,7 +105,7 @@
            :style {:width 150}
            :errored errored
            :text "CHANGE PASSWORD"
-           :onPress (fn:> (setErrored (not errored)))}]]]]])))
+           :onPress (fn:> (setErrored (not errored)))}]]])])))
 
 ^{:refer melbourne.slim-submit/SubmitLine :added "4.0"}
 (fact "creates a submit line (with button and error)"
@@ -116,9 +116,9 @@
     (var [errored setErrored] (r/local true))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-submit/SubmitLine"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-submit/SubmitLine"} 
+[:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :padding 10}}
@@ -126,7 +126,7 @@
           {:design {:type "light"}
            :errored errored
            :onActionPress (fn:> (setErrored (not errored)))
-           :onActionReset (fn:> (setErrored false))}]]]]])))
+           :onActionReset (fn:> (setErrored false))}]]])])))
 
 ^{:refer melbourne.slim-submit/SubmitLineHelpers :added "4.0"}
 (fact "creates the helper (cancel and clear) buttons")
@@ -140,9 +140,9 @@
     (var [errored setErrored] (r/local false))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-submit/SubmitLineActions"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-submit/SubmitLineActions"} 
+[:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :padding 10}}
@@ -152,7 +152,7 @@
            :clearShow  true
            :cancelShow true
            :onActionPress (fn:> (setErrored (not errored)))
-           :onActionReset (fn:> (setErrored false))}]]]]])))
+           :onActionReset (fn:> (setErrored false))}]]])])))
 
 ^{:refer melbourne.slim-submit/useSubmitField :added "4.0"}
 (fact "use submit form compatible with the submit controls"
@@ -177,9 +177,9 @@
              :explicit false}}))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-submit/useSubmitField"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-submit/useSubmitField"} 
+[:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :padding 10}}
@@ -200,11 +200,11 @@
          [:% slim-submit/SubmitLine
           #{[:design {:type "dark"}
              :errorProps {:row true}
-             (:.. submitProps)]}]]]
-       [:% n/TextDisplay
+             (:.. submitProps)]}]]] 
+[:% n/TextDisplay
         {:content (n/format-entry
                    #{submitProps
-                     validation})}]]]))
+                     validation})}])]))
   )
 
 ^{:refer melbourne.slim-submit/useSubmitForm :added "4.0"}
@@ -237,9 +237,9 @@
                           :explicit false}}))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-submit/useSubmitForm"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-submit/useSubmitForm"} 
+[:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :padding 10}}
@@ -260,10 +260,10 @@
              waiting
              setWaiting
              result
-             setResult]}]]]
-       [:% n/TextDisplay
+             setResult]}]]] 
+[:% n/TextDisplay
         {:content (n/format-entry
                    #{errored waiting result
-                     validation})}]]]))
+                     validation})}])]))
   
   (def.js MODULE (!:module)))

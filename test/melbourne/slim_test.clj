@@ -96,9 +96,9 @@
     (var [mini setMini] (r/local true))
     (var design {:type "light"})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim/Table"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim/Table"} 
+[:% n/Row
        [:% ui-text/ToggleMinor
         #{design
           {:text "Create"
@@ -113,8 +113,8 @@
         #{design
           {:text "Mini"
            :selected mini
-           :onPress (fn:> (setMini (not mini)))}}]]
-      [:% n/Row
+           :onPress (fn:> (setMini (not mini)))}}]] 
+[:% n/Row
        [:% slim/Table
         #{{:design {:type "light"}
            :display {:type "fold"}
@@ -124,7 +124,7 @@
         #{{:design {:type "dark"}
            :display {:type "fold"}
            :mini mini}
-          components views control}]]])))
+          components views control}]]))))
 
 ^{:refer melbourne.slim/createEntry :added "4.0"}
 (fact "makes an entry"
@@ -133,13 +133,13 @@
   (defn.js CreateEntryDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim/createEntry"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim/createEntry"} 
+[:% n/Row
        (slim/createEntry
         {:design {:type "light"}
          :impl  {:type "raw"}
-         :entry {:a 1 :b 2}})]])))
+         :entry {:a 1 :b 2}})]))))
 
 ^{:refer melbourne.slim/entry :added "4.0"}
 (fact "makes entry display"
@@ -148,13 +148,13 @@
   (defn.js EntryDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim/entry"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim/entry"} 
+[:% n/Row
        (slim/entry
         {:design {:type "light"}
          :entry {:a 1 :b 2}}
-        {:type "raw"})]])))
+        {:type "raw"})]))))
 
 ^{:refer melbourne.slim/useLocalPrimitives :added "4.0"}
 (fact "creates crud control primitives")
@@ -188,9 +188,9 @@
            setShowList} controls)
     (var design {:type "light"})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim/UseRouteControl"}
-      [:% ui-static/Div
+     (n/EnclosedCode 
+{:label "melbourne.slim/UseRouteControl"} 
+[:% ui-static/Div
        #{design
          {:style {:flexDirection "row"}}}
        [:% ui-text/ToggleMinor
@@ -224,7 +224,7 @@
         #{design
           {:text "List"
            :selected showList
-           :onPress (fn:> (setShowList (not showList)))}}]]])))
+           :onPress (fn:> (setShowList (not showList)))}}]]))))
 
 ^{:refer melbourne.slim/useLocalControl :added "4.0"}
 (fact "uses the local controls")

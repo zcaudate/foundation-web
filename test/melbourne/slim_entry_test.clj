@@ -34,9 +34,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryFree"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryFree"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -57,7 +57,7 @@
                    :key "title"
                    :component slim-entry/EntryContentParagraph
                    :template ["currency_id"]}
-          :custom {:title   {:style {:padding 10}}}}]]]])))
+          :custom {:title   {:style {:padding 10}}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentRaw :added "4.0"}
 (fact "creates a raw content view"
@@ -69,9 +69,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentRaw"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentRaw"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -84,7 +84,7 @@
         [:% slim-entry/Entry
          {:design {:type "dark"}
           :impl {:type "raw"}
-          :entry  entry}]]]])))
+          :entry  entry}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentRawForm :added "4.0"}
 (fact "creates a raw content view"
@@ -98,9 +98,9 @@
                       :escrow 50.5})
                {}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentRawForm"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentRawForm"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -113,7 +113,7 @@
         [:% slim-entry/Entry
          {:design {:type "dark"}
           :impl {:type "raw_form"}
-          :form form}]]]])))
+          :form form}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentFill :added "4.0"}
 (fact "adds space filler for layouts"
@@ -125,9 +125,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentFill"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentFill"} 
+[:% n/Row
        {:style {:height 30}}
        [:% ui-static/Div
         {:design {:type "light"}
@@ -141,7 +141,7 @@
         [:% slim-entry/Entry
          {:design {:type "dark"}
           :impl {:type "fill"}
-          :entry  entry}]]]])))
+          :entry  entry}]]]))))
 
 ^{:refer melbourne.slim-entry/entryLayoutDiv :added "4.0"}
 (fact "creates a layout component")
@@ -156,9 +156,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutHorizontal"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutHorizontal"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -192,7 +192,7 @@
                           :template ["currency_id"]}
                          {:type "p"
                           :key "body"
-                          :template ["balance"]}]}}]]]])))
+                          :template ["balance"]}]}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutVertical :added "4.0"}
 (fact "creates a vertical layout"
@@ -204,9 +204,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutVertical"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutVertical"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -240,7 +240,7 @@
                           :template ["currency_id"]}
                          {:type "p"
                           :key "body"
-                          :template ["balance"]}]}}]]]])))
+                          :template ["balance"]}]}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutEnclosed :added "4.0"}
 (fact "creates an enclosed layout"
@@ -252,9 +252,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutEnclosed"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutEnclosed"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -291,7 +291,7 @@
                           :template ["currency_id"]}
                          {:type "p"
                           :key "body"
-                          :template ["balance"]}]}}]]]])))
+                          :template ["balance"]}]}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutPortal :added "4.0"}
 (fact "creates an portal layout"
@@ -303,9 +303,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutPortal"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutPortal"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -346,7 +346,7 @@
                           :template ["currency_id"]}
                          {:type "p"
                           :key "body"
-                          :template ["balance"]}]}}]]]])))
+                          :template ["balance"]}]}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutPortalSink :added "4.0"}
 (fact "creates a portal sink element"
@@ -358,9 +358,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutPortalSink"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutPortalSink"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -407,7 +407,7 @@
                           :template ["currency_id"]}
                          {:type "p"
                           :key "body"
-                          :template ["balance"]}]}}]]]])))
+                          :template ["balance"]}]}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutScroll :added "4.0"}
 (fact "creates a scrollview"
@@ -419,9 +419,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentScroll"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentScroll"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -437,7 +437,7 @@
         [:% slim-entry/Entry
          {:design  {:type "dark"}
           :entry   entry
-          :impl    {:type "scroll"}}]]]])))
+          :impl    {:type "scroll"}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutPopup :added "4.0"}
 (fact "creates a popup view"
@@ -450,9 +450,9 @@
                 :escrow 50.5})
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-entry/EntryLayoutPopup"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutPopup"} 
+[:% n/Row
         [:% ui-static/Div
          {:design {:type "light"}
           :style {:flex 1
@@ -478,7 +478,7 @@
                               :body [{:template "hello world"}
                                      {:type "action"
                                       :text "HELLO"
-                                      :submit "hello"}]}]}}]]]]])))
+                                      :submit "hello"}]}]}}]]])])))
 
 ^{:refer melbourne.slim-entry/EntryLayoutDebug :added "4.0"}
 (fact "creates a debug view"
@@ -490,9 +490,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutDebug"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutDebug"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -512,7 +512,7 @@
          {:design  {:type "dark"}
           :entry   entry
           :impl    {:type "debug"
-                    :body [{:template "hellp world"}]}}]]]])))
+                    :body [{:template "hellp world"}]}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentSeparator :added "4.0"}
 (fact "creates a separator"
@@ -524,9 +524,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentSeparator"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentSeparator"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -542,7 +542,7 @@
         [:% slim-entry/Entry
          {:design  {:type "dark"}
           :entry   entry
-          :impl    {:type "separator"}}]]]])))
+          :impl    {:type "separator"}}]]]))))
 
 ^{:refer melbourne.slim-entry/entryContentText :added "4.0"}
 (fact "creates either a title or context component")
@@ -557,9 +557,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentTitleH1"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentTitleH1"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -578,7 +578,7 @@
           :impl   {:type "title_h1"
                    :key "title"
                    :template ["currency_id"]}
-          :custom {:title   {:style {:padding 10}}}}]]]])))
+          :custom {:title   {:style {:padding 10}}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentTitleH2 :added "0.1"}
 (fact "creates a h2 title"
@@ -590,9 +590,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentTitleH2"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentTitleH2"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -611,7 +611,7 @@
           :impl   {:type "title_h2"
                    :key "title"
                    :template ["currency_id"]}
-          :custom {:title   {:style {:padding 10}}}}]]]])))
+          :custom {:title   {:style {:padding 10}}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentTitleH3 :added "4.0"}
 (fact "creates a h3 title"
@@ -623,9 +623,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentTitleH3"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentTitleH3"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -644,7 +644,7 @@
           :impl   {:type "title_h3"
                    :key "title"
                    :template ["currency_id"]}
-          :custom {:title   {:style {:padding 10}}}}]]]])))
+          :custom {:title   {:style {:padding 10}}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentTitleH4 :added "4.0"}
 (fact "creates a h4 title"
@@ -656,9 +656,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentTitleH4"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentTitleH4"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -677,7 +677,7 @@
           :impl   {:type "title_h4"
                    :key "title"
                    :template ["currency_id"]}
-          :custom {:title   {:style {:padding 10}}}}]]]])))
+          :custom {:title   {:style {:padding 10}}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentTitleH5 :added "4.0"}
 (fact "creates a h5 title"
@@ -689,9 +689,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentTitleH5"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentTitleH5"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -710,7 +710,7 @@
           :impl   {:type "title_h5"
                    :key "title"
                    :template ["currency_id"]}
-          :custom {:title   {:style {:padding 10}}}}]]]])))
+          :custom {:title   {:style {:padding 10}}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentTitle :added "4.0"}
 (fact "creates a h6 title"
@@ -722,9 +722,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentTitle"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentTitle"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -743,7 +743,7 @@
           :impl   {:type "title"
                    :key "title"
                    :template ["currency_id"]}
-          :custom {:title   {:style {:padding 10}}}}]]]])))
+          :custom {:title   {:style {:padding 10}}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentBold :added "0.1"}
 (fact "creates a h3 title"
@@ -755,9 +755,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentBold"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentBold"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -776,7 +776,7 @@
           :impl   {:type "bold_"
                    :key "bold"
                    :template ["currency_id"]}
-          :custom {:bold   {:style {:padding 10}}}}]]]])))
+          :custom {:bold   {:style {:padding 10}}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentParagraph :added "4.0"}
 (fact "creates a paragraph"
@@ -788,9 +788,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentParagraph"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentParagraph"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -809,7 +809,7 @@
           :impl    {:type "p"
                     :key "body"
                     :template ["balance"]}
-          :custom  {:body   {:style {:padding 10}}}}]]]])))
+          :custom  {:body   {:style {:padding 10}}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentIcon :added "4.0"}
 (fact "creates a paragraph"
@@ -819,9 +819,9 @@
     []
     (var entry {:name "home"})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentIcon"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentIcon"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -840,7 +840,7 @@
           :impl    {:type "icon"
                     :key "body"
                     :template ["name"]}
-          :custom  {:body   {:style {:padding 10}}}}]]]])))
+          :custom  {:body   {:style {:padding 10}}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentImage :added "4.0"}
 (fact "creates entry card avatar"
@@ -852,9 +852,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentImage"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentImage"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -871,7 +871,7 @@
           :entry entry
           :impl {:type "image"
                  :text {:template ["currency_id"]}
-                 :format k/first}}]]]])))
+                 :format k/first}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentPair :added "4.0"}
 (fact "creates entry content pair"
@@ -883,9 +883,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentPair"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentPair"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -906,7 +906,7 @@
                          :key "title"
                          :template "currency"
                          :format (fn:> [s] (+ (. s (toUpperCase)) ": "))}
-                 :text  {:template ["currency_id"]}}}]]]])))
+                 :text  {:template ["currency_id"]}}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentField :added "4.0"}
 (fact "creates an entry field"
@@ -924,9 +924,9 @@
                 :name      []
                 :about     []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentField"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentField"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -961,7 +961,7 @@
                          :field "currency"
                          :component "enum_multi"
                          :label "Currency"
-                         :options ["XLM" "USD" "STATS"]}]}}]]]])))
+                         :options ["XLM" "USD" "STATS"]}]}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutFormFade :added "4.0"}
 (fact "creates an entry field"
@@ -974,16 +974,16 @@
                {:visible true}))
     
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutFormFade"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutFormFade"} 
+[:% n/Row
        [:% n/Button
         {:title "T"
          :onPress (fn:> (event-form/set-field
                          form
                          "visible"
-                         (not (event-form/get-field form "visible"))))}]]
-      [:% ui-static/Div
+                         (not (event-form/get-field form "visible"))))}]] 
+[:% ui-static/Div
        {:design {:type "light"}
         :style {:flex 1}}
        [:% slim-entry/EntryLayoutFormFade
@@ -995,7 +995,7 @@
                 :body  [[:% n/View
                          {:style {:height 100
                                   :width 100
-                                  :backgroundColor "red"}}]]}}]]])))
+                                  :backgroundColor "red"}}]]}}]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutFormFold :added "4.0"}
 (fact "creates an entry field"
@@ -1008,16 +1008,16 @@
                {:visible true}))
     
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutFormFold"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutFormFold"} 
+[:% n/Row
        [:% n/Button
         {:title "T"
          :onPress (fn:> (event-form/set-field
                          form
                          "visible"
-                         (not (event-form/get-field form "visible"))))}]]
-      [:% ui-static/Div
+                         (not (event-form/get-field form "visible"))))}]] 
+[:% ui-static/Div
        {:design {:type "light"}
         :style {:flex 1}}
        [:% slim-entry/EntryLayoutFormFold
@@ -1029,7 +1029,7 @@
                 :body [[:% n/View
                         {:style {:height 100
                                  :width 100
-                                 :backgroundColor "red"}}]]}}]]])))
+                                 :backgroundColor "red"}}]]}}]]))))
 
 ^{:refer melbourne.slim-entry/entrySubmitType :added "4.0"}
 (fact "picks submit type based on submit key")
@@ -1054,9 +1054,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentControl"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentControl"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1077,7 +1077,7 @@
           :control {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
           :impl {:type "control"
                  :key "hello"
-                 :submit "detail"}}]]]])))
+                 :submit "detail"}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutControl :added "4.0"}
 (fact "creates an control button"
@@ -1090,9 +1090,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutControl"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutControl"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1115,7 +1115,7 @@
           :impl {:type "control_layout"
                  :key "hello"
                  :submit "detail"
-                 :body [{:type "raw"}]}}]]]])))
+                 :body [{:type "raw"}]}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentLink :added "4.0"}
 (fact "creates an control button"
@@ -1127,10 +1127,10 @@
     (var url   (ext-route/listenRouteUrl route))
     (var entry {:a 1 :b 2})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentLink"}
-      [:% n/Text url]
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentLink"} 
+[:% n/Text url] 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1149,7 +1149,7 @@
           :route route
           :impl {:type "link"
                  :template "hello/world"
-                 :text "PRESS"}}]]]])))
+                 :text "PRESS"}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutLink :added "4.0"}
 (fact "creates an control button"
@@ -1161,10 +1161,10 @@
     (var url   (ext-route/listenRouteUrl route))
     (var entry {:a 1 :b 2})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutLink"}
-      [:% n/Text url]
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutLink"} 
+[:% n/Text url] 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1183,7 +1183,7 @@
           :route route
           :impl {:type "link_layout"
                  :template "hello/world"
-                 :body [{:type "raw"}]}}]]]])))
+                 :body [{:type "raw"}]}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentRoute :added "4.0"}
 (fact "creates a content route"
@@ -1196,9 +1196,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentRoute"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentRoute"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1219,7 +1219,7 @@
           :route {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
           :impl {:type "route"
                  :key "hello"
-                 :submit "detail"}}]]]])))
+                 :submit "detail"}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentRouteToggle :added "0.1"}
 (fact "route content toggle"
@@ -1232,9 +1232,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentRouteToggle"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentRouteToggle"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1255,7 +1255,7 @@
           :route {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
           :impl {:type "route"
                  :key "hello"
-                 :submit "detail"}}]]]])))
+                 :submit "detail"}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentAction :added "4.0"}
 (fact "creates an action"
@@ -1268,9 +1268,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentAction"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentAction"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1291,7 +1291,7 @@
           :impl {:type "action"
                  :text "HELLO"
                  :submit "print"
-                 :submitType "entry"}}]]]])))
+                 :submitType "entry"}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentSubmit :added "4.0"}
 (fact "creates a layout form"
@@ -1307,9 +1307,9 @@
                 :title [(validators/is-required)]
                 :description []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryContentSubmit"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryContentSubmit"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1326,7 +1326,7 @@
           :mini true
           :form form
           :impl {:type "submit"
-                 :submit "create"}}]]]])))
+                 :submit "create"}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutCard :added "4.0"}
 (fact "creates a card entry"
@@ -1338,9 +1338,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutCard"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutCard"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1366,7 +1366,7 @@
                  :body {:title
                         {:type "title"
                          :key "title"
-                         :template ["currency_id"]}} }}]]]])))
+                         :template ["currency_id"]}} }}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryLayoutForm :added "4.0"}
 (fact "creates a layout form"
@@ -1382,9 +1382,9 @@
                 :title [(validators/is-required)]
                 :description []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/EntryLayoutForm"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/EntryLayoutForm"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1423,7 +1423,7 @@
                          :field "name"}
                         {:type "field"
                          :label "Title"
-                         :field "title"}]}}]]]])))
+                         :field "title"}]}}]]]))))
 
 ^{:refer melbourne.slim-entry/compileEntryPopup :added "4.0"}
 (fact "compiles the Entry Popup")
@@ -1441,9 +1441,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-entry/Entry"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-entry/Entry"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1572,6 +1572,6 @@
                                  :template ["currency_id"]}
                                 {
                                  :type "title"
-                                 :template ["balance"]}]}]}}]]]]))
+                                 :template ["balance"]}]}]}}]]])))
 
   (def.js MODULE (!:module)))

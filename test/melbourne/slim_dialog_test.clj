@@ -25,15 +25,15 @@
     (var [visible setVisible] (r/local false))
     (var buttonRef (r/ref))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-dialog/Dialog"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-dialog/Dialog"} 
+[:% n/Row
        {:style {:marginTop 30}}
        [:% n/Button
         {:ref buttonRef
          :title "ON"
-         :onPress (fn:> (setVisible true))}]]
-      [:% slim-dialog/Dialog
+         :onPress (fn:> (setVisible true))}]] 
+[:% slim-dialog/Dialog
        {:design {:type "light"}
         :title "Confirm Delete"
         #_#_:titleRight [:% ui-button/Button
@@ -49,6 +49,6 @@
                               :zoom 0.1}}
         :onSubmit (fn:> (setVisible false))
         :onCancel (fn:> (setVisible false))
-        :visible visible}]]))
+        :visible visible}])))
   
   (def.js MODULE (!:module)))

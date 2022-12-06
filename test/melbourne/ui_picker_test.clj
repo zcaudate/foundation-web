@@ -27,9 +27,9 @@
     []
     (var [index setIndex] (r/local 3))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-picker/PickerValues"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-picker/PickerValues"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -163,8 +163,8 @@
           {:design {:type "dark"
                    }
            :index index
-           :setIndex setIndex}]]]]
-      [:% n/Row
+           :setIndex setIndex}]]]] 
+[:% n/Row
        [:% n/Button
          {:title "+1"
           :onPress (fn:> (setIndex (+ index 1)))}]
@@ -172,7 +172,7 @@
          {:title "-1"
           :onPress (fn:> (setIndex (- index 1)))}]
        [:% n/Text
-        (n/format-entry #{index})]]])))
+        (n/format-entry #{index})]]))))
 
 ^{:refer melbourne.ui-picker/PickerIndexed :added "0.1"}
 (fact "Creates the picker"
@@ -182,9 +182,9 @@
     []
     (var [index setIndex] (r/local 3))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-picker/PickerIndexed"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-picker/PickerIndexed"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -319,8 +319,8 @@
           {:design {:type "dark"
                    }
            :index index
-           :setIndex setIndex}]]]]
-      [:% n/Row
+           :setIndex setIndex}]]]] 
+[:% n/Row
        [:% n/Button
          {:title "+1"
           :onPress (fn:> (setIndex (+ index 1)))}]
@@ -328,7 +328,7 @@
          {:title "-1"
           :onPress (fn:> (setIndex (- index 1)))}]
        [:% n/Text
-        (n/format-entry #{index})]]])))
+        (n/format-entry #{index})]]))))
 
 ^{:refer melbourne.ui-picker/Picker :added "0.1"}
 (fact "creates a picker"
@@ -344,9 +344,9 @@
                                     "Western Australia"
                                     "South Australia"]))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-picker/Picker"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-picker/Picker"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -378,8 +378,8 @@
                    :fontWeight "800"}
            :value value
            :setValue setValue}]
-         [:% n/Text "  "]]]]
-      [:% n/Row
+         [:% n/Text "  "]]]] 
+[:% n/Row
        [:% n/Button
         {:title "Aus"
          :onPress (fn []
@@ -397,7 +397,7 @@
                               "Hubei"
                               "Sichuan"]))}]
        [:% n/Text
-        (n/format-entry #{value})]]]))
+        (n/format-entry #{value})]])))
   
   (def.js MODULE (!:module))
   )

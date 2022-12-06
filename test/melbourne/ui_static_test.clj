@@ -25,14 +25,14 @@
     []
     (var [color setColor] (r/local "teal"))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-static/Div"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-static/Div"} 
+[:% n/Row
        [:% n/Tabs
         {:data ["purple" "teal" "blue" "green"]
          :value color
-         :setValue setColor}]]
-      [:% n/Row
+         :setValue setColor}]] 
+[:% n/Row
        [:% ui-static/Div
         {:style {:height 100
                  :width 100}
@@ -70,8 +70,8 @@
          :design {:type "light"
                   :color color}
          :variant {:bg {:key "primary"
-                        :tone "sharpen"}}}]]
-      [:% n/Row
+                        :tone "sharpen"}}}]] 
+[:% n/Row
        [:% ui-static/Div
         {:style {:height 100
                  :width 100}
@@ -109,7 +109,7 @@
          :design {:type "dark"
                   :color color}
          :variant {:bg {:key "primary"
-                        :tone "sharpen"}}}]]])))
+                        :tone "sharpen"}}}]]))))
 
 ^{:refer melbourne.ui-static/Text :added "4.0"}
 (fact "creates a static text element"
@@ -123,11 +123,10 @@
     (var [tone setTone]   (r/local "augment"))
     (var palette (base-palette/createPalette type color))
     (return
-     [:% n/Enclosed
-      {:key (+ color "." type)
-       :label "melbourne.ui-static/Text"}
-      
-      [:% n/Row
+     (n/EnclosedCode 
+{:key (+ color "." type)
+       :label "melbourne.ui-static/Text"} 
+[:% n/Row
        [:% n/Tabs
         {:data ["purple" "teal" "blue" "green"]
          :value color
@@ -136,13 +135,13 @@
        [:% n/Tabs
         {:data ["light" "dark"]
          :value type
-         :setValue setType}]]
-      [:% n/Row
+         :setValue setType}]] 
+[:% n/Row
        [:% n/Tabs
         {:data ["background" "primary" "neutral" "error"]
          :value foil
-         :setValue setFoil}]]
-      [:% n/View
+         :setValue setFoil}]] 
+[:% n/View
        {:style {:backgroundColor (base-palette/getColorRaw
                                   palette
                                   (or foil "background"))}}
@@ -160,7 +159,7 @@
                               :variant {:font "h4"
                                         :fg {:key  key
                                              :tone tone}}}
-                             (j/toUpperCase (+ key " " tone))]))))))]])))
+                             (j/toUpperCase (+ key " " tone))]))))))]))))
 
 ^{:refer melbourne.ui-static/Separator :added "4.0"}
 (fact "creates a seperator"
@@ -170,14 +169,14 @@
     []
     (var [color setColor] (r/local "teal"))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-static/Separator"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-static/Separator"} 
+[:% n/Row
        [:% n/Tabs
         {:data ["purple" "teal" "blue" "green"]
          :value color
-         :setValue setColor}]]
-      [:% n/Row
+         :setValue setColor}]] 
+[:% n/Row
        [:% ui-static/Separator
         {:style {:width 100}
          :design {:type "light"
@@ -209,8 +208,8 @@
          :design {:type "light"
                   :color color}
          :variant {:fg {:key "primary"
-                        :tone "sharpen"}}}]]
-      [:% n/Row
+                        :tone "sharpen"}}}]] 
+[:% n/Row
        [:% ui-static/Separator
         {:style {:width 100}
          :design {:type "dark"
@@ -242,7 +241,7 @@
          :design {:type "dark"
                   :color color}
          :variant {:fg {:key "primary"
-                        :tone "sharpen"}}}]]])))
+                        :tone "sharpen"}}}]]))))
 
 ^{:refer melbourne.ui-static/ScrollView :added "4.0"}
 (fact "creates a scrollview"
@@ -255,11 +254,10 @@
     (var [foil setFoil]   (r/local "background"))
     (var [tone setTone]   (r/local "augment"))
     (return
-     [:% n/Enclosed
-      {:key (+ color "." type)
-       :label "melbourne.ui-static/ScrollView"}
-      
-      [:% n/Row
+     (n/EnclosedCode 
+{:key (+ color "." type)
+       :label "melbourne.ui-static/ScrollView"} 
+[:% n/Row
        [:% n/Tabs
         {:data ["purple" "teal" "blue" "green"]
          :value color
@@ -268,8 +266,8 @@
        [:% n/Tabs
         {:data ["light" "dark"]
          :value type
-         :setValue setType}]]
-      [:% n/Row
+         :setValue setType}]] 
+[:% n/Row
        [:% n/Tabs
         {:data ["background" "primary" "neutral" "error"]
          :value foil
@@ -277,8 +275,8 @@
        [:% n/Tabs
         {:data ["augment" "diminish" "flatten" "sharpen"]
          :value tone
-         :setValue setTone}]]
-      [:% ui-static/ScrollView
+         :setValue setTone}]] 
+[:% ui-static/ScrollView
        {:design {:type type
                  :color color}
         :variant {:bg {:key foil
@@ -288,7 +286,7 @@
        [:% n/View
         {:style {:width 400
                  :height 800
-                 :backgroundColor "#333"}}]]])))
+                 :backgroundColor "#333"}}]]))))
 
 ^{:refer melbourne.ui-static/TextTooltip :added "4.0"}
 (fact "creates the text tooltip for buttons and toggles"
@@ -298,16 +296,16 @@
     []
     (var [color setColor] (r/local "teal"))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-static/TextTooltip"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-static/TextTooltip"} 
+[:% n/Row
        [:% n/Tabs
         {:data ["purple" "teal" "blue" "green"]
          :value color
-         :setValue setColor}]]
-      [:% ui-static/TextTooltip
+         :setValue setColor}]] 
+[:% ui-static/TextTooltip
        {:design {:type "light"}
-        :content "HELLO WORLD"}]])))
+        :content "HELLO WORLD"}]))))
 
 ^{:refer melbourne.ui-static/TextDisplay :added "4.0"}
 (fact "creates the text display"
@@ -317,15 +315,15 @@
     []
     (var [color setColor] (r/local "teal"))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-static/TextDisplay"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-static/TextDisplay"} 
+[:% n/Row
        [:% n/Tabs
         {:data ["purple" "teal" "blue" "green"]
          :value color
-         :setValue setColor}]]
-      [:% ui-static/TextDisplay
+         :setValue setColor}]] 
+[:% ui-static/TextDisplay
        {:design {:type "light"}
-        :content "HELLO WORLD"}]]))
+        :content "HELLO WORLD"}])))
   
   (def.js MODULE (!:module)))

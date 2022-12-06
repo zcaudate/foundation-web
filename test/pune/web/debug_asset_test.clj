@@ -25,9 +25,9 @@
     (defn.js AssetRawLabelDemo
       []
       (return
-       [:% n/Enclosed
-        {:label "pune.web.debug-asset/AssetRawLabel"}
-        #_[:% n/Row
+       (n/EnclosedCode 
+{:label "pune.web.debug-asset/AssetRawLabel"} 
+[:% n/Row
            [:% n/Row
             {:style {:flex 1
                      :backgroundColor "#eee"
@@ -47,7 +47,8 @@
               :currencyId "STC"
               :currency {:balance 100 :escrow 10}
               :activeEscrow nil
-              :decimal 2}]]]])))
+              :decimal 2}]]] 
+#_))))
 
   ^{:refer pune.web.debug-asset/AssetControlLabel :added "0.1"}
   (fact "constructs an asset control label"
@@ -61,9 +62,9 @@
                    "STC" {:balance 100
                             :escrow  30}})
       (return
-       [:% n/Enclosed
-        {:label "pune.web.debug-asset/AssetControlLabel"}
-        #_[:% n/Row
+       (n/EnclosedCode 
+{:label "pune.web.debug-asset/AssetControlLabel"} 
+[:% n/Row
            [:% n/View
             {:style {:flex 1
                      :backgroundColor "#eee"
@@ -91,7 +92,8 @@
              {:design {:type "dark"}
               :currencyId "DOGE"
               :assets assets
-              :active active}]]]])))
+              :active active}]]] 
+#_))))
 
   ^{:refer pune.web.debug-asset/AssetControl :added "0.1"}
   (fact "creates an asset control"
@@ -103,9 +105,9 @@
       (var assets  (cr/listenCell mc/C_ASSET_MAIN "success" {}))
       (var active  (model-trade/get-active-asset-escrow))
       (return
-       [:% n/Enclosed
-        {:label "debug-asset/AssetControl"}
-        #_[:% n/Row
+       (n/EnclosedCode 
+{:label "debug-asset/AssetControl"} 
+[:% n/Row
            [:% n/View
             {:style {:flex 1
                      :backgroundColor "#eee"
@@ -119,11 +121,12 @@
                      :padding 10}}
             [:% debug-asset/AssetControl
              {:design {:type "dark"}
-              :currencies ["STC" "USD" "DOGE" "BUSD" "SOL"]}]]]
-        [:% n/TextDisplay
+              :currencies ["STC" "USD" "DOGE" "BUSD" "SOL"]}]]] 
+[:% n/TextDisplay
          {:content (+ (n/format-entry #{assets active})
                       "\n\n"
-                      (n/format-entry orders))}]]))
+                      (n/format-entry orders))}] 
+#_)))
 
     
     )

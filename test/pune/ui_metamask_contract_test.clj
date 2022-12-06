@@ -56,9 +56,9 @@
   (defn.js MetamaskContractDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-metamask-contract/MetamaskContract"}
-      [:% n/TextDisplay
-       {:spec GatewaySpec}]]))
+     (n/EnclosedCode 
+{:label "pune.ui-metamask-contract/MetamaskContract"} 
+[:% n/TextDisplay
+       {:spec GatewaySpec}])))
  
   (def.js MODULE (!:module)))

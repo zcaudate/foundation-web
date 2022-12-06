@@ -24,9 +24,9 @@
     []
     (var [value setValue] (r/local 5))
     (return
-     [:% n/Enclosed
-      {:label " melbourne.ui-slider/SliderH"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label " melbourne.ui-slider/SliderH"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -42,17 +42,17 @@
         [:% ui-slider/Slider
          #{[:design {:type "dark"}
             :length 200
-            value setValue]}]]]
-      [:% n/Text
-       (n/format-entry #{value})]]))
+            value setValue]}]]] 
+[:% n/Text
+       (n/format-entry #{value})])))
 
   (defn.js SliderVDemo
     []
     (var [value setValue] (r/local 55))
     (return
-     [:% n/Enclosed
-      {:label " melbourne.ui-slider/SliderV"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label " melbourne.ui-slider/SliderV"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -76,9 +76,9 @@
             value setValue
             :max 99
             :min 1
-            :step 1]}]]]
-      [:% n/Text
-       (n/format-entry #{value})]]))
+            :step 1]}]]] 
+[:% n/Text
+       (n/format-entry #{value})])))
 
   (def.js MODULE (!:module))
   )

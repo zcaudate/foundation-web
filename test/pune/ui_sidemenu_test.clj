@@ -23,9 +23,9 @@
     []
     (var [routeKey setRouteKey] (r/local))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-sidemenu/SideMenuTitle"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-sidemenu/SideMenuTitle"} 
+[:% n/Row
        [:% n/View
         {:style {:padding 10
                  :height 100
@@ -45,7 +45,7 @@
         [:% ui-sidemenu/SideMenuTitle
          {:design {:type   "dark"}
           :style {:height 100}
-          :title "HELLO"}]]]])))
+          :title "HELLO"}]]]))))
 
 ^{:refer pune.ui-sidemenu/SideMenuList :added "0.1"}
 (fact "creates the side menu"
@@ -55,9 +55,9 @@
       []
       (var [routeKey setRouteKey] (r/local))
       (return
-       [:% n/Enclosed
-        {:label "pune.ui-sidemenu/SideMenuList"}
-        [:% n/Row
+       (n/EnclosedCode 
+{:label "pune.ui-sidemenu/SideMenuList"} 
+[:% n/Row
          [:% n/View
           {:style {:padding 10
                    :paddingRight 40
@@ -81,7 +81,7 @@
                    "Notifications"
                    "Organisation"]
             :routeKey routeKey
-            :setRouteKey setRouteKey}]]]])))
+            :setRouteKey setRouteKey}]]]))))
 
 ^{:refer pune.ui-sidemenu/SideMenuFloating :added "0.1"}
 (fact "creates the side menu button"
@@ -91,9 +91,9 @@
       (var [routeKey setRouteKey] (r/local))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "pune.ui-sidemenu/SideMenuFloating"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "pune.ui-sidemenu/SideMenuFloating"} 
+[:% n/Row
         [:% n/View
          {:style {:flex 1
                   :flexDirection "row-reverse"
@@ -121,9 +121,9 @@
                   "Notifications"
                   "Organisation"]
            :routeKey routeKey
-           :setRouteKey setRouteKey}]]]
-       [:% n/TextDisplay
-        #{routeKey}]]])))
+           :setRouteKey setRouteKey}]]] 
+[:% n/TextDisplay
+        #{routeKey}])])))
 
 ^{:refer pune.ui-sidemenu/SideMenu :added "0.1"}
 (fact "combination for both menu and list views"

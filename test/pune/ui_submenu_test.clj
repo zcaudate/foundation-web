@@ -24,9 +24,9 @@
     (var [selected0 setSelected0] (r/local true))
     (var [selected1 setSelected1] (r/local false))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-submenu/SubMenuToggle"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-submenu/SubMenuToggle"} 
+[:% n/Row
        [:% n/View
         {:style {:padding 5
                  :paddingRight 100
@@ -48,7 +48,7 @@
                    :icon "appstore-o"
                    :label "INFO"}
             :selected selected1
-            :onPress (fn:> (setSelected1 (not selected1)))]}]]]])))
+            :onPress (fn:> (setSelected1 (not selected1)))]}]]]))))
 
 ^{:refer pune.ui-submenu/SubMenuRoute :added "0.1"}
 (fact "creates the sub menu routes"
@@ -59,9 +59,9 @@
     (var [routeKey0 setRouteKey0] (r/local "home"))
     (var [routeKey1 setRouteKey1] (r/local "account"))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-submenu/SubMenuRoute"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-submenu/SubMenuRoute"} 
+[:% n/Row
        [:% n/View
         {:style {:padding 5
                  :paddingRight 100
@@ -97,7 +97,7 @@
                    :icon "dashboard"
                    :label "STC"}
             :routeKey routeKey1 
-            :setRouteKey setRouteKey1]}]]]])))
+            :setRouteKey setRouteKey1]}]]]))))
 
 ^{:refer pune.ui-submenu/SubMenu :added "0.1"}
 (fact "creates the sub menu "
@@ -108,9 +108,9 @@
     (var [routeKey0 setRouteKey0] (r/local "home"))
     (var [routeKey1 setRouteKey1] (r/local "user"))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-submenu/SubMenu"}
-      [:% n/PortalSink
+     (n/EnclosedCode 
+{:label "pune.ui-submenu/SubMenu"} 
+[:% n/PortalSink
        [:% n/Row
         [:% n/View
          {:style {:paddingRight 90
@@ -137,6 +137,6 @@
                       :icon "dashboard"
                       :label "STC"}]
              :routeKey routeKey1
-             :setRouteKey setRouteKey1]}]]]]]))
+             :setRouteKey setRouteKey1]}]]]])))
   
   (def.js MODULE (!:module)))

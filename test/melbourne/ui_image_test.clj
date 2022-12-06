@@ -25,9 +25,9 @@
     []
     (var [active setActive] (r/local (fn:> false)))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-image/selectImage"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-image/selectImage"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -45,7 +45,7 @@
          {:text "Click"
           :onPress (fn:> (ui-image/selectImage
                           {:setBlob console.log
-                           :setPhoto console.log}))}]]]])))
+                           :setPhoto console.log}))}]]]))))
 
 ^{:refer melbourne.ui-image/ImagePicker :added "0.1"}
 (fact "picks an image"
@@ -62,9 +62,9 @@
                       (or (. data  ["url"])
                           (. data  ["thumbnailUrl"])))))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-image/ImagePicker"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-image/ImagePicker"} 
+[:% n/Row
        [:% n/Row
         {
          :style {:backgroundColor "#eee"
@@ -82,12 +82,12 @@
            {:design {:type "dark"
                     }
             :style {:backgroundColor "blue"
-                    :height 50 :width 50}}}]]]
-      [:% n/TextDisplay
+                    :height 50 :width 50}}}]]] 
+[:% n/TextDisplay
        {:content (+  data
                      " "
                      ;;uri
-                     )}]]))
+                     )}])))
   
   (defn.js ImagePickerSecondaryDemo
     []
@@ -100,9 +100,9 @@
                       (or (. data  ["url"])
                           (. data  ["thumbnailUrl"])))))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-image/ImagePicker"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-image/ImagePicker"} 
+[:% n/Row
        [:% n/Row
         {
          :style {:backgroundColor "#eee"
@@ -123,11 +123,11 @@
            {:design {:type "dark"
                     :mode "secondary"}
             :size 100
-            :border 5}}]]]
-      [:% n/TextDisplay
+            :border 5}}]]] 
+[:% n/TextDisplay
        {:content (+  data
                      " "
                      ;;uri
-                     )}]]))
+                     )}])))
   
   (def.js MODULE (!:module)))

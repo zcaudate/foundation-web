@@ -26,9 +26,9 @@
     (var [s1 setS1] (r/local true))
     (var [s2 setS2] (r/local true))
     (return
-     [:% n/Enclosed
-      {:label " melbourne.ui-toggle-switch/ToggleSwitch"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label " melbourne.ui-toggle-switch/ToggleSwitch"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -45,7 +45,7 @@
         [:% ui-toggle-switch/ToggleSwitch
          #{[:design {:type "dark"}
             :selected s2
-            :onPress (fn:> (setS2 (not s2)))]}]]]]))
+            :onPress (fn:> (setS2 (not s2)))]}]]])))
 
   (def.js MODULE (!:module))
   )

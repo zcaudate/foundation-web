@@ -47,10 +47,10 @@
     (var hostRef (r/ref))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.ui-toolbar/ToolbarOverlayTooltip"
-        :style {:height 100}}
-       [:% ui-toolbar/Toolbar
+      (n/EnclosedCode 
+{:label "melbourne.ui-toolbar/ToolbarOverlayTooltip"
+        :style {:height 100}} 
+[:% ui-toolbar/Toolbar
         #{
           {:design {:type "dark"}}}
         [:% ui-text/ToggleAccent
@@ -58,9 +58,9 @@
           :variant (ui-toolbar/accentStandard)
           :text "OVERLAY"
           :selected visible
-          :onPress (fn:> (setVisible (not visible)))}]]
-       [:% n/View {:ref hostRef}]
-       [:% ui-toolbar/ToolbarOverlayTooltip
+          :onPress (fn:> (setVisible (not visible)))}]] 
+[:% n/View {:ref hostRef}] 
+[:% ui-toolbar/ToolbarOverlayTooltip
         #{visible
           setVisible
           hostRef
@@ -68,7 +68,7 @@
         [:% n/View
          {:style {:height 50
                   :width 300
-                  :backgroundColor "red"}}]]]])))
+                  :backgroundColor "red"}}]])])))
 
 ^{:refer melbourne.ui-toolbar/ToolbarOverlay :added "0.1"}
 (fact "creates the toolbar overlay"
@@ -79,25 +79,25 @@
     (var [visible setVisible] (r/local false))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.ui-toolbar/ToolbarOverlay"
-        :style {:height 100}}
-       [:% ui-toolbar/Toolbar
+      (n/EnclosedCode 
+{:label "melbourne.ui-toolbar/ToolbarOverlay"
+        :style {:height 100}} 
+[:% ui-toolbar/Toolbar
         {:design {:type "dark"}}
         [:% ui-text/ToggleMinor
          {:design {:type "dark"}
           :variant (ui-toolbar/minorStandard)
           :text "OVERLAY"
           :selected visible
-          :onPress (fn:> (setVisible (not visible)))}]]
-       [:% ui-toolbar/ToolbarOverlay
+          :onPress (fn:> (setVisible (not visible)))}]] 
+[:% ui-toolbar/ToolbarOverlay
         #{visible
           setVisible
           {:design {:type "dark"}}}
         [:% n/View
          {:style {:height 50
                   :width 300
-                  :backgroundColor "red"}}]]]])))
+                  :backgroundColor "red"}}]])])))
 
 ^{:refer melbourne.ui-toolbar/Toolbar :added "0.1"}
 (fact "creates the toolbar overlay ()"
@@ -107,9 +107,9 @@
     []
     (var [value setValue] (r/local))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-toolbar/Toolbar"}
-      [:% ui-toolbar/Toolbar
+     (n/EnclosedCode 
+{:label "melbourne.ui-toolbar/Toolbar"} 
+[:% ui-toolbar/Toolbar
        {:design {:type "dark"}}
        [:% n/View
         {:style {:padding 10}}
@@ -124,8 +124,8 @@
          #{value setValue
            {:design {:type "dark"}
             :variant (ui-toolbar/accentStandard)
-            :data ["ABC" "EFG" "HIJ"]}}]]]
-      [:% ui-toolbar/Toolbar
+            :data ["ABC" "EFG" "HIJ"]}}]]] 
+[:% ui-toolbar/Toolbar
        {:design {:type "dark"}
         :noBanner true}
        [:% n/View
@@ -141,9 +141,9 @@
          #{value setValue
            {:design {:type "dark"}
             :variant (ui-toolbar/accentNoBanner)
-            :data ["ABC" "EFG" "HIJ"]}}]]]
-      [:% n/TextDisplay
-       #{value}]])))
+            :data ["ABC" "EFG" "HIJ"]}}]]] 
+[:% n/TextDisplay
+       #{value}]))))
 
 ^{:refer melbourne.ui-toolbar/ToolbarAnnex :added "0.1"}
 (fact "creates a toolbar annex"
@@ -155,17 +155,17 @@
     (var [mini setMini]  (r/local true))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.ui-toolbar/ToolbarAnnex"
-        :style {:height 100}}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.ui-toolbar/ToolbarAnnex"
+        :style {:height 100}} 
+[:% n/Row
         [:% n/Button
          {:title "Open"
           :onPress (fn:> (setVisible true))}]
         [:% n/Button
          {:title (+ "Mini " mini)
-          :onPress (fn:> (setMini (not mini)))}]]
-       [:% ui-toolbar/ToolbarAnnex
+          :onPress (fn:> (setMini (not mini)))}]] 
+[:% ui-toolbar/ToolbarAnnex
         #{visible
           setVisible
           {:component (fn:> [#{onClose}]
@@ -179,6 +179,6 @@
                            {:title "Close"
                             :onPress onClose}]]])
            :mini mini
-           :design {:type "dark"}}}]]]))
+           :design {:type "dark"}}}])]))
   
   (def.js MODULE (!:module)))

@@ -27,7 +27,7 @@
   (defn.js MetamaskUserDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-metamask-user/MetamaskUser"}]))
+     (n/EnclosedCode 
+{:label "pune.ui-metamask-user/MetamaskUser"})))
  
   (def.js MODULE (!:module)))

@@ -63,9 +63,9 @@
     (var components {})
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table/TableModifyView"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-table/TableModifyView"} 
+[:% n/Row
         [:% ui-static/Div
          {:design {:type "light"}
           :style {:flex 1}}
@@ -81,7 +81,7 @@
           #{{:design {:type "dark"}
              :mini true
              :display {:modify impl}}
-            actions entry form control components}]]]]])))
+            actions entry form control components}]]])])))
 
 ^{:refer melbourne.slim-table/TableDetailView :added "0.1"}
 (fact "displays the detail view"
@@ -113,9 +113,9 @@
     (var components {})
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table/TableDetailView"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-table/TableDetailView"} 
+[:% n/Row
         [:% ui-static/Div
          {:design {:type "light"}}
          [:% slim-table/TableDetailView
@@ -129,7 +129,7 @@
           #{{:design {:type "dark"}
              :style  {:width 200}
              :display {:detail impl}}
-            entry control components}]]]]])))
+            entry control components}]]])])))
 
 ^{:refer melbourne.slim-table/TableCreateView :added "4.0"}
 (fact "displays the create view"
@@ -166,9 +166,9 @@
     (var components {})
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table/TableCreateView"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-table/TableCreateView"} 
+[:% n/Row
         [:% ui-static/Div
          {:design {:type "light"}
           :style {:flex 1}}
@@ -184,7 +184,7 @@
           #{{:design {:type "dark"}
              :mini true
              :display {:create impl}}
-            actions form control components}]]]]])))
+            actions form control components}]]])])))
 
 ^{:refer melbourne.slim-table/TableRouterView :added "0.1"}
 (fact "creates a single router view"
@@ -261,10 +261,9 @@
     (var components {})
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table/TableRouterView"}
-       
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-table/TableRouterView"} 
+[:% n/Row
         [:% ui-static/Div
          {:design {:type "light"}
           :style {:flex 1}}
@@ -282,7 +281,7 @@
              
              :mini true
              :routeKey (. control routeKey)}
-            components actions display views control}]]]]])))
+            components actions display views control}]]])])))
 
 ^{:refer melbourne.slim-table/TableRouter :added "0.1"}
 (fact "creates the router for elements"
@@ -354,9 +353,9 @@
            setShowList} control)
     (var design {:type "light"})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table/TableRouter"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table/TableRouter"} 
+[:% n/Row
        [:% ui-text/ToggleMinor
         #{design
           {:text "Header"
@@ -381,8 +380,8 @@
         #{design
           {:text "List"
            :selected showList
-           :onPress (fn:> (setShowList (not showList)))}}]]
-      [:% n/Row
+           :onPress (fn:> (setShowList (not showList)))}}]] 
+[:% n/Row
        [:% slim-table/TableRouter
         #{{:design {:type "light"}
            :mini true
@@ -401,7 +400,7 @@
                                         :avatar  {:type "image"
                                                   :text  {:template  ["currency_id"]}
                                                   :image {:template  ["picture"]}}}}}}
-          components views control}]]])))
+          components views control}]]))))
 
 ^{:refer melbourne.slim-table/Table :added "0.1"}
 (fact "creates the table"
@@ -459,9 +458,9 @@
            setShowList} control)
     (var design {:type "light"})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table/Table"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table/Table"} 
+[:% n/Row
        [:% ui-text/ToggleMinor
         #{design
           {:text "Create"
@@ -471,12 +470,12 @@
         #{design
           {:text "List"
            :selected showList
-           :onPress (fn:> (setShowList (not showList)))}}]]
-      [:% n/Row
+           :onPress (fn:> (setShowList (not showList)))}}]] 
+[:% n/Row
        [:% slim-table/Table
         #{{:design {:type "light"}
            :display {:create {:type "fold"}}}
-          components views control}]]])))
+          components views control}]]))))
 
 ^{:refer melbourne.slim-table/TableStandard :added "4.0"}
 (fact "creates the table"
@@ -534,9 +533,9 @@
            setShowList} control)
     (var design {:type "light"})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table/TableStandard"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table/TableStandard"} 
+[:% n/Row
        [:% ui-text/ToggleMinor
         #{design
           {:text "Create"
@@ -546,12 +545,12 @@
         #{design
           {:text "List"
            :selected showList
-           :onPress (fn:> (setShowList (not showList)))}}]]
-      [:% n/Row
+           :onPress (fn:> (setShowList (not showList)))}}]] 
+[:% n/Row
        [:% slim-table/TableStandard
         #{{:design {:type "light"}
            :display {:create {:type "fold"}}}
-          components views control}]]])))
+          components views control}]]))))
 
 ^{:refer melbourne.slim-table/TableEmbedded :added "4.0"}
 (fact "creates the table"
@@ -609,9 +608,9 @@
            setShowList} control)
     (var design {:type "light"})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table/TableEmbedded"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table/TableEmbedded"} 
+[:% n/Row
        [:% ui-text/ToggleMinor
         #{design
           {:text "Create"
@@ -621,11 +620,11 @@
         #{design
           {:text "List"
            :selected showList
-           :onPress (fn:> (setShowList (not showList)))}}]]
-      [:% n/Row
+           :onPress (fn:> (setShowList (not showList)))}}]] 
+[:% n/Row
        [:% slim-table/TableEmbedded
         #{{:design {:type "light"}
            :display {:create {:type "fold"}}}
-          components views control}]]]))
+          components views control}]])))
 
   (def.js MODULE (!:module)))

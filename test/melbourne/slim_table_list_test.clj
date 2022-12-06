@@ -51,9 +51,9 @@
                                  :text  {:template  ["currency_id"]}
                                  :image {:template  ["picture"]}}}})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-list/TableListCardBrief"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableListCardBrief"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:width 200}}
@@ -71,7 +71,7 @@
            entry control}
          [:% slim-entry/Entry
           #{{:design {:type "dark"}}
-            entry impl}]]]]])))
+            entry impl}]]]]))))
 
 ^{:refer melbourne.slim-table-list/TableListCardNav :added "4.0"}
 (fact "creates the mini row"
@@ -99,9 +99,9 @@
                                  :text  {:template  ["currency_id"]}
                                  :image {:template  ["picture"]}}}})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-list/TableListCardNav"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableListCardNav"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:width 200}}
@@ -119,7 +119,7 @@
            entry control}
          [:% slim-entry/Entry
           #{{:design {:type "dark"}}
-            entry impl}]]]]])))
+            entry impl}]]]]))))
 
 ^{:refer melbourne.slim-table-list/TableListCardSwipe :added "0.1"}
 (fact "creates the table swipe row element (mini)"
@@ -148,9 +148,9 @@
                                  :image {:template  ["picture"]}}}})
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table-list/TableListCardSwipe"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableListCardSwipe"} 
+[:% n/Row
         [:% ui-static/Div
          {:design {:type "light"}}
          [:% slim-table-list/TableListCardSwipe
@@ -168,7 +168,7 @@
             entry control}
           [:% slim-entry/Entry
            #{{:design {:type "dark"}}
-             entry impl}]]]]]])))
+             entry impl}]]]])])))
 
 ^{:refer melbourne.slim-table-list/TableListCardFold :added "0.1"}
 (fact "displays a standard row"
@@ -203,9 +203,9 @@
     (var components {:entry-detail EntryDetail})
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table-list/TableListCardFold"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableListCardFold"} 
+[:% n/Row
         [:% ui-static/Div
          {:design {:type "light"}}
          [:% slim-table-list/TableListCardFold
@@ -229,7 +229,7 @@
            #{{:design {:type "dark"}
               :impl {:type "card"
                      :body {:title {:template ["currency_id"]}}}}
-             entry}]]]]]])))
+             entry}]]]])])))
 
 ^{:refer melbourne.slim-table-list/TableListCard :added "0.1"}
 (fact "creates the table card"
@@ -274,9 +274,9 @@
     (var [swipe setSwipe] (r/local "left"))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table-list/TableListCard"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableListCard"} 
+[:% n/Row
         [:% ui-text/TabsAccent
          {:value type
           :setValue setType
@@ -284,9 +284,8 @@
         [:% ui-text/TabsAccent
          {:value swipe
           :setValue setSwipe
-          :data ["left" "right"]}]]
-
-       [:% n/Row
+          :data ["left" "right"]}]] 
+[:% n/Row
         [:% ui-static/Div
          {:design {:type "light"}}
          [:% slim-table-list/TableListCard
@@ -316,7 +315,7 @@
            #{{:design {:type "dark"}
               :impl {:type "card"
                      :body {:title {:template ["currency_id"]}}}}
-             entry}]]]]]])))
+             entry}]]]])])))
 
 ^{:refer melbourne.slim-table-list/TableListViewEntries :added "4.0"
   :setup [(def +entries+
@@ -346,9 +345,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-list/TableListViewEntries"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableListViewEntries"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -374,7 +373,7 @@
                                     {:template ["balance"]}
                                     {:template ["escrow"]
                                      :style {:textAlign "right"}}]}}
-          :impl {}}]]]])))
+          :impl {}}]]]))))
 
 ^{:refer melbourne.slim-table-list/TableListViewGroup :added "4.0"
   :setup [(def +group+
@@ -405,9 +404,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-list/TableListViewGroup"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableListViewGroup"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -433,7 +432,7 @@
                                     {:template ["balance"]}
                                     {:template ["escrow"]
                                      :style {:textAlign "right"}}]}}
-          :impl {}}]]]])))
+          :impl {}}]]]))))
 
 ^{:refer melbourne.slim-table-list/TableListViewBase :added "0.1"}
 (fact "TODO")
@@ -457,9 +456,9 @@
   (defn.js TableListViewPagedDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-list/TableListViewPaged"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableListViewPaged"} 
+[:% n/View
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -472,7 +471,7 @@
           :display {:brief  {:type "v"
                              :body [{:template ["name"]}
                                     {:template ["amount"]}]}}
-          :entries  (@! +entries+)}]]]])))
+          :entries  (@! +entries+)}]]]))))
 
 ^{:refer melbourne.slim-table-list/useRemotePagedEntries :added "4.0"}
 (fact "gets the remotely controlled entries")
@@ -501,9 +500,9 @@
                                                     :amount (k/random)})))))
                         :options {:init false}})})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-list/TableListViewRemotePaged"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableListViewRemotePaged"} 
+[:% n/View
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -517,7 +516,7 @@
                    :header  {:format j/toUpperCase}}
           :display {:brief  {:type "v"
                              :body [{:template ["name"]}
-                                    {:template ["amount"]}]}}}]]]])))
+                                    {:template ["amount"]}]}}}]]]))))
 
 ^{:refer melbourne.slim-table-list/TableListView :added "4.0"
   :setup [(def +entries+
@@ -564,9 +563,9 @@
   (defn.js TableListViewDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-list/TableListView"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableListView"} 
+[:% n/View
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -581,7 +580,7 @@
                                     {:template ["balance"]}
                                     {:template ["escrow"]
                                      :style {:textAlign "right"}}]}}
-          :entries  (@! +entries+)}]]]])))
+          :entries  (@! +entries+)}]]]))))
 
 ^{:refer melbourne.slim-table-list/TableList :added "0.1"}
 (fact "creates the table list view"
@@ -640,9 +639,9 @@
     (var [swipe setSwipe] (r/local "left"))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table-list/TableList"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-table-list/TableList"} 
+[:% n/Row
         [:% ui-text/TabsAccent
          {:value type
           :setValue setType
@@ -650,8 +649,8 @@
         [:% ui-text/TabsAccent
          {:value swipe
           :setValue setSwipe
-          :data ["left" "right"]}]]
-       [:% n/Row
+          :data ["left" "right"]}]] 
+[:% n/Row
         [:% slim-table-list/TableList
          #{{:mini true
             :design {:type "light"}
@@ -667,6 +666,6 @@
             :display {:brief {:card {:component type}}
                       :swipe {:direction swipe
                               :showDelete false}}}
-           views control components}]]]]))
+           views control components}]])]))
 
   (def.js MODULE (!:module)))

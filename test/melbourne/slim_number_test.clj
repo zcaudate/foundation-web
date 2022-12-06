@@ -26,9 +26,9 @@
                {:price []}))
     (var [max min step decimal] [1000 0 2 2])
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-number/FormSpinner"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-number/FormSpinner"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -46,7 +46,7 @@
          #{max min step decimal form
            {:brand {:type "dark"}
             :label "Price"
-            :field "price"}}]]]])))
+            :field "price"}}]]]))))
 
 ^{:refer melbourne.slim-number/FormSlider :added "0.1"}
 (fact "creates a Slider"
@@ -59,9 +59,9 @@
                {:price []}))
     (var [max min step decimal] [100 0 1])
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-number/FormSlider"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-number/FormSlider"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -87,6 +87,6 @@
            {:length 150
             :brand {:type "dark"}
             :label "Price"
-            :field "price"}}]]]]))
+            :field "price"}}]]])))
   
   (def.js MODULE (!:module)))

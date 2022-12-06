@@ -33,10 +33,10 @@
   (defn.js MarketLadderTextDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-market-ladder/MarketLadderText"
-       :style {:height 150}}
-      (r/% market-ladder/MarketLadderText -/CHART)])))
+     (n/EnclosedCode 
+{:label "pune.ui-market-ladder/MarketLadderText"
+       :style {:height 150}} 
+(r/% market-ladder/MarketLadderText -/CHART)))))
 
 ^{:refer pune.ui-market-ladder/MarketLadderRow :added "0.1"}
 (fact "market ladder row"
@@ -45,9 +45,9 @@
   (defn.js MarketLadderRowDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-market-ladder/MarketLadderRow"}
-      (r/% market-ladder/MarketLadderRow
+     (n/EnclosedCode 
+{:label "pune.ui-market-ladder/MarketLadderRow"} 
+(r/% market-ladder/MarketLadderRow
            {"amount" 60,
             "rate" 66
             "design" {"type" "light",
@@ -55,7 +55,7 @@
             "control"
             {"decimal" 2,
              "fraction" 0.01,
-             "prediction" "yes"}})])))
+             "prediction" "yes"}})))))
 
 ^{:refer pune.ui-market-ladder/MarketLadder :added "0.1"}
 (fact "market ladder row"
@@ -64,11 +64,11 @@
   (defn.js MarketLadderDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-market-ladder/MarketLadder"}
-      [:% n/Row
-       (r/% market-ladder/MarketLadder -/CHART)]
-      [:% n/View {:style {:height 330}}
-       (r/% n/TextDisplay -/CHART)]]))
+     (n/EnclosedCode 
+{:label "pune.ui-market-ladder/MarketLadder"} 
+[:% n/Row
+       (r/% market-ladder/MarketLadder -/CHART)] 
+[:% n/View {:style {:height 330}}
+       (r/% n/TextDisplay -/CHART)])))
 
   (def.js MODULE (!:module)))

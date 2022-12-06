@@ -24,14 +24,14 @@
   (defn.js MarketLadderRowDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.harness.ui-ladder/MarketLadderRow"}
-      [:% ui-ladder/MarketLadderRow
+     (n/EnclosedCode 
+{:label "pune.harness.ui-ladder/MarketLadderRow"} 
+[:% ui-ladder/MarketLadderRow
        {:design {:type "dark"}
         :rate 60
         :amount 10
         :fraction 0.01
-        :decimal 2}]])))
+        :decimal 2}]))))
 
 ^{:refer pune.harness.ui-ladder/MarketLadder :added "0.1"}
 (fact "displays the market ladder"
@@ -53,12 +53,12 @@
                :max 10
                :allotment 1000})
     (return
-     [:% n/Enclosed
-      {:label "pune.harness.ui-ladder/MarketLadder"}
-      [:% ui-ladder/MarketLadder
+     (n/EnclosedCode 
+{:label "pune.harness.ui-ladder/MarketLadder"} 
+[:% ui-ladder/MarketLadder
        #{market
          {:allotment 1000
           :decimal 2
-          :prediction "yes"}}]]))
+          :prediction "yes"}}])))
   
   (def.js MODULE (!:module)))

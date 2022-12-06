@@ -65,9 +65,9 @@
                                          (. (k/last (. -/HISTORY ["exit"]))
                                             ["t_end"])))
       (return
-       [:% n/Enclosed
-        {:label "pune.f04-market.form-market/MarketGraph"}
-        [:% n/Row
+       (n/EnclosedCode 
+{:label "pune.f04-market.form-market/MarketGraph"} 
+[:% n/Row
          [:% n/View
           {:style {:backgroundColor "#eee"
                    :flex 1
@@ -85,11 +85,11 @@
          [:% n/View
           {:style {:backgroundColor "#333"
                    :flex 1
-                   :padding 20}}]]
-        [:% n/View
+                   :padding 20}}]] 
+[:% n/View
          {:style {:height 300}}
          [:% n/TextDisplay
-          {:content (n/format-entry linear)}]]]))
+          {:content (n/format-entry linear)}]])))
     
     (def.js MODULE (!:module))
     )

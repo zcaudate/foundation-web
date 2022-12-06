@@ -25,17 +25,17 @@
   (defn.js ChipDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-chip/Chip"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-chip/Chip"} 
+[:% n/Row
        [:% ui-chip/Chip
         {:text "hello"
          :onClose (fn:>)}]
        
        [:% ui-chip/Chip
         {:text "world"
-         :variant {:bg {:key "neutral"}}}]]
-      [:% ui-static/Div
+         :variant {:bg {:key "neutral"}}}]] 
+[:% ui-static/Div
        {:design {:type "dark"}
         :style {:flexDirection "row"}}
        [:% ui-chip/Chip
@@ -46,6 +46,6 @@
        [:% ui-chip/Chip
         {:design {:type "dark"}
          :variant {:bg {:key "neutral"}}
-         :text "world"}]]]))
+         :text "world"}]])))
   
   (def.js MODULE (!:module)))

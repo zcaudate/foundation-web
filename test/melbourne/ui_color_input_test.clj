@@ -26,10 +26,10 @@
     []
     (var [value setValue] (r/local "#ccc"))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-color-input/ColorInput"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-color-input/ColorInput"} 
+[:% n/Row
        [:% ui-color-input/ColorInput
-        #{value setValue}]]]))
+        #{value setValue}]])))
 
   (def.js MODULE (!:module)))

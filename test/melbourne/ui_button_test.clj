@@ -28,11 +28,10 @@
     (var palette (base-palette/createPalette type color))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:key (+ color "." type)
-        :label "melbourne.ui-button/Button"}
-       
-       [:% n/Row
+      (n/EnclosedCode 
+{:key (+ color "." type)
+        :label "melbourne.ui-button/Button"} 
+[:% n/Row
         [:% n/Tabs
          {:data ["purple" "teal" "blue" "green"]
           :value color
@@ -41,13 +40,12 @@
         [:% n/Tabs
          {:data ["light" "dark"]
           :value type
-          :setValue setType}]]
-       [:% n/Tabs
+          :setValue setType}]] 
+[:% n/Tabs
         {:data ["background" "primary" "neutral" "error"]
          :value foil
-         :setValue setFoil}]
-       
-       [:% n/View
+         :setValue setFoil}] 
+[:% n/View
         {:style {:backgroundColor (base-palette/getColorRaw
                                    palette
                                    (or foil "background"))
@@ -151,6 +149,6 @@
                      :pressed {:bg {:key "background"}}}
            :style {:margin 5}
            :disabled true
-           :text  "DISABLED"}]]]]]))
+           :text  "DISABLED"}]]])]))
   
   (def.js MODULE (!:module)))

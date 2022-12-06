@@ -26,9 +26,9 @@
     []
     (var [values setValues] (r/local ["USD"]))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text/EnumMinor"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text/EnumMinor"} 
+[:% n/Row
        [:% ui-section/SectionBase
         {:design {:type "light"}}
         [:% ui-text/EnumMinor
@@ -42,7 +42,7 @@
          {:design {:type "dark"}
           :data ["STATS" "XLM" "USD"]
           :values values
-          :setValues setValues}]]]])))
+          :setValues setValues}]]]))))
 
 ^{:refer melbourne.ui-text/TabsMinor :adopt true :added "0.1"}
 (fact  "creates a multi-select horizontal tab bar"
@@ -52,9 +52,9 @@
     []
     (var [value setValue] (r/local "USD"))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text/TabsMinor"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text/TabsMinor"} 
+[:% n/Row
        [:% ui-section/SectionBase
         {:design {:type "light"}}
         [:% ui-text/TabsMinor
@@ -68,7 +68,7 @@
          {:design {:type "dark"}
           :data ["STATS" "XLM" "USD"]
           :value value
-          :setValue setValue}]]]])))
+          :setValue setValue}]]]))))
 
 ^{:refer melbourne.ui-text/EnumAccent :adopt true :added "0.1"}
 (fact  "creates a multi-select horizontal tab bar"
@@ -78,9 +78,9 @@
     []
     (var [values setValues] (r/local ["USD"]))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text/EnumAccent"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text/EnumAccent"} 
+[:% n/Row
        [:% ui-section/SectionBase
         {:design {:type "light"}}
         [:% ui-text/EnumAccent
@@ -94,7 +94,7 @@
          {:design {:type "dark"}
           :data ["STATS" "XLM" "USD"]
           :values values
-          :setValues setValues}]]]])))
+          :setValues setValues}]]]))))
 
 ^{:refer melbourne.ui-text/TabsAccent :adopt true :added "0.1"}
 (fact  "creates a multi-select horizontal tab bar"
@@ -104,9 +104,9 @@
     []
     (var [value setValue] (r/local "USD"))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text/TabsAccent"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text/TabsAccent"} 
+[:% n/Row
        [:% ui-section/SectionBase
         {:design {:type "light"}}
         [:% ui-text/TabsAccent
@@ -120,7 +120,7 @@
          {:design {:type "dark"}
           :data ["STATS" "XLM" "USD"]
           :value value
-          :setValue setValue}]]]])))
+          :setValue setValue}]]]))))
 
 ^{:refer melbourne.ui-text/Row :added "4.0"}
 (fact "Creates a row")
@@ -136,9 +136,9 @@
     (var [foil setFoil]   (r/local "background"))
     (var palette (base-palette/createPalette type color))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text/createHeaderFn"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text/createHeaderFn"} 
+[:% n/Row
        [:% n/Tabs
                 {:data ["purple" "teal" "blue" "green"]
                  :value color
@@ -147,12 +147,12 @@
        [:% n/Tabs
         {:data ["light" "dark"]
          :value type
-         :setValue setType}]]
-      [:% n/Tabs
+         :setValue setType}]] 
+[:% n/Tabs
        {:data ["background" "primary" "neutral" "error"]
         :value foil
-        :setValue setFoil}]
-      [:% n/Row
+        :setValue setFoil}] 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor (base-palette/getColorRaw
                                    palette
@@ -229,7 +229,7 @@
                    [:% Component
                     {:design #{type color}
                      :designOverride {:variant {:fg {:key "error"}}}}
-                    "HELLO"]])))]]])))
+                    "HELLO"]])))]]))))
 
 ^{:refer melbourne.ui-text/createTextFn :added "0.1"}
 (fact "seed function for the text"
@@ -242,9 +242,9 @@
     (var [foil setFoil]   (r/local "background"))
     (var palette (base-palette/createPalette type color))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text/createTextFn"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text/createTextFn"} 
+[:% n/Row
        [:% n/Tabs
                 {:data ["purple" "teal" "blue" "green"]
                  :value color
@@ -253,12 +253,12 @@
        [:% n/Tabs
         {:data ["light" "dark"]
          :value type
-         :setValue setType}]]
-      [:% n/Tabs
+         :setValue setType}]] 
+[:% n/Tabs
        {:data ["background" "primary" "neutral" "error"]
         :value foil
-        :setValue setFoil}]
-      [:% n/Row
+        :setValue setFoil}] 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor (base-palette/getColorRaw
                                    palette
@@ -288,7 +288,7 @@
                     {:design #{type color}
                      :variant {:fg {:key "background"}
                                :bg {:key "primary"}}}
-                    "HELLO"]])))]]])))
+                    "HELLO"]])))]]))))
 
 ^{:refer melbourne.ui-text/ActivityIndicator :added "0.1"}
 (fact "creates an activity indicator"
@@ -297,9 +297,9 @@
   (defn.js ActivityIndicatorDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text/ActivityIndicator"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text/ActivityIndicator"} 
+[:% n/Row
        [:% ui-section/SectionBase
         {:design {:type "light"}}
         [:% ui-text/ActivityIndicator
@@ -313,7 +313,7 @@
          {:design {:type "dark"}}]
         [:% ui-text/ActivityIndicator
          {:design {:type "light"}
-          :size 100}]]]])))
+          :size 100}]]]))))
 
 ^{:refer melbourne.ui-text/Icon :added "0.1"}
 (fact "creates the icon"
@@ -322,9 +322,9 @@
   (defn.js IconDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text/Icon"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text/Icon"} 
+[:% n/Row
        [:% ui-section/SectionBase
         {:design {:type "light"}}
         [:% ui-text/Icon
@@ -342,7 +342,7 @@
         [:% ui-text/Icon
          {:design {:type "light"}
           :name "close"
-          :size 100}]]]])))
+          :size 100}]]]))))
 
 ^{:refer melbourne.ui-text/Avatar :added "0.1"}
 (fact "creates the avatar"
@@ -351,9 +351,9 @@
   (defn.js AvatarDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text/Avatar"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text/Avatar"} 
+[:% n/Row
        [:% ui-section/SectionBase
         {:design {:type "light"}}
         [:% ui-text/Avatar
@@ -371,7 +371,7 @@
         [:% ui-text/Avatar
          {:design {:type "light"}
           :text "H"
-          :size 100}]]]])))
+          :size 100}]]]))))
 
 ^{:refer melbourne.ui-text/activeButtonTheme :added "0.1"}
 (fact "creates the active button theme")
@@ -416,10 +416,10 @@
                       {:key "background"
                        :tone "sharpen"})])
     (return
-     [:% n/Enclosed
-      {:key (+ type "." color)
-       :label "melbourne.ui-text/createMinorFn"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:key (+ type "." color)
+       :label "melbourne.ui-text/createMinorFn"} 
+[:% n/Row
        [:% n/Tabs
                 {:data ["purple" "teal" "blue" "green"]
                  :value color
@@ -428,12 +428,12 @@
        [:% n/Tabs
         {:data ["light" "dark"]
          :value type
-         :setValue setType}]]
-      [:% n/Tabs
+         :setValue setType}]] 
+[:% n/Tabs
        {:data ["background" "primary" "neutral" "error"]
         :value foil
-        :setValue setFoil}]
-      [:% n/Row
+        :setValue setFoil}] 
+[:% n/Row
        (j/map
         overrides
         (fn [override i]
@@ -456,7 +456,7 @@
                          :onPress
                          (fn:> (setSelected
                                 (not selected)))
-                         :text "HELLO"}]])))])))]])))
+                         :text "HELLO"}]])))])))]))))
 
 ^{:refer melbourne.ui-text/accentButtonTheme :added "0.1"}
 (fact "creates the accent button theme")
@@ -498,10 +498,10 @@
                       {:key "background"
                        :tone "sharpen"})])
     (return
-     [:% n/Enclosed
-      {:key (+ type "." color)
-       :label "melbourne.ui-text/createAccentFn"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:key (+ type "." color)
+       :label "melbourne.ui-text/createAccentFn"} 
+[:% n/Row
        [:% n/Tabs
                 {:data ["purple" "teal" "blue" "green"]
                  :value color
@@ -510,12 +510,12 @@
        [:% n/Tabs
         {:data ["light" "dark"]
          :value type
-         :setValue setType}]]
-      [:% n/Tabs
+         :setValue setType}]] 
+[:% n/Tabs
        {:data ["background" "primary" "neutral" "error"]
         :value foil
-        :setValue setFoil}]
-      [:% n/Row
+        :setValue setFoil}] 
+[:% n/Row
        (j/map
         overrides
         (fn [override i]
@@ -538,7 +538,7 @@
                          :onPress
                          (fn:> (setSelected
                                 (not selected)))
-                         :text "HELLO"}]])))])))]])))
+                         :text "HELLO"}]])))])))]))))
 
 ^{:refer melbourne.ui-text/ButtonTooltipOverlay :added "4.0"}
 (fact "creates a button overlay")
@@ -556,9 +556,9 @@
                                         :backgroundColor "red"}}])))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.ui-text/ButtonTooltip"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.ui-text/ButtonTooltip"} 
+[:% n/Row
         [:% ui-section/SectionBase
          {:design {:type "light"}}
          [:% n/Row
@@ -589,7 +589,7 @@
             :component "accent"
             :tooltip {:position "right"}
             :text  "Press"
-            :onPress (fn:> (alert "HELLO"))}]]]]]])))
+            :onPress (fn:> (alert "HELLO"))}]]]])])))
 
 ^{:refer melbourne.ui-text/ConfirmTooltip :added "4.0"}
 (fact  "creates a button with tooltip confirmation"
@@ -599,9 +599,9 @@
     []
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.ui-text/ConfirmTooltip"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.ui-text/ConfirmTooltip"} 
+[:% n/Row
         [:% ui-section/SectionBase
          {:design {:type "light"}}
          [:% n/Row
@@ -625,7 +625,7 @@
            {:design {:type "dark"}
             :component "accent"
             :text  "Press"
-            :onPress (fn:> (alert "HELLO"))}]]]]]])))
+            :onPress (fn:> (alert "HELLO"))}]]]])])))
 
 ^{:refer melbourne.ui-text/TextAltImpl :added "0.1"}
 (fact "creates a visual viewer")
@@ -637,9 +637,9 @@
   (defn.js TextAltDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text/TextAlt"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text/TextAlt"} 
+[:% n/Row
        [:% ui-section/SectionBase
         {:design {:type "light"}}
         [:% n/Row
@@ -651,6 +651,6 @@
         [:% n/Row
          [:% ui-text/TextAlt
           {:design {:type "dark"}
-           :value {:a 1 :b 2}}]]]]]))
+           :value {:a 1 :b 2}}]]]])))
 
   (def.js MODULE (!:module)))

@@ -30,9 +30,9 @@
   (defn.js EntryRowHeaderTextDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/EntryRowHeaderText"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/EntryRowHeaderText"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -50,7 +50,7 @@
           :style {:padding 10}
           :impl {:header {:format j/toUpperCase}}
           :column {:name "currency"
-                   :data  ["currency_id"]}}]]]])))
+                   :data  ["currency_id"]}}]]]))))
 
 ^{:refer melbourne.ui-entry/EntryRowHeader :added "4.0"}
 (fact "creates the entry row header"
@@ -59,9 +59,9 @@
   (defn.js EntryRowHeaderDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/EntryRowHeader"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/EntryRowHeader"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -91,7 +91,7 @@
                             :data  ["balance"]}
                            {:name "escrow"
                             :data  ["escrow"]
-                            :style {:textAlign "right"}}]}}]]]])))
+                            :style {:textAlign "right"}}]}}]]]))))
 
 ^{:refer melbourne.ui-entry/EntryRowText :added "4.0"}
 (fact "creates the entry row text"
@@ -103,9 +103,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/EntryRowText"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/EntryRowText"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -121,7 +121,7 @@
          {:design {:type "dark"}
           :column {:name "currency"
                    :data  ["currency_id"]}
-          :entry entry}]]]])))
+          :entry entry}]]]))))
 
 ^{:refer melbourne.ui-entry/EntryRow :added "4.0"}
 (fact "creates the entry row"
@@ -133,9 +133,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/EntryRow"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/EntryRow"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -165,7 +165,7 @@
                            {:name "escrow"
                             :data  ["escrow"]
                             :style {:textAlign "right"}}]}
-          :entry entry}]]]])))
+          :entry entry}]]]))))
 
 ^{:refer melbourne.ui-entry/EntryCardTitle :added "4.0"}
 (fact "creates entry card title"
@@ -177,9 +177,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/EntryCardTitle"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/EntryCardTitle"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -193,7 +193,7 @@
         [:% ui-entry/EntryCardTitle
          {:design {:type "dark"}
           :entry entry
-          :section {:data  ["currency_id"]}}]]]])))
+          :section {:data  ["currency_id"]}}]]]))))
 
 ^{:refer melbourne.ui-entry/EntryCardAvatar :added "4.0"}
 (fact "creates entry card avatar"
@@ -205,9 +205,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/EntryCardAvatar"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/EntryCardAvatar"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -223,7 +223,7 @@
          {:design {:type "dark"}
           :entry entry
           :section {:data  ["currency_id"]
-                    :format k/first}}]]]])))
+                    :format k/first}}]]]))))
 
 ^{:refer melbourne.ui-entry/EntryCardBodyPair :added "4.0"}
 (fact "creates entry body pair"
@@ -235,9 +235,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/EntryCardBodyPair"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/EntryCardBodyPair"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -255,7 +255,7 @@
          {:design {:type "dark"}
           :entry entry
           :column {:name "Currency"
-                   :data  ["currency_id"]}}]]]])))
+                   :data  ["currency_id"]}}]]]))))
 
 ^{:refer melbourne.ui-entry/EntryCardBodyGroup :added "4.0"}
 (fact "creates entry body group"
@@ -267,9 +267,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/EntryCardBodyGroup"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/EntryCardBodyGroup"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -291,7 +291,7 @@
           :group {:columns [{:name "Currency"
                              :data  ["currency_id"]}
                             {:name "Balance"
-                             :data  ["balance"]}]}}]]]])))
+                             :data  ["balance"]}]}}]]]))))
 
 ^{:refer melbourne.ui-entry/EntryCardBody :added "4.0"}
 (fact "creates entry card body"
@@ -303,9 +303,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/EntryCardBody"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/EntryCardBody"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -352,7 +352,7 @@
                                 :data  ["balance"]}]}
                     {:columns [{:name "Escrow"
                                 :data  ["escrow"]}
-                               ]}]}]]]])))
+                               ]}]}]]]))))
 
 ^{:refer melbourne.ui-entry/EntryCard :added "4.0"}
 (fact "creates the entry row"
@@ -364,9 +364,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/EntryCard"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/EntryCard"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -394,7 +394,7 @@
                                                  "\n"
                                                  "E: " (. e escrow)))}
                             :avatar {:data  ["currency_id"]
-                                     :image ["picture"]}}}}]]]]))
+                                     :image ["picture"]}}}}]]])))
   
   (def.js MODULE (!:module)))
 
@@ -425,14 +425,14 @@
                              :style {:textAlign "right"}}]})
     (var [type setType] (r/local "card"))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-entry/Entry"
-       :style {:height 200}}
-      [:% ui-group/Tabs
+     (n/EnclosedCode 
+{:label "melbourne.ui-entry/Entry"
+       :style {:height 200}} 
+[:% ui-group/Tabs
        {:data ["card" "row"]
         :value type
-        :setValue setType}]
-      [:% n/Row
+        :setValue setType}] 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -450,7 +450,7 @@
           :entry entry
           :impl (:? (== type "card")
                     implCard
-                    implRow)}]]]])))
+                    implRow)}]]]))))
 
 ^{:refer melbourne.ui-entry/EntryTable :added "4.0"}
 (fact "creates a static table")

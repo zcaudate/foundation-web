@@ -27,9 +27,9 @@
     []
     (var [showPage setShowPage] (r/local 3))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-sheet/SheetPagination"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-sheet/SheetPagination"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -51,7 +51,7 @@
         [:% slim-sheet/SheetPagination
          {:design {:type "dark"}
           :control #{showPage setShowPage}
-          :impl {:page {:total 70}}}]]]])))
+          :impl {:page {:total 70}}}]]]))))
 
 ^{:refer melbourne.slim-sheet/SheetGroupHeader :added "4.0"}
 (fact "creates a sheet group header"
@@ -61,9 +61,9 @@
     []
     (var [showPage setShowPage] (r/local 3))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-sheet/SheetGroupHeader"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-sheet/SheetGroupHeader"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -85,7 +85,7 @@
         [:% slim-sheet/SheetGroupHeader
          {:design {:type "dark"}
           :group {:name "HELLO"}
-          :impl {}}]]]])))
+          :impl {}}]]]))))
 
 ^{:refer melbourne.slim-sheet/SheetHeader :added "4.0"}
 (fact "creates a sheet header"
@@ -97,9 +97,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-sheet/SheetHeader"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-sheet/SheetHeader"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -129,7 +129,7 @@
                              :template ["balance"]}
                             {:name "escrow"
                              :template ["escrow"]
-                             :style {:textAlign "right"}}]}}]]]])))
+                             :style {:textAlign "right"}}]}}]]]))))
 
 ^{:refer melbourne.slim-sheet/SheetRow :added "4.0"}
 (fact "creates a sheet row"
@@ -141,9 +141,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-sheet/SheetRow"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-sheet/SheetRow"} 
+[:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -173,7 +173,7 @@
                              :template ["balance"]}
                             {:name "escrow"
                              :template ["escrow"]
-                             :style {:textAlign "right"}}]}}]]]])))
+                             :style {:textAlign "right"}}]}}]]]))))
 
 ^{:refer melbourne.slim-sheet/SheetBasicRows :added "4.0"}
 (fact "creates a basic sheet"
@@ -185,9 +185,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-sheet/SheetBasicRows"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.slim-sheet/SheetBasicRows"} 
+[:% n/View
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -227,7 +227,7 @@
                              :template ["balance"]}
                             {:name "escrow"
                              :template ["escrow"]
-                             :style {:textAlign "right"}}]}}]]]])))
+                             :style {:textAlign "right"}}]}}]]]))))
 
 ^{:refer melbourne.slim-sheet/SheetBasic :added "4.0"}
 (fact "creates a basic sheet"
@@ -239,9 +239,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-sheet/SheetBasic"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.slim-sheet/SheetBasic"} 
+[:% n/View
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -281,7 +281,7 @@
                              :template ["balance"]}
                             {:name "escrow"
                              :template ["escrow"]
-                             :style {:textAlign "right"}}]}}]]]])))
+                             :style {:textAlign "right"}}]}}]]]))))
 
 ^{:refer melbourne.slim-sheet/SheetGroupRows :added "4.0"
   :setup [(def +group+
@@ -312,9 +312,9 @@
                 :balance 1000
                 :escrow 50.5})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-sheet/SheetGroupRows"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.slim-sheet/SheetGroupRows"} 
+[:% n/View
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -344,7 +344,7 @@
                              :template ["balance"]}
                             {:name "escrow"
                              :template ["escrow"]
-                             :style {:textAlign "right"}}]}}]]]])))
+                             :style {:textAlign "right"}}]}}]]]))))
 
 ^{:refer melbourne.slim-sheet/groupEntries :added "4.0"}
 (fact "group entries for display")
@@ -394,9 +394,9 @@
   (defn.js SheetDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-sheet/Sheet"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.slim-sheet/Sheet"} 
+[:% n/View
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -413,6 +413,6 @@
                              {:name "escrow"
                               :template ["escrow"]
                               :style {:textAlign "right"}}]}
-          :entries  (@! +entries+)}]]]]))
+          :entries  (@! +entries+)}]]])))
   
   (def.js MODULE (!:module)))

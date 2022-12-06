@@ -30,13 +30,13 @@
     (var [table setTable]   (v/useProxyField -/State "pune.web.debug-common/SchemaPanel.table"))
     (var [column setColumn] (v/useProxyField -/State "pune.web.debug-common/SchemaPanel.column"))
     (return
-     [:% n/Enclosed
-      {:label "pune.web.debug-common/SchemaPanel"
-       :style {:flex 1}}
-      [:% debug-common/SchemaPanel
+     (n/EnclosedCode 
+{:label "pune.web.debug-common/SchemaPanel"
+       :style {:flex 1}} 
+[:% debug-common/SchemaPanel
        #{[:style {:backgroundColor "black"}
           table setTable
-          column setColumn]}]])))
+          column setColumn]}]))))
 
 ^{:refer pune.web.debug-common/ViewsPanel :added "0.1"}
 (fact "Constructs a views panel"
@@ -47,12 +47,12 @@
     (var [table setTable]  (v/useProxyField -/State "pune.web.debug-common/ViewsPanel.table"))
     (var [view setView]    (v/useProxyField -/State "pune.web.debug-common/ViewsPanel.view"))
     (return
-     [:% n/Enclosed
-      {:label "pune.web.debug-common/ViewsPanel"
-       :style {:flex 1}}
-      [:% debug-common/ViewsPanel
+     (n/EnclosedCode 
+{:label "pune.web.debug-common/ViewsPanel"
+       :style {:flex 1}} 
+[:% debug-common/ViewsPanel
        #{[table setTable
-          view setView]}]])))
+          view setView]}]))))
 
 ^{:refer pune.web.debug-common/RoutesPanel :added "0.1"}
 (fact "Constructs a routes panel"
@@ -63,12 +63,12 @@
     (var [group setGroup]  (v/useProxyField -/State "pune.web.debug-common/RoutesPanel.group"))
     (var [route setRoute]  (v/useProxyField -/State "pune.web.debug-common/RoutesPanel.route"))
     (return
-     [:% n/Enclosed
-      {:label "pune.web.debug-common/RoutesPanel"
-       :style {:flex 1}}
-      [:% debug-common/RoutesPanel
+     (n/EnclosedCode 
+{:label "pune.web.debug-common/RoutesPanel"
+       :style {:flex 1}} 
+[:% debug-common/RoutesPanel
        #{[group setGroup
-          route setRoute]}]])))
+          route setRoute]}]))))
 
 ^{:refer pune.web.debug-common/EventsPanelLog :added "0.1"}
 (fact "log view for the `xt.lang.event-log` object")
@@ -81,11 +81,11 @@
     []
     (var [eventType setEventType] (v/useProxyField -/State "pune.web.debug-common/EventsPanel.eventType"))
     (return
-     [:% n/Enclosed
-      {:label "pune.web.debug-common/EventsPanel"
-       :style {:flex 1}}
-      [:% debug-common/EventsPanel
-       #{[eventType setEventType]}]])))
+     (n/EnclosedCode 
+{:label "pune.web.debug-common/EventsPanel"
+       :style {:flex 1}} 
+[:% debug-common/EventsPanel
+       #{[eventType setEventType]}]))))
 
 ^{:refer pune.web.debug-common/ModelsPanel :added "0.1"}
 (fact "Constructs a models panel"
@@ -96,12 +96,12 @@
     (var [model setModel]  (v/useProxyField -/State "pune.web.debug-common/ModelsPanel.model"))
     (var [view setView]    (v/useProxyField -/State "pune.web.debug-common/ModelsPanel.view"))
     (return
-     [:% n/Enclosed
-      {:label "pune.web.debug-common/ModelsPanel"
-       :style {:flex 1}}
-      [:% debug-common/ModelsPanel
+     (n/EnclosedCode 
+{:label "pune.web.debug-common/ModelsPanel"
+       :style {:flex 1}} 
+[:% debug-common/ModelsPanel
        #{[:style {:backgroundColor "black"}
           model setModel
-          view setView]}]]))
+          view setView]}])))
 
   (def.js MODULE (!:module)))

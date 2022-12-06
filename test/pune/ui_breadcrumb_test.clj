@@ -28,9 +28,9 @@
   (defn.js BreadcrumbDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-breadcrumb/Breadcrumb"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-breadcrumb/Breadcrumb"} 
+[:% n/Row
        [:% n/View
         {:style {:width 300}}
         [:% ui-page/PageLayoutHeader
@@ -66,6 +66,6 @@
           {:root ["HOME"]
            :path ["A" "B"]
            :noBanner true
-           :design {:type "dark"}}]]]]]))
+           :design {:type "dark"}}]]]])))
   
   (def.js MODULE (!:module)))

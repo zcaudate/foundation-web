@@ -42,15 +42,15 @@
                                    :time (k/now-ms)}
                                   ]))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-notify-base/TopNotifyInner"
+     (n/EnclosedCode 
+{:label "pune.ui-notify-base/TopNotifyInner"
        :style {:backgroundColor "#eee"
-               :padding 20}}
-      [:% n/View
+               :padding 20}} 
+[:% n/View
        [:% ui-topnotify/TopNotifyInner
         {:data []
-         :design {:type "light"}}]]
-      [:% n/View
+         :design {:type "light"}}]] 
+[:% n/View
        [:% n/Row
         {:style {:marginVertical 5}}]
        [:% ui-topnotify/TopNotifyInner
@@ -59,15 +59,15 @@
                  :title "Password Changed"
                  :message "user: test00001"
                  :time (k/now-ms)}]
-         :design {:type "light"}}]]
-      [:% n/View
+         :design {:type "light"}}]] 
+[:% n/View
        [:% n/Row
         {:style {:marginVertical 5}}
         ]
        [:% ui-topnotify/TopNotifyInner
         #{index setIndex
           {:data  data
-           :design {:type "light"}}}]]])))
+           :design {:type "light"}}}]]))))
 
 ^{:refer pune.ui-notify-base/TopNotify :added "0.1"}
 (fact "creates the top notify"
@@ -89,11 +89,11 @@
                                    :time (k/now-ms)}
                                   ]))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-notify-base/TopNotify"
+     (n/EnclosedCode 
+{:label "pune.ui-notify-base/TopNotify"
        :style {:backgroundColor "#333"
-               :padding 20}}
-      [:% n/Isolation
+               :padding 20}} 
+[:% n/Isolation
        [:% n/Row
         {:style {:marginVertical 5
                  :width 300
@@ -106,8 +106,8 @@
                   :title "Password Changed"
                   :message "user: test00001"
                   :time (k/now-ms)}]
-          :design {:type "dark"}}]]]
-      [:% n/Isolation
+          :design {:type "dark"}}]]] 
+[:% n/Isolation
        [:% n/Row
         {:style {:marginVertical 5
                  :width 300
@@ -117,6 +117,6 @@
          #{index setIndex
            {:mini true
             :data  data
-            :design {:type "dark"}}}]]]]))
+            :design {:type "dark"}}}]]])))
   
   (def.js MODULE (!:module)))

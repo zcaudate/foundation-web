@@ -28,9 +28,9 @@
     []
     (var [current setCurrent] (r/local true))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-notify-alerts/NotifyAlerts"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-notify-alerts/NotifyAlerts"} 
+[:% n/Row
        {:style {:marginTop 30}}
        [:% ui-text/ButtonAccent
         {:text "Make Alert"
@@ -40,6 +40,6 @@
                                            {:title "Hello"
                                             :body "Hello World"}))}]
        [:% ui-notify-alerts/NotifyAlerts
-        #{[:notify {:source -/NotifySource}]}]]]))
+        #{[:notify {:source -/NotifySource}]}]])))
   
   (def.js MODULE (!:module)))

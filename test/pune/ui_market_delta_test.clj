@@ -28,9 +28,9 @@
     []
     (var [value setValue] (r/local 100))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-market-delta/Delta"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-market-delta/Delta"} 
+[:% n/Row
        [:% market-delta/Delta
         {:value value}]
        [:% n/Fill]
@@ -42,11 +42,11 @@
         [:% n/Padding {:style {:width 10}}]
         [:% n/Button
          {:title "+1"
-          :onPress (fn [] (setValue (+ value 1)))}]]]
-      [:% n/Caption
+          :onPress (fn [] (setValue (+ value 1)))}]]] 
+[:% n/Caption
        {:text (k/js-encode #{value})
         :style {:marginTop 10
-                :zIndex -100}}]]))
+                :zIndex -100}}])))
 
   (def.js MODULE (!:module)))
 

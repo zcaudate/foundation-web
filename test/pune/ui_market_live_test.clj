@@ -44,10 +44,10 @@
   (defn.js MarketLiveRowDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-market-live/MarketLiveRow"}
-      [:% n/Row
-       (r/% market-live/MarketLiveRow -/CHART_ROW)]])))
+     (n/EnclosedCode 
+{:label "pune.ui-market-live/MarketLiveRow"} 
+[:% n/Row
+       (r/% market-live/MarketLiveRow -/CHART_ROW)]))))
 
 ^{:refer pune.ui-market-live/MarketLive :added "0.1"}
 (fact "market live"
@@ -56,9 +56,9 @@
   (defn.js MarketLiveDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-market-live/MarketLive"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-market-live/MarketLive"} 
+[:% n/Row
        {:style {:height 350}}
        (r/% market-live/MarketLive
             (j/assign {:orderFn
@@ -68,9 +68,9 @@
                                (return (. orderLookup [orderId])))
                              (then (fn [data]
                                      (alert (k/js-encode data)))))))}
-                      -/CHART))]
-      [:% n/Row
+                      -/CHART))] 
+[:% n/Row
        {:style {:height 400}}
-       (r/% n/TextDisplay -/CHART)]]))
+       (r/% n/TextDisplay -/CHART)])))
 
   (def.js MODULE (!:module)))

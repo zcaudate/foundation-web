@@ -59,14 +59,14 @@
     (var [selected
           setSelected] (r/local))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-autocomplete/SelectSingle"}
-      [:% n/Isolation
+     (n/EnclosedCode 
+{:label "melbourne.ui-autocomplete/SelectSingle"} 
+[:% n/Isolation
        [:% ui-autocomplete/SelectSingle
         #{selected
           setSelected
           {:source {:key-fn k/id-fn
                     :val-fn k/identity
-                    :view view}}}]]]))
+                    :view view}}}]])))
 
   (def.js MODULE (!:module)))

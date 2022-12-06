@@ -25,9 +25,9 @@
   (defn.js FormEnclosedDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormEnclosed"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormEnclosed"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -53,7 +53,7 @@
          [:% n/View
           {:style {:paddingTop 10}}
           [:% n/Text
-           "WORLD"]]]]]])))
+           "WORLD"]]]]]))))
 
 ^{:refer melbourne.slim-common/FormReadOnly :added "4.0"}
 (fact "creats a read only form"
@@ -63,10 +63,9 @@
     []
     (var entry {:name "abc"})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormReadOnly"}
-      
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormReadOnly"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -86,7 +85,7 @@
           :label "Name"
           :entry entry
           :fieldProps {:outlined true}
-          :template ["name"]}]]]])))
+          :template ["name"]}]]]))))
 
 ^{:refer melbourne.slim-common/FormInput :added "0.1"}
 (fact "creates an Input"
@@ -100,17 +99,17 @@
     (r/init []
       (event-form/validate-all form))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormInput"}
-      #_[:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormInput"} 
+[:% n/Row
        [:% n/Button
         {:title "V"
          :onPress (fn:> (event-form/validate-field form "name"))}]
        [:% n/Text " "]
        [:% n/Button
         {:title "P"
-         :onPress (fn:> (console.log form))}]]
-      [:% n/Row
+         :onPress (fn:> (console.log form))}]] 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -131,7 +130,8 @@
           :form form
           :fieldProps {:outlined true}
           :field "name"
-          :hideValidation true}]]]])))
+          :hideValidation true}]]] 
+#_))))
 
 ^{:refer melbourne.slim-common/FormInputXL :added "0.1"}
 (fact "creates a Form XL"
@@ -145,9 +145,9 @@
     (r/init []
       (event-form/validate-all form))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormInputXL"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormInputXL"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -168,7 +168,7 @@
           :form form
           :fieldProps {:outlined true}
           :field "name"
-          :hideValidation true}]]]])))
+          :hideValidation true}]]]))))
 
 ^{:refer melbourne.slim-common/FormTextArea :added "0.1"}
 (fact "creates an TextArea"
@@ -182,9 +182,9 @@
     (r/init []
       (event-form/validate-all form))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormTextArea"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormTextArea"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -204,7 +204,7 @@
           :label "Name"
           :form form
           :fieldProps {:outlined true}
-          :field "name"}]]]])))
+          :field "name"}]]]))))
 
 ^{:refer melbourne.slim-common/FormCheckBox :added "0.1"}
 (fact "creates a check box"
@@ -216,9 +216,9 @@
                (fn:> {:agree false})
                {:agree []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormCheckBox"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormCheckBox"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -236,9 +236,10 @@
          {:design {:type "dark"}
           :label "I AGREE TO TERMS AND CONDITIONS"
           :form form
-          :field "agree"}]]]
-      #_[:% n/Text
-       (n/format-obj form.data)]])))
+          :field "agree"}]]] 
+[:% n/Text
+       (n/format-obj form.data)] 
+#_))))
 
 ^{:refer melbourne.slim-common/FormToggleButton :added "0.1"}
 (fact "creates a Form Toggle Button"
@@ -250,9 +251,9 @@
                (fn:> {:agree false})
                {:agree []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormToggleButton"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormToggleButton"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -272,9 +273,10 @@
           :label "Agree"
           :form form
           :field "agree"
-          :text "I AGREE TO TERMS AND CONDITIONS"}]]]
-      #_[:% n/Text
-       (n/format-obj form.data)]])))
+          :text "I AGREE TO TERMS AND CONDITIONS"}]]] 
+[:% n/Text
+       (n/format-obj form.data)] 
+#_))))
 
 ^{:refer melbourne.slim-common/FormToggleSwitch :added "4.0"}
 (fact "creates a Form Toggle Switch"
@@ -286,9 +288,9 @@
                (fn:> {:agree false})
                {:agree []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormToggleSwitch"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormToggleSwitch"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -306,9 +308,10 @@
          {:design {:type "dark"}
           :label "Agree"
           :form form
-          :field "agree"}]]]
-      #_[:% n/Text
-       (n/format-obj form.data)]])))
+          :field "agree"}]]] 
+[:% n/Text
+       (n/format-obj form.data)] 
+#_))))
 
 ^{:refer melbourne.slim-common/FormEnumSingle :added "0.1"}
 (fact "creates an Enum Single"
@@ -320,9 +323,9 @@
                (fn:> {:currency "XLM"})
                {:currency []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormEnumSingle"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormEnumSingle"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -342,7 +345,7 @@
           :label "Currency"
           :form form
           :field "currency"
-          :options ["XLM" "USD" "STATS"]}]]]])))
+          :options ["XLM" "USD" "STATS"]}]]]))))
 
 ^{:refer melbourne.slim-common/FormEnumMulti :added "0.1"}
 (fact "creates an Enum Multi"
@@ -354,9 +357,9 @@
                (fn:> {:currency ["XLM" "STATS"]})
                {:currency []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormEnumMulti"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormEnumMulti"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -376,7 +379,7 @@
           :label "Currency"
           :form form
           :field "currency"
-          :options ["XLM" "USD" "STATS"]}]]]])))
+          :options ["XLM" "USD" "STATS"]}]]]))))
 
 ^{:refer melbourne.slim-common/FormColorInput :added "4.0"}
 (fact "creates a Color Input"
@@ -388,9 +391,9 @@
                (fn:> {:color "#456789"})
                {:color []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormColorInput"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormColorInput"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -408,7 +411,7 @@
          {:design {:type "dark"}
           :label "Color"
           :form form
-          :field "color"}]]]])))
+          :field "color"}]]]))))
 
 ^{:refer melbourne.slim-common/FormChipInput :added "4.0"}
 (fact "creates a Chip Input"
@@ -420,9 +423,9 @@
                (fn:> {:tags ["football" "sport"]})
                {:tags []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormChipInput"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormChipInput"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -440,7 +443,7 @@
          {:design {:type "dark"}
           :label "Tags"
           :form form
-          :field "tags"}]]]])))
+          :field "tags"}]]]))))
 
 ^{:refer melbourne.slim-common/FormLayout :added "0.1"}
 (fact "creates the basic form layout"
@@ -458,9 +461,9 @@
                 :name      []
                 :about     []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-common/FormLayout"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-common/FormLayout"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :padding 20
@@ -502,7 +505,7 @@
                   :field "name"}
                  {:component slim-common/FormTextArea
                   :label "About"
-                  :field "about"}]}]]]]))
+                  :field "about"}]}]]])))
   
   (def.js MODULE (!:module))
   )

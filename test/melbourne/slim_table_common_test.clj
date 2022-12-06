@@ -35,11 +35,11 @@
   (defn.js TableDefaultNotFoundDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-common/TableDefaultNotFound"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-common/TableDefaultNotFound"} 
+[:% n/Row
        [:% slim-table-common/TableDefaultNotFound
-        {:design {:type "light"}}]]])))
+        {:design {:type "light"}}]]))))
 
 ^{:refer melbourne.slim-table-common/TableDefaultIsLoading :added "4.0"}
 (fact "default is loading placeholder"
@@ -48,11 +48,11 @@
   (defn.js TableDefaultIsLoadingDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-common/TableDefaultIsLoading"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-common/TableDefaultIsLoading"} 
+[:% n/Row
        [:% slim-table-common/TableDefaultIsLoading
-        {:design {:type "light"}}]]])))
+        {:design {:type "light"}}]]))))
 
 ^{:refer melbourne.slim-table-common/TableBackButton :added "4.0"}
 (fact "creates a back button"
@@ -62,12 +62,12 @@
     []
     (var control (slim/useLocalControl))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-common/TableBackButton"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-common/TableBackButton"} 
+[:% n/Row
        [:% slim-table-common/TableBackButton
         {:design {:type "light"}
-         :control control}]]])))
+         :control control}]]))))
 
 ^{:refer melbourne.slim-table-common/tablePageHooks :added "4.0"}
 (fact "uses page hooks")
@@ -80,11 +80,11 @@
     []
     (var control (slim/useLocalControl))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-table-common/tablePageView"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-table-common/tablePageView"} 
+[:% n/Row
        #_[:% slim-table-common/TableBackButton
         {:design {:type "light"}
-         :control control}]]]))
+         :control control}]])))
   
   (def.js MODULE (!:module)))

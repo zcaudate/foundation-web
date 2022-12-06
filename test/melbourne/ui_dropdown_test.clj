@@ -28,11 +28,11 @@
     (var [index setIndex]   (r/local 2))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.ui-dropdown/DropdownIndexed"}
-       [:% n/TextDisplay
-        {:content (n/format-entry #{index})}]
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.ui-dropdown/DropdownIndexed"} 
+[:% n/TextDisplay
+        {:content (n/format-entry #{index})}] 
+[:% n/Row
         [:% n/Row
          {:style {:backgroundColor "#eee"
                   :flex 1
@@ -52,7 +52,7 @@
           #{[:design {:type "dark"}
              active setActive
              index setIndex
-             :items ["A" "B" "C" "D"]]}]]]]])))
+             :items ["A" "B" "C" "D"]]}]]])])))
 
 ^{:refer melbourne.ui-dropdown/Dropdown :added "0.1"}
 (fact "creates a horizontal check"
@@ -65,15 +65,15 @@
     (var [display setDisplay] (r/local "screen"))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.ui-dropdown/Dropdown"}
-       [:% n/Tabs
+      (n/EnclosedCode 
+{:label "melbourne.ui-dropdown/Dropdown"} 
+[:% n/Tabs
         {:data ["screen" "dropdown"]
          :value display
-         :setValue setDisplay}]
-       [:% n/TextDisplay
-        {:content (n/format-entry #{value})}]
-       [:% n/Row
+         :setValue setDisplay}] 
+[:% n/TextDisplay
+        {:content (n/format-entry #{value})}] 
+[:% n/Row
         [:% n/Row
          {:style {:backgroundColor "#eee"
                   :flex 1
@@ -95,6 +95,6 @@
              active setActive
              value setValue
              :displayType display
-             :data ["A" "B" "C" "D"]]}]]]]]))
+             :data ["A" "B" "C" "D"]]}]]])]))
   
   (def.js MODULE (!:module)))

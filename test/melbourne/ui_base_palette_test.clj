@@ -30,9 +30,9 @@
     (var [foil setFoil]   (r/local "background"))
     (var palette (base-palette/createPalette type color))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.base-palette/PaletteBase"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.base-palette/PaletteBase"} 
+[:% n/Row
        [:% n/Tabs
                 {:data ["purple" "teal" "blue" "green"]
                  :value color
@@ -41,13 +41,12 @@
        [:% n/Tabs
         {:data ["light" "dark"]
          :value type
-         :setValue setType}]]
-      [:% n/Tabs
+         :setValue setType}]] 
+[:% n/Tabs
        {:data ["background" "primary" "neutral" "error"]
         :value foil
-        :setValue setFoil}]
-      
-      [:% n/View
+        :setValue setFoil}] 
+[:% n/View
        {:style {:backgroundColor (base-palette/getColorRaw
                                   palette
                                   (or foil "background"))}}
@@ -107,7 +106,7 @@
                                                "sharpen")
                              :height 30
                              :width 30
-                             :margin 5}}]]])))]])))
+                             :margin 5}}]]])))]))))
 
 ^{:refer melbourne.base-palette/PaletteTone :adopt true :added "0.1"}
 (fact "creates the dialog"
@@ -120,9 +119,9 @@
     (var [foil setFoil]   (r/local "background"))
     (var palette (base-palette/createPalette type color))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.base-palette/PaletteTone"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.base-palette/PaletteTone"} 
+[:% n/Row
        [:% n/Tabs
                 {:data ["purple" "teal" "blue" "green"]
                  :value color
@@ -131,13 +130,12 @@
        [:% n/Tabs
         {:data ["light" "dark"]
          :value type
-         :setValue setType}]]
-      [:% n/Tabs
+         :setValue setType}]] 
+[:% n/Tabs
        {:data ["background" "primary" "neutral" "error"]
         :value foil
-        :setValue setFoil}]
-      
-      [:% n/View
+        :setValue setFoil}] 
+[:% n/View
        {:style {:backgroundColor (base-palette/getColorRaw
                                   palette
                                   (or foil "background"))}}
@@ -316,6 +314,6 @@
                                                 i)
                              :height 30
                              :width 30
-                             :margin 5}}])))]]]]))
+                             :margin 5}}])))]]])))
   
   (def.js MODULE (!:module)))

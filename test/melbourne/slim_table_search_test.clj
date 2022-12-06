@@ -80,13 +80,13 @@
     
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table-search/TableListSearch"}
-       [:% ui-input/Input
+      (n/EnclosedCode 
+{:label "melbourne.slim-table-search/TableListSearch"} 
+[:% ui-input/Input
         {:design {:type "light"}
          :value example
-         :onChangeText setExample}]
-       [:% n/Row
+         :onChangeText setExample}] 
+[:% n/Row
         {:style {:height 400}}
         [:% n/ScrollView
          [:% slim-table-list/TableList
@@ -95,7 +95,7 @@
              :style   {:minWidth 200}
              :display {:brief {:card {:component "mini"}}
                        :list  {}}}
-            views control components}]]]]]))
+            views control components}]]])]))
   
   (def.js MODULE (!:module)))
 

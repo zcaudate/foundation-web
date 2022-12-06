@@ -25,9 +25,9 @@
   (defn.js ConfirmDialogDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-text-dialog/ConfirmDialog"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-text-dialog/ConfirmDialog"} 
+[:% n/Row
        [:% ui-section/SectionBase
         {:design {:type "light"}}
         [:% n/Row
@@ -51,7 +51,7 @@
           {:design {:type "dark"}
            :component "accent"
            :text  "Press"
-           :onPress (fn:> (alert "HELLO"))}]]]]]))
+           :onPress (fn:> (alert "HELLO"))}]]]])))
 
   (def.js MODULE (!:module)))
 

@@ -24,9 +24,9 @@
     []
     (var [rate setRate]     (r/local 43))
     (return
-     [:% n/Enclosed
-      {:label "pune.harness.ui-tradebox/MarketTradeRate"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.harness.ui-tradebox/MarketTradeRate"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% n/Row
         [:% ui-tradebox/MarketTradeRate
@@ -34,9 +34,9 @@
             :allotment 100
             :decimal 2}
            rate
-           setRate}]]]
-      [:% n/TextDisplay
-       #{rate}]])))
+           setRate}]]] 
+[:% n/TextDisplay
+       #{rate}]))))
 
 ^{:refer pune.harness.ui-tradebox/MarketTradeAmount :added "0.1"}
 (fact "gets the trade amount"
@@ -46,17 +46,17 @@
     []
     (var [amount setAmount]     (r/local 43))
     (return
-     [:% n/Enclosed
-      {:label "pune.harness.ui-tradebox/MarketTradeAmount"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.harness.ui-tradebox/MarketTradeAmount"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% n/Row
         [:% ui-tradebox/MarketTradeAmount
          #{{:design {:type "dark"}}
            amount
-           setAmount}]]]
-      [:% n/TextDisplay
-       #{amount}]])))
+           setAmount}]]] 
+[:% n/TextDisplay
+       #{amount}]))))
 
 ^{:refer pune.harness.ui-tradebox/MarketTradeLine :added "0.1"}
 (fact "shows the market trade line"
@@ -69,9 +69,9 @@
     (var [prediction setPrediction] (r/local "yes"))
     (var [trade setTrade] (r/local "buy"))
     (return
-     [:% n/Enclosed
-      {:label "pune.harness.ui-tradebox/MarketTradeLine"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.harness.ui-tradebox/MarketTradeLine"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% ui-tradebox/MarketTradeLine
         #{{:design {:type "dark"}
@@ -82,9 +82,9 @@
           amount
           setAmount
           prediction
-          trade}]]
-      [:% n/TextDisplay
-       #{rate prediction trade}]])))
+          trade}]] 
+[:% n/TextDisplay
+       #{rate prediction trade}]))))
 
 ^{:refer pune.harness.ui-tradebox/MarketTradeBox :added "0.1"}
 (fact "shows the market trade box"
@@ -127,7 +127,7 @@
     (var [prediction setPrediction] (r/local "yes"))
     (var [trade setTrade] (r/local "buy"))
     (return
-     [:% n/Enclosed
-      {:label "pune.harness.ui-tradebox/MarketTradeBox"}]))
+     (n/EnclosedCode 
+{:label "pune.harness.ui-tradebox/MarketTradeBox"})))
   
   (def.js MODULE (!:module)))

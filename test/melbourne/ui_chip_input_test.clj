@@ -26,10 +26,10 @@
     []
     (var [values setValues] (r/local ["hello" "world"]))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-chip-input/ChipInput"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-chip-input/ChipInput"} 
+[:% n/Row
        [:% ui-chip-input/ChipInput
-        #{values setValues}]]]))
+        #{values setValues}]])))
 
   (def.js MODULE (!:module)))

@@ -157,9 +157,9 @@
     (var props-no  (@! (dissoc (first +traded-no+)
                                "order")))
     (return
-     [:% n/Enclosed
-      {:label "pune.web.debug-contract/ContractSingleHeader"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.web.debug-contract/ContractSingleHeader"} 
+[:% n/Row
        [:% n/View
         {:style {:flex 1
                  :backgroundColor "#eee"
@@ -179,7 +179,7 @@
             (:.. props-yes)]}]
         [:% debug-contract/ContractSingleHeader
          #{[:design {:type "dark"}
-            (:.. props-no)]}]]]])))
+            (:.. props-no)]}]]]))))
 
 ^{:refer pune.web.debug-contract/ContractSingleLine :added "0.1"}
 (fact "constructs a single line"
@@ -209,9 +209,9 @@
                     "decimal" 2})
     
     (return
-     [:% n/Enclosed
-      {:label "pune.web.debug-contract/ContractSingleLine"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.web.debug-contract/ContractSingleLine"} 
+[:% n/Row
        [:% n/View
         {:style {:flex 1
                  :backgroundColor "#eee"
@@ -231,7 +231,7 @@
             :line line-yes]}]
         [:% debug-contract/ContractSingleLine
          #{[:design {:type "dark"}
-            :line line-no]}]]]])))
+            :line line-no]}]]]))))
 
 ^{:refer pune.web.debug-contract/ContractSingle :added "0.1"}
 (fact "constructs a single contract"
@@ -242,9 +242,9 @@
     (var props-yes (@! (first +traded-yes+)))
     (var props-no (@! (first +traded-no+)))
     (return
-     [:% n/Enclosed
-      {:label "pune.web.debug-contract/ContractSingle"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.web.debug-contract/ContractSingle"} 
+[:% n/Row
        [:% n/View
         {:style {:flex 1
                  :backgroundColor "#eee"
@@ -266,7 +266,7 @@
         [:% n/Padding {:style {:height 3}}]
         [:% debug-contract/ContractSingle
          #{[:design {:type "dark"}
-            (:.. props-no)]}]]]]))
+            (:.. props-no)]}]]])))
   
   (def.js MODULE (!:module))
   )

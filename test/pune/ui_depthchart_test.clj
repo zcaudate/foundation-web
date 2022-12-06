@@ -67,11 +67,11 @@
   (defn.js MarketDepthChartDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-depthchart/MarketDepthChart"
-       :style {:height 500}}
-      (r/% depthchart/MarketDepthChart -/CHART)
-      [:% n/View {:style {:height 10}}]
-      (r/% n/TextDisplay -/CHART)]))
+     (n/EnclosedCode 
+{:label "pune.ui-depthchart/MarketDepthChart"
+       :style {:height 500}} 
+(r/% depthchart/MarketDepthChart -/CHART) 
+[:% n/View {:style {:height 10}}] 
+(r/% n/TextDisplay -/CHART))))
   
   (def.js MODULE (!:module)))

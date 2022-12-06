@@ -26,9 +26,9 @@
                (fn:> {:price "Tasmania"})
                {:price []}))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-select/FormPicker"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-select/FormPicker"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -108,7 +108,7 @@
                     "Tasmania"
                     "New South Wales"
                     "Western Australia"
-                    "South Australia"]}}]]]])))
+                    "South Australia"]}}]]]))))
 
 ^{:refer melbourne.slim-select/FormDropdown :added "0.1"}
 (fact "creates a Dropdown"
@@ -121,9 +121,9 @@
                {:price []}))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-select/FormDropdown"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-select/FormDropdown"} 
+[:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :flex 1
@@ -155,7 +155,7 @@
                     "Tasmania"
                     "New South Wales"
                     "Western Australia"
-                    "South Australia"]}}]]]]]))
+                    "South Australia"]}}]]])]))
   
   (def.js MODULE (!:module))
   )

@@ -25,9 +25,9 @@
   (defn.js SparklineDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-sparkline/Sparkline"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-sparkline/Sparkline"} 
+[:% n/Row
        [:% n/View
         {:style {:padding 5
                  :paddingRight 100
@@ -45,9 +45,9 @@
          #{[:design {:type "dark"}
             :height 30
             :width  100
-            :values [45 42 42 45 62 59 59 58 57 59 53 53 41 41 59]]}]]]
-      (r/% n/TextDisplay
-           {:data [45 42 42 45 62 59 59 58 57 59 53 53 41 41 59]})]))
+            :values [45 42 42 45 62 59 59 58 57 59 53 53 41 41 59]]}]]] 
+(r/% n/TextDisplay
+           {:data [45 42 42 45 62 59 59 58 57 59 53 53 41 41 59]}))))
 
   (def.js MODULE (!:module)))
 

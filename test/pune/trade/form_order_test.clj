@@ -23,14 +23,14 @@
   (defn.js TradeOddsDisplayDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeOddsDisplay"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeOddsDisplay"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% form-order/TradeOddsDisplay
         #{{:design {:type "dark"}
            :allotment 100
-           :rate 40}}]]])))
+           :rate 40}}]]))))
 
 ^{:refer pune.trade.form-order/TradeSummaryDisplay :added "0.1"}
 (fact "displays the summary"
@@ -39,9 +39,9 @@
   (defn.js TradeSummaryDisplayDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeSummaryDisplay"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeSummaryDisplay"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% form-order/TradeSummaryDisplay
         #{{:design {:type "dark"}
@@ -49,7 +49,7 @@
            :decimal 2
            :fraction 0.01
            :amount 50
-           :rate 40}}]]])))
+           :rate 40}}]]))))
 
 ^{:refer pune.trade.form-order/TradeSidebarView :added "0.1"}
 (fact "creates the trade sidebar")
@@ -62,9 +62,9 @@
     []
     (var [rate setRate]     (r/local 43))
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeRateForm"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeRateForm"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% n/Row
         [:% form-order/TradeRateForm
@@ -73,9 +73,9 @@
             :decimal 2
             :currency "TT"}
            rate
-           setRate}]]]
-      [:% n/TextDisplay
-       #{rate}]])))
+           setRate}]]] 
+[:% n/TextDisplay
+       #{rate}]))))
 
 ^{:refer pune.trade.form-order/TradeAmountForm :added "0.1"}
 (fact "creates the trade amount form"
@@ -85,9 +85,9 @@
     []
     (var [amount setAmount]     (r/local 12))
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeAmountForm"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeAmountForm"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% n/Row
         [:% form-order/TradeAmountForm
@@ -96,9 +96,9 @@
             :decimal 2
             :currency "TT"}
            amount
-           setAmount}]]]
-      [:% n/TextDisplay
-       #{amount}]])))
+           setAmount}]]] 
+[:% n/TextDisplay
+       #{amount}]))))
 
 ^{:refer pune.trade.form-order/getOdds :added "0.1"}
 (fact "helper function for odds display")
@@ -134,13 +134,13 @@
                 :time_created 1652078841585270
                 :time_updated 1652102853855907})
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeFundsSummary"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeFundsSummary"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% form-order/TradeFundsSummary
         {:design {:type "dark"}
-         :asset asset}]]])))
+         :asset asset}]]))))
 
 ^{:refer pune.trade.form-order/TradeContractsSummary :added "0.1"}
 (fact "displays the trade contracts"
@@ -166,14 +166,14 @@
          :time_created 1652079241742355
          :time_updated 1652101086767947}])
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeContractsSummary"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeContractsSummary"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% form-order/TradeContractsSummary
         {:design {:type "dark"}
          :contracts contracts
-         :prediction "yes"}]]])))
+         :prediction "yes"}]]))))
 
 ^{:refer pune.trade.form-order/TradeOrdersSummary :added "0.1"}
 (fact "displays the trade orders"
@@ -182,9 +182,9 @@
   (defn.js TradeOrdersSummaryDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeOrdersSummary"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeOrdersSummary"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% form-order/TradeOrdersSummary
         {:design {:type "dark"}
@@ -195,7 +195,7 @@
          :sell [[460 {:price "4.60"
                       :unfilled 10}]
                 [459 {:price "4.59"
-                      :unfilled 3}]]}]]])))
+                      :unfilled 3}]]}]]))))
 
 ^{:refer pune.trade.form-order/TradeOrderDetail :added "0.1"}
 (fact "TODO")
@@ -207,9 +207,9 @@
   (defn.js TradeOrdersViewDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeOrdersView"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeOrdersView"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% form-order/TradeOrdersView
         {:design {:type "dark"}
@@ -220,7 +220,7 @@
          :sell [[460 {:price "4.60"
                       :unfilled 10}]
                 [459 {:price "4.59"
-                      :unfilled 3}]]}]]])))
+                      :unfilled 3}]]}]]))))
 
 ^{:refer pune.trade.form-order/TradeSubmitButton :added "0.1"}
 (fact "creates the trade submit button"
@@ -229,14 +229,14 @@
   (defn.js TradeSubmitButtonDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeSubmitButton"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeSubmitButton"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% form-order/TradeSubmitButton
         {:design {:type "dark"}
          :trade "sell"
-         :predction "yes"}]]])))
+         :predction "yes"}]]))))
 
 ^{:refer pune.trade.form-order/TradeShowToggle :added "0.1"}
 (fact "trade show toggle"
@@ -248,14 +248,14 @@
     (var [showTrade
           setShowTrade] (r/local false))
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeShowToggle"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeShowToggle"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}}
        [:% form-order/TradeShowToggle
         #{trade setTrade
           showTrade setShowTrade
-          {:design {:type "dark"}}}]]]))
+          {:design {:type "dark"}}}]])))
 
   (def.js MODULE (!:module)))
 
@@ -268,9 +268,9 @@
       []
       (var [rate setRate]     (r/local 43))
       (return
-       [:% n/Enclosed
-        {:label "pune.trade.form-order/TradeRateSlider"}
-        [:% ui-section/SectionBase
+       (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeRateSlider"} 
+[:% ui-section/SectionBase
          {:design {:type "dark"}}
          [:% n/Row
           [:% form-order/TradeRateSlider
@@ -278,9 +278,9 @@
               :allotment 100
               :decimal 2}
              rate
-             setRate}]]]
-        [:% n/TextDisplay
-         #{rate}]])))
+             setRate}]]] 
+[:% n/TextDisplay
+         #{rate}]))))
   ^{:refer pune.trade.form-order/TradeAmountSlider :added "0.1"}
   (fact "creates the trade amount slider"
     ^:hidden
@@ -289,9 +289,9 @@
       []
       (var [amount setAmount]     (r/local 12))
       (return
-       [:% n/Enclosed
-        {:label "pune.trade.form-order/TradeAmountSlider"}
-        [:% ui-section/SectionBase
+       (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeAmountSlider"} 
+[:% ui-section/SectionBase
          {:design {:type "dark"}}
          [:% n/Row
           [:% form-order/TradeAmountSlider
@@ -299,9 +299,9 @@
               :allotment 100
               :decimal 2}
              amount
-             setAmount}]]]
-        [:% n/TextDisplay
-         #{amount}]]))))
+             setAmount}]]] 
+[:% n/TextDisplay
+         #{amount}])))))
 
 (comment
 
@@ -314,9 +314,9 @@
     (var tradeProps (form-order/useTradeState
                      {:allotment 100}))
     (return
-     [:% n/Enclosed
-      {:label "pune.trade.form-order/TradeSidebarView"}
-      [:% ui-section/SectionBase
+     (n/EnclosedCode 
+{:label "pune.trade.form-order/TradeSidebarView"} 
+[:% ui-section/SectionBase
        {:design {:type "dark"}
         :style {:width 160}}
        [:% form-order/TradeSidebarView
@@ -324,4 +324,4 @@
            :allotment 100
            :decimal 2
            :fraction 0.01
-           :tradeProps tradeProps}}]]]))))
+           :tradeProps tradeProps}}]])))))

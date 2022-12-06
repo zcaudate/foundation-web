@@ -25,9 +25,9 @@
     (var [value setValue] (r/local 155))
     (var [max min step decimal] [1000 0 2 2])
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-spinner/SpinnerControls"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-spinner/SpinnerControls"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -54,7 +54,7 @@
          #{value setValue max min step decimal 
            {:design {:type "dark"
                     }}}]
-       ]]])))
+       ]]))))
 
 ^{:refer melbourne.ui-spinner/SpinnerValues :added "0.1"}
 (fact "creates only spinner values"
@@ -65,9 +65,9 @@
     (var [value setValue] (r/local 155))
     (var [max min step decimal] [1000 0 2 2])
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-spinner/SpinnerValues"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-spinner/SpinnerValues"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -103,7 +103,7 @@
         [:% ui-spinner/SpinnerValues
          #{value setValue max min step decimal
            {:design {:type "dark"
-                    }}}]]]])))
+                    }}}]]]))))
 
 ^{:refer melbourne.ui-spinner/Spinner :added "0.1"}
 (fact "Creates a spinner"
@@ -114,9 +114,9 @@
     (var [value setValue] (r/local 155))
     (var [max min step decimal] [1000 0 2 2])
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-spinner/Spinner"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-spinner/Spinner"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -152,7 +152,7 @@
         [:% ui-spinner/Spinner
          #{value setValue max min step decimal
            {:design {:type "dark"
-                    }}}]]]]))
+                    }}}]]])))
   
   (def.js MODULE (!:module))
   )

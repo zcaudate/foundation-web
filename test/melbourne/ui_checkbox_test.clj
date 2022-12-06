@@ -27,9 +27,9 @@
     (var [s1 setS1] (r/local true))
     (var [s2 setS2] (r/local true))
     (return
-     [:% n/Enclosed
-      {:label " melbourne.ui-checkbox/CheckBox"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label " melbourne.ui-checkbox/CheckBox"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -79,7 +79,7 @@
                     }
             :style {:margin 2}
             :selected s2
-            :onPress (fn:> (setS2 (not s2)))]}]]]])))
+            :onPress (fn:> (setS2 (not s2)))]}]]]))))
 
 
 ^{:refer melbourne.ui-checkbox/CheckGroupIndexed :added "0.1"}
@@ -90,9 +90,9 @@
     []
     (var [indices setIndices] (r/local [false true false]))
     (return
-     [:% n/Enclosed
-      {:label " melbourne.ui-checkbox/CheckGroupIndexed"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label " melbourne.ui-checkbox/CheckGroupIndexed"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -112,9 +112,9 @@
                   }
           :items [" STATS " " XLM " " USD "]
           :indices indices
-          :setIndices setIndices}]]]
-      [:% n/TextDisplay
-       {:content (k/js-encode indices)}]])))
+          :setIndices setIndices}]]] 
+[:% n/TextDisplay
+       {:content (k/js-encode indices)}]))))
 
 ^{:refer melbourne.ui-checkbox/CheckGroup :added "0.1"}
 (fact "creates a group of check boxes"
@@ -124,9 +124,9 @@
     []
     (var [values setValues] (r/local ["USD"]))
     (return
-     [:% n/Enclosed
-      {:label " melbourne.ui-checkbox/CheckGroup"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label " melbourne.ui-checkbox/CheckGroup"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -148,8 +148,8 @@
           :data ["STATS" "XLM" "USD"]
           :values values
           :setValues setValues
-          :format (fn:> [s] (+ "  " s))}]]]
-      [:% n/TextDisplay
-       {:content (k/js-encode values)}]]))
+          :format (fn:> [s] (+ "  " s))}]]] 
+[:% n/TextDisplay
+       {:content (k/js-encode values)}])))
 
   (def.js MODULE (!:module)))

@@ -23,9 +23,9 @@
   (defn.js SectionBaseDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-section/SectionBase"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-section/SectionBase"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -39,7 +39,7 @@
                  :padding 10}}
         [:% ui-section/SectionBase
          {:title "Market"
-          :design {:type "dark"}}]]]])))
+          :design {:type "dark"}}]]]))))
 
 ^{:refer melbourne.ui-section/SectionSeparator :added "4.0"}
 (fact "Constructs the section seperator")
@@ -51,9 +51,9 @@
   (defn.js SectionDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-section/Section"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-section/Section"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -67,7 +67,7 @@
                  :padding 10}}
         [:% ui-section/Section
          {:title "Market"
-          :design {:type "dark"}}]]]])))
+          :design {:type "dark"}}]]]))))
 
 ^{:refer melbourne.ui-section/SectionFold :added "0.1"}
 (fact "Constructs a Section"
@@ -76,9 +76,9 @@
   (defn.js SectionFoldDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-section/SectionFold"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-section/SectionFold"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -92,7 +92,7 @@
                  :padding 10}}
         [:% ui-section/SectionFold
          {:title "Market"
-          :design {:type "dark"}}]]]])))
+          :design {:type "dark"}}]]]))))
 
 ^{:refer melbourne.ui-section/CardBoundary :added "0.1"}
 (fact "creates a card boundary"
@@ -101,16 +101,16 @@
   (defn.js CardBoundaryDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-section/CardBoundary"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-section/CardBoundary"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
                  :padding 10}}
         [:% ui-section/CardBoundary
          [:% n/View
-          {:style {:backgroundColor "blue"}}]]]]])))
+          {:style {:backgroundColor "blue"}}]]]]))))
 
 ^{:refer melbourne.ui-section/EmptyButton :added "0.1"}
 (fact "creates an empty button"
@@ -119,14 +119,14 @@
   (defn.js EmptyButtonDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-section/EmptyButton"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-section/EmptyButton"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
                  :padding 10}}
         [:% ui-section/EmptyButton
-         {:design {:type "light"}}]]]]))
+         {:design {:type "light"}}]]])))
   
   (def.js MODULE (!:module)))

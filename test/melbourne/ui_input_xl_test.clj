@@ -22,12 +22,12 @@
   (defn.js InputPlaceHolderDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-input-xl/inputPlaceHolder"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.ui-input-xl/inputPlaceHolder"} 
+[:% n/View
        {:style {:backgroundColor "#eee"
                 :flex 1
-                :padding 20}}]])))
+                :padding 20}}]))))
 
 ^{:refer melbourne.ui-input-xl/InputXL :added "0.1"}
 (fact "creates the large input"
@@ -37,9 +37,9 @@
     []
     (var [value setValue] (r/local))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-input-xl/InputXL"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.ui-input-xl/InputXL"} 
+[:% n/Row
        [:% n/Row
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -56,6 +56,6 @@
          {:value value
           :onChangeText setValue
           :design {:type "dark"}
-          :placeholder "Enter your Name"}]]]]))
+          :placeholder "Enter your Name"}]]])))
   
   (def.js MODULE (!:module)))

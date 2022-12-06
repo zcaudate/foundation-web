@@ -47,9 +47,9 @@
   (defn.js ContentTitleDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-content/ContentTitle"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-content/ContentTitle"} 
+[:% n/Row
        [:% slim-content/ContentTitle
         {:style {:margin 10}
          :entry {:picture {:uri -/base64Icon}
@@ -63,7 +63,7 @@
          :entry {:picture {:uri -/base64Icon}
                  :first "Sarah"
                  :last "Conner"}
-         :imageField "picture"}]]])))
+         :imageField "picture"}]]))))
 
 ^{:refer melbourne.slim-content/ContentAvatar :added "4.0"}
 (fact "creates the content avatar"
@@ -72,9 +72,9 @@
   (defn.js ContentAvatarDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-content/ContentAvatar"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-content/ContentAvatar"} 
+[:% n/Row
        [:% slim-content/ContentAvatar
         {:style {:margin 10}
          :entry {:picture {:uri -/base64Icon}
@@ -88,7 +88,7 @@
          :entry {:picture {:uri -/base64Icon}
                  :first "Sarah"
                  :last "Conner"}
-         :imageField "picture"}]]])))
+         :imageField "picture"}]]))))
 
 ^{:refer melbourne.slim-content/ContentCard :added "4.0"}
 (fact  "creates the content card"
@@ -101,9 +101,9 @@
                 :last "Conner"})
     
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-content/ContentCard"}
-      [:% slim-content/ContentCard
+     (n/EnclosedCode 
+{:label "melbourne.slim-content/ContentCard"} 
+[:% slim-content/ContentCard
        {:style {:width 300
                 #_#_:backgroundColor "red"}
         :styleRight {:padding 10}
@@ -119,7 +119,7 @@
         (fn:>
           {:textField (fn [#{first last}]
                    (return (+ (k/first first)
-                              (k/first last))))})}]])))
+                              (k/first last))))})}]))))
 
 ^{:refer melbourne.slim-content/HeroCard :added "4.0"}
 (fact  "creates the hero card"
@@ -128,9 +128,9 @@
   (defn.js HeroCardDemo
     []
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-content/HeroCard"}
-      [:% slim-content/HeroCard
+     (n/EnclosedCode 
+{:label "melbourne.slim-content/HeroCard"} 
+[:% slim-content/HeroCard
        {:style {:width 300
                 #_#_:backgroundColor "red"}
         :styleContent {:padding 10}
@@ -146,6 +146,6 @@
         (fn:>
           {:textField (fn [#{first last}]
                         (return (+ (k/first first)
-                                   (k/first last))))})}]]))
+                                   (k/first last))))})}])))
   
   (def.js MODULE (!:module)))

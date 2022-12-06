@@ -32,9 +32,9 @@
     (r/init []
       (base-form/validate-field))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.addon-validation/addonValidation"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.addon-validation/addonValidation"} 
+[:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :flex 1
@@ -54,7 +54,7 @@
           :brand {:type "dark"}
           :addons [(addon-validation/addonValidation
                     {:result (. result ["name"])
-                     :brand {:type "dark"}})]}]]]]))
+                     :brand {:type "dark"}})]}]]])))
   
   (def.js MODULE (!:module))
   )

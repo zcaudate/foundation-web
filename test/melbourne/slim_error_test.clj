@@ -23,9 +23,9 @@
     []
     (return
      [:% n/PortalSink
-      [:% n/Enclosed
-       {:label "melbourne.slim-error/ErrorInfo"}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-error/ErrorInfo"} 
+[:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :flex 1
@@ -59,7 +59,7 @@
            {:brand {:type "dark"}}]
           [:% n/Padding {:style {:width 5}}]
           [:% slim-error/ErrorInfo
-           {:brand {:type "dark"}}]]]]]]))
+           {:brand {:type "dark"}}]]]])]))
   
   (def.js MODULE (!:module))
   )

@@ -27,10 +27,10 @@
     (var headerId (r/id))
     (var palette (base-palette/designPalette {:type "light"}))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-page/PageLayoutHeader"
-       :style {:height 100}}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-page/PageLayoutHeader"
+       :style {:height 100}} 
+[:% n/Row
        [:% n/View
         {:style {:width 300}}
         [:% ui-page/PageLayoutHeader
@@ -44,10 +44,10 @@
          #{{:design {:type "dark"}
             :palette (base-palette/designPalette {:type "dark"})}
            routeKey
-           routeRoot}]]]
-      [:% n/Portal
+           routeRoot}]]] 
+[:% n/Portal
        {:target headerId}
-       [:% n/Text "TOOLBAR"]]])))
+       [:% n/Text "TOOLBAR"]]))))
 
 ^{:refer pune.ui-page/PageLayoutMenu :added "0.1"}
 (fact "constructs the page menu"
@@ -59,10 +59,10 @@
     (var appendId (r/id))
     (var palette (base-palette/designPalette {:type "light"}))
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-page/PageLayoutMenu"
-       :style {:height 200}}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-page/PageLayoutMenu"
+       :style {:height 200}} 
+[:% n/Row
        [:% n/View
         {:style {:width 300}}
         [:% ui-page/PageLayoutMenu
@@ -80,7 +80,7 @@
            setRouteKey
            {:design {:type "dark"}
             :palette (base-palette/designPalette {:type "dark"})
-            :sections ["hello" "world"]}}]]]])))
+            :sections ["hello" "world"]}}]]]))))
 
 ^{:refer pune.ui-page/PageLayout :added "0.1"}
 (fact "constructs the page layout"
@@ -93,10 +93,10 @@
     (var Id (r/id))
     
     (return
-     [:% n/Enclosed
-      {:label "pune.ui-page/PageLayout"
-       :style {:height 200}}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "pune.ui-page/PageLayout"
+       :style {:height 200}} 
+[:% n/Row
        [:% n/View
         {:style {:width 300}}
         [:% ui-page/PageLayout
@@ -114,7 +114,7 @@
             :sections ["hello" "world"]
             :sectionRoutes {:hello (fn:> [:% n/Text "HELLO"])
                             :world (fn:> [:% n/Text "WORLD"])}
-            :routeRoot ["HOME"]}}]]]])))
+            :routeRoot ["HOME"]}}]]]))))
 
 
 ^{:refer pune.ui-page/PageLayoutSingle :added "0.1"}

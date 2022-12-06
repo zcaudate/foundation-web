@@ -76,9 +76,9 @@
                -/RegistraionValidators))
     (var #{data result} (ext-form/listenForm form))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-input/Input.Light"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.ui-input/Input.Light"} 
+[:% n/View
        {:style {:borderRadius 10
                 :width 350
                 :overflow "hidden"}}
@@ -142,7 +142,7 @@
                     :fontWeight "800"
                     :marginHorizontal 10}
             :onPress (fn:> (event-form/reset-all form))
-            :text  "Cancel"}]]]]]]))
+            :text  "Cancel"}]]]]])))
 
   (defn.js InputDarkExamples
     []
@@ -152,9 +152,9 @@
                -/RegistraionValidators))
     (var #{data result} (ext-form/listenForm form))
     (return
-     [:% n/Enclosed
-      {:label "melbourne.ui-input/Input.Dark"}
-      [:% n/View
+     (n/EnclosedCode 
+{:label "melbourne.ui-input/Input.Dark"} 
+[:% n/View
        {:style {:borderRadius 10
                 :width 350
                 :overflow "hidden"}}
@@ -218,7 +218,7 @@
                     :fontWeight "800"
                     :marginHorizontal 10}
             :onPress (fn:> (event-form/reset-all form))
-            :text  "Cancel"}]]]]]]))
+            :text  "Cancel"}]]]]])))
 
   (def.js MODULE (!:module))
   )

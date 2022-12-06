@@ -47,10 +47,10 @@
                                                              :balance (k/random)})))))))})}))
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-link/FormLinkDropdown"
-        :style {:height 200}}
-       [:% n/Row
+      (n/EnclosedCode 
+{:label "melbourne.slim-link/FormLinkDropdown"
+        :style {:height 200}} 
+[:% n/Row
         (r/% slim-link/FormLinkDropdown
              (j/assign #{form views}
                        {:design {:type "light"}
@@ -58,7 +58,7 @@
                         :field "account_id",
                         :fieldProps {:style {:width 500}
                                      :viewKey "account",
-                                     :viewTemplate ["name"]}}))]]])))
+                                     :viewTemplate ["name"]}}))])])))
 
 
 
@@ -86,9 +86,9 @@
                                                              :balance (k/random)})))))))})}))
     (var entry {:account-id "id-3"})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-link/FormLinkReadOnly"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-link/FormLinkReadOnly"} 
+[:% n/Row
        (r/% slim-link/FormLinkReadOnly
             (j/assign #{form views entry}
                       {:design {:type "light"}
@@ -96,7 +96,7 @@
                        :field "account_id",
                        :fieldProps {:style {:width 500}
                                     :viewKey "account",
-                                    :viewTemplate ["name"]}}))]])))
+                                    :viewTemplate ["name"]}}))]))))
 
 ^{:refer melbourne.slim-link/useViewLinkEntry :added "4.0"}
 (fact "uses link entry")
@@ -125,9 +125,9 @@
                                                              :balance (k/random)})))))))})}))
     (var entry {:account-id "id-2"})
     (return
-     [:% n/Enclosed
-      {:label "melbourne.slim-link/FormLinkEntryReadOnly"}
-      [:% n/Row
+     (n/EnclosedCode 
+{:label "melbourne.slim-link/FormLinkEntryReadOnly"} 
+[:% n/Row
        (r/% slim-link/FormLinkEntryReadOnly
             (j/assign #{form views entry}
                       {:design {:type "light"}
@@ -135,7 +135,7 @@
                        :field "account_id",
                        :fieldProps {:style {:width 500}
                                     :viewKey "account",
-                                    :viewTemplate ["name"]}}))]]))
+                                    :viewTemplate ["name"]}}))])))
 
   (def.js MODULE (!:module)))
 
@@ -208,13 +208,13 @@
     
     (return
      [:% n/Isolation
-      [:% n/Enclosed
-       {:label "melbourne.slim-table-search/TableListSearch"}
-       [:% ui-input/Input
+      (n/EnclosedCode 
+{:label "melbourne.slim-table-search/TableListSearch"} 
+[:% ui-input/Input
         {:design {:type "light"}
          :value example
-         :onChangeText setExample}]
-       [:% n/Row
+         :onChangeText setExample}] 
+[:% n/Row
         {:style {:height 400}}
         [:% n/ScrollView
          [:% slim-table-list/TableList
@@ -223,7 +223,7 @@
              :style   {:minWidth 200}
              :display {:brief {:card {:component "mini"}}
                        :list  {}}}
-            views control components}]]]]]))
+            views control components}]]])]))
   
   (def.js MODULE (!:module)))
 
@@ -257,9 +257,9 @@
       (r/init []
               (ext-view/refresh-view view))
       (return
-       [:% n/Enclosed
-        {:label "js.react.ext-view/listenViewOutput"}
-        [:% n/Row
+       (n/EnclosedCode 
+{:label "js.react.ext-view/listenViewOutput"} 
+[:% n/Row
          [:% n/Button
           {:title "R"
            :onPress (fn:> (ext-view/refresh-args
@@ -276,10 +276,10 @@
          [:% n/TabsMulti
           {:data ["input" "output" "pending" "elapsed" "disabled"]
            :values types
-           :setValues setTypes}]]
-        [:% -/ListenViewOutputPane
+           :setValues setTypes}]] 
+[:% -/ListenViewOutputPane
          #{view types
-           {:key types}}]]))
+           {:key types}}])))
     
     (def.js MODULE (!:module))
     
