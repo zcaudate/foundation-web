@@ -1,0 +1,17 @@
+name: Trigger CI
+
+on: [push, repository_dispatch, workflow_dispatch]
+
+jobs:
+
+  trigger-ci:
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: Notify CI
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          repository: zcaudate/foundation-ci
+          event-type: web-changed
+          client-payload: '{"repo": "${{ github.repository.id }}", "ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "comment": "${{ github.payload.comment }}"}'
