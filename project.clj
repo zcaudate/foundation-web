@@ -36,7 +36,6 @@
                  [foundation/net.http            "4.0.1"]
 
                  [foundation/rt.basic            "4.0.1"]
-                 [foundation/rt.browser          "4.0.1"]
                  
                  [foundation/script.css          "4.0.1"]
                  [foundation/script.sql          "4.0.1"]
