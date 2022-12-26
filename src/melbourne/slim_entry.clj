@@ -505,7 +505,10 @@
   [submitFn submitType entry form props args]
   (:= args (or args []))
   (return
-   (:? (== submitType "custom")
+   (:? (k/nil? submitType)
+       (fn:>)
+
+       (== submitType "custom")
        (fn:> (submitFn entry props (:.. args)))
        
        (== submitType "none")
@@ -586,7 +589,7 @@
   [props]
   (var #{[impl
           entry
-          control
+          (:= control {})
           (:.. rprops)]} props)
   (var #{[(:= component "minor")
           key
@@ -745,7 +748,7 @@
           mini
           form
           entry
-          control
+          (:= control {})
           (:.. rprops)]} props)
   
   (var #{[(:= component "minor")
@@ -784,7 +787,7 @@
   (var #{[impl
           form
           entry
-          actions
+          (:= actions {})
           (:.. rprops)]} props)
   (var #{[key
           custom
