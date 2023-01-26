@@ -49,7 +49,6 @@
   "creates a Dropdown"
   {:added "0.1"}
   [props]
-  
   (var aprops (j/assignNew props (. props fieldProps)))
   (var #{views viewKey viewArgs viewOpts
          viewTemplate

@@ -4,22 +4,22 @@
             [std.lib :as h]))
 
 (l/script :js
-  {:runtime :websocket
-   :config {:id :test/web-main
-            :bench false
-            :emit {:native {:suppress true}
-                   :lang/jsx false}
-            :notify {:type :webpage :path "dev/notify"}}
-   :require [[js.react-native :as n :include [:fn]]
-             [js.react.ext-form :as ext-form]
-             [js.react.ext-route :as ext-route]
-             [melbourne.ui-static :as ui-static]
-             [melbourne.slim-entry :as slim-entry]
-             [melbourne.base-validators :as validators]
-             [xt.lang.base-lib :as k]
-             [xt.lang.event-form :as event-form]
-             [xt.lang.event-route :as event-route]]
-   :export [MODULE]})
+          {:runtime :websocket
+           :config {:id :test/web-main
+                    :bench false
+                    :emit {:native {:suppress true}
+                           :lang/jsx false}
+                    :notify {:type :webpage :path "dev/notify"}}
+           :require [[js.react-native :as n :include [:fn]]
+                     [js.react.ext-form :as ext-form]
+                     [js.react.ext-route :as ext-route]
+                     [melbourne.ui-static :as ui-static]
+                     [melbourne.slim-entry :as slim-entry]
+                     [melbourne.base-validators :as validators]
+                     [xt.lang.base-lib :as k]
+                     [xt.lang.event-form :as event-form]
+                     [xt.lang.event-route :as event-route]]
+           :export [MODULE]})
 
 ^{:refer melbourne.slim-entry/EntryImplNotFound :added "4.0"}
 (fact "creates a not found entry")
@@ -35,8 +35,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryFree"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryFree"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -70,8 +70,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentRaw"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentRaw"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -99,8 +99,8 @@
                {}))
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentRawForm"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentRawForm"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -126,8 +126,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentFill"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentFill"} 
+      [:% n/Row
        {:style {:height 30}}
        [:% ui-static/Div
         {:design {:type "light"}
@@ -157,8 +157,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutHorizontal"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutHorizontal"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -169,7 +169,7 @@
                            :design {:type "light"}
                            :entry  entry
                            :impl   {:key "title"
-                                      :template ["currency_id"]}
+                                    :template ["currency_id"]}
                            :custom {:title {:style  {:padding 10}}}}]
                          [:% slim-entry/EntryContentParagraph
                           {:key "body"
@@ -205,8 +205,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutVertical"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutVertical"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -217,7 +217,7 @@
                            :design {:type "light"}
                            :entry  entry
                            :impl   {:key "title"
-                                      :template ["currency_id"]}
+                                    :template ["currency_id"]}
                            :custom {:title {:style  {:padding 10}}}}]
                          [:% slim-entry/EntryContentParagraph
                           {:key "body"
@@ -253,8 +253,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutEnclosed"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutEnclosed"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -266,7 +266,7 @@
                            :design {:type "light"}
                            :entry  entry
                            :impl   {:key "title"
-                                      :template ["currency_id"]}
+                                    :template ["currency_id"]}
                            :custom {:title {:style  {:padding 10}}}}]
                          [:% slim-entry/EntryContentParagraph
                           {:key "body"
@@ -304,8 +304,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutPortal"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutPortal"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -319,7 +319,7 @@
                            :design {:type "light"}
                            :entry  entry
                            :impl   {:key "title"
-                                      :template ["currency_id"]}
+                                    :template ["currency_id"]}
                            :custom {:title {:style  {:padding 10}}}}]
                          [:% slim-entry/EntryContentParagraph
                           {:key "body"
@@ -359,8 +359,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutPortalSink"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutPortalSink"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -375,7 +375,7 @@
                            :design {:type "light"}
                            :entry  entry
                            :impl   {:key "title"
-                                      :template ["currency_id"]}
+                                    :template ["currency_id"]}
                            :custom {:title {:style  {:padding 10}}}}]
                          [:% slim-entry/EntryContentParagraph
                           {:key "body"
@@ -420,8 +420,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentScroll"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentScroll"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -451,17 +451,17 @@
     (return
      [:% n/Isolation
       (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutPopup"} 
-[:% n/Row
+       {:label "melbourne.slim-entry/EntryLayoutPopup"} 
+       [:% n/Row
         [:% ui-static/Div
          {:design {:type "light"}
           :style {:flex 1
                   :padding 10}}
          #_[:% slim-entry/EntryLayoutPopup
-          {:design  {:type "light"}
-           :entry   entry
-           :impl    {:key "body"
-                     :text "HELLO"}}]]
+            {:design  {:type "light"}
+             :entry   entry
+             :impl    {:key "body"
+                       :text "HELLO"}}]]
         [:% ui-static/Div
          {:design {:type "dark"}
           :style {:flex 1
@@ -491,8 +491,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutDebug"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutDebug"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -525,8 +525,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentSeparator"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentSeparator"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1
@@ -558,8 +558,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentTitleH1"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentTitleH1"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -591,8 +591,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentTitleH2"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentTitleH2"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -624,8 +624,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentTitleH3"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentTitleH3"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -657,8 +657,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentTitleH4"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentTitleH4"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -690,8 +690,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentTitleH5"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentTitleH5"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -723,8 +723,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentTitle"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentTitle"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -756,8 +756,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentBold"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentBold"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -789,8 +789,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentParagraph"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentParagraph"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -820,8 +820,8 @@
     (var entry {:name "home"})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentIcon"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentIcon"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -853,8 +853,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentImage"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentImage"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -884,8 +884,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentPair"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentPair"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -925,8 +925,8 @@
                 :about     []}))
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentField"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentField"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -975,15 +975,15 @@
     
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutFormFade"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutFormFade"} 
+      [:% n/Row
        [:% n/Button
         {:title "T"
          :onPress (fn:> (event-form/set-field
                          form
                          "visible"
                          (not (event-form/get-field form "visible"))))}]] 
-[:% ui-static/Div
+      [:% ui-static/Div
        {:design {:type "light"}
         :style {:flex 1}}
        [:% slim-entry/EntryLayoutFormFade
@@ -1009,15 +1009,15 @@
     
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutFormFold"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutFormFold"} 
+      [:% n/Row
        [:% n/Button
         {:title "T"
          :onPress (fn:> (event-form/set-field
                          form
                          "visible"
                          (not (event-form/get-field form "visible"))))}]] 
-[:% ui-static/Div
+      [:% ui-static/Div
        {:design {:type "light"}
         :style {:flex 1}}
        [:% slim-entry/EntryLayoutFormFold
@@ -1055,8 +1055,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentControl"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentControl"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1091,8 +1091,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutControl"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutControl"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1128,9 +1128,9 @@
     (var entry {:a 1 :b 2})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentLink"} 
-[:% n/Text url] 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentLink"} 
+      [:% n/Text url] 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1162,9 +1162,9 @@
     (var entry {:a 1 :b 2})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutLink"} 
-[:% n/Text url] 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutLink"} 
+      [:% n/Text url] 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1197,29 +1197,29 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentRoute"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentRoute"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
         #_[:% slim-entry/EntryContentRoute
-         {:design {:type "light"}
-          :entry entry
-          :custom {:hello {:text "Hello"}}
-          :route {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
-          :impl {:key "hello"
-                 :submit "detail"}}]]
+           {:design {:type "light"}
+            :entry entry
+            :custom {:hello {:text "Hello"}}
+            :route {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
+            :impl {:key "hello"
+                   :submit "detail"}}]]
        [:% ui-static/Div
         {:design {:type "dark"}
          :style {:flex 1}}
         #_[:% slim-entry/Entry
-         {:design {:type "dark"}
-          :entry entry
-          :custom {:hello {:text "Hello"}}
-          :route {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
-          :impl {:type "route"
-                 :key "hello"
-                 :submit "detail"}}]]]))))
+           {:design {:type "dark"}
+            :entry entry
+            :custom {:hello {:text "Hello"}}
+            :route {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
+            :impl {:type "route"
+                   :key "hello"
+                   :submit "detail"}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentRouteToggle :added "0.1"}
 (fact "route content toggle"
@@ -1233,29 +1233,29 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentRouteToggle"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentRouteToggle"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
         #_[:% slim-entry/EntryContentRoute
-         {:design {:type "light"}
-          :entry entry
-          :custom {:hello {:text "Hello"}}
-          :route {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
-          :impl {:key "hello"
-                 :submit "detail"}}]]
+           {:design {:type "light"}
+            :entry entry
+            :custom {:hello {:text "Hello"}}
+            :route {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
+            :impl {:key "hello"
+                   :submit "detail"}}]]
        [:% ui-static/Div
         {:design {:type "dark"}
          :style {:flex 1}}
         #_[:% slim-entry/Entry
-         {:design {:type "dark"}
-          :entry entry
-          :custom {:hello {:text "Hello"}}
-          :route {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
-          :impl {:type "route"
-                 :key "hello"
-                 :submit "detail"}}]]]))))
+           {:design {:type "dark"}
+            :entry entry
+            :custom {:hello {:text "Hello"}}
+            :route {:setShowDetail (fn:> [e] (alert (k/js-encode e)))}
+            :impl {:type "route"
+                   :key "hello"
+                   :submit "detail"}}]]]))))
 
 ^{:refer melbourne.slim-entry/EntryContentAction :added "4.0"}
 (fact "creates an action"
@@ -1269,8 +1269,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentAction"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentAction"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1308,8 +1308,8 @@
                 :description []}))
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryContentSubmit"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryContentSubmit"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1339,8 +1339,8 @@
                 :escrow 50.5})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutCard"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutCard"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}
@@ -1383,8 +1383,8 @@
                 :description []}))
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-entry/EntryLayoutForm"} 
-[:% n/Row
+      {:label "melbourne.slim-entry/EntryLayoutForm"} 
+      [:% n/Row
        [:% ui-static/Div
         {:design {:type "light"}
          :style {:flex 1}}

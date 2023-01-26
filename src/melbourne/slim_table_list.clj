@@ -416,9 +416,22 @@
                   :alignItems "center"
                   :justifyContent "center"}}
          [:% n/ActivityIndicator]]
+
+        (k/is-empty? entries)
+        [:% n/View
+         {:style {:flex 1
+                  :alignItems "center"
+                  :justifyContent "center"}}
+         [:% ui-static/Text
+          #{design
+            {:style {:fontSize 13}}}
+          "No Entries"]]
+
+        :else
         [:% ui-static/ScrollView
          #{design}
-         (r/% ListComponent (j/assignNew props #{entries}))])
+         (r/% ListComponent
+              (j/assignNew props #{entries}))])
     (:? (> (. page total)
            (. page display))
         [:% ui-static/Div
@@ -500,7 +513,7 @@
                       (ext-view/listenView (. views [displayKey]) "success")
                       [])
                   (sortFn (. control orderBy))))
-  (var topElem
+(var topElem
        (:? top
          (r/% slim-entry/Entry (j/assignNew props {:impl top}))))
   (var bottomElem

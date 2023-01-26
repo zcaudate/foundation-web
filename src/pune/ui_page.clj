@@ -24,6 +24,7 @@
   {:added "0.1"}
   [#{[design
       mini
+      actions
       headerId
       routeKey
       routeRoot
@@ -36,7 +37,7 @@
   (var [toolbar setToolbar] (r/local))
   (var bprops
        (j/assign
-        #{design mini noBanner}
+        #{design mini actions noBanner}
         (:? singleRoute
             {:root []
              :path (k/first routeRoot)}
@@ -79,6 +80,7 @@
   {:added "0.1"}
   [#{design
      mini
+     actions
      routeKey
      setRouteKey
      overrideSideMenu
@@ -90,6 +92,7 @@
   (var menuProps (j/assign
                   #{design
                     mini
+                    actions
                     routeKey
                     setRouteKey
                     {:miniTitle (and routeRoot (j/toUpperCase (or (k/first routeRoot) ""))) 
@@ -114,6 +117,7 @@
   {:added "0.1"}
   ([#{[design
        mini
+       actions
        sections
        sectionRoutes
        (:= sectionPropsFn (fn:>))
@@ -131,7 +135,7 @@
    (var headerId (r/id))
    (var appendId (r/id))
    (var Component  (k/get-key sectionRoutes routeKey))
-   (var cprops (j/assign #{design mini route
+   (var cprops (j/assign #{design mini route actions
                            headerId
                            appendId}
                          (sectionPropsFn routeKey)))
@@ -143,6 +147,7 @@
           #{routeKey
             sections
             mini
+            actions
             route
             setRouteKey
             routeRoot
@@ -154,6 +159,7 @@
       [:% -/PageLayoutHeader
        #{design
          mini
+         actions
          headerId
          routeKey
          routeRoot
@@ -169,6 +175,7 @@
   {:added "0.1"}
   ([#{[design
        mini
+       actions
        (:= sectionPropsFn (fn:>))
        noBanner
        noSideMenu
@@ -183,6 +190,8 @@
       {:style {:flex 1}}
       [:% -/PageLayoutHeader
        #{design
+         mini
+         actions
          headerId
          routeRoot
          noBanner

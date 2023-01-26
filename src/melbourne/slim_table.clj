@@ -177,7 +177,7 @@
     (:? (and (k/not-empty? entries)
              (. control showList))
         [:% n/View
-         {:style {:marginTop 10}}
+         {:style {:marginTop 8}}
          [:% ui-text/ButtonMinor
           #{design
             {:text [:% n/Icon

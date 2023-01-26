@@ -157,11 +157,12 @@
    [:% ui-static/Div
     #{[design variant
        :style [{:flexDirection "row"
-                :maxWidth 500}
+                :maxWidth 500
+                :marginBottom 10
+                :paddingHorizontal 10
+                :alignItems "center"}
                (:.. (k/arrayify style))]]}
-    (j/map columns columnFn)
-    (r/% slim-entry/EntryContentSeparator
-         #{design})]))
+    (j/map columns columnFn)]))
 
 (defn.js SheetRow
   "creates a sheet row"
@@ -188,8 +189,7 @@
                          variant
                          :impl  column
                          :style [{:paddingHorizontal 10}
-                                 (:.. (k/arrayify style))]
-                         ]}
+                                 (:.. (k/arrayify style))]]}
                       rprops))
          (return
           [:% n/View
@@ -203,7 +203,9 @@
        :style [{:flexDirection "row"
                 :alignItems "center"
                 :maxWidth 500
-                :marginBottom 3}
+                :marginBottom 3
+                :paddingLeft 10
+                :paddingRight 20}
                (:.. (k/arrayify style))]]}
     (j/map columns columnFn)]))
 
@@ -265,7 +267,7 @@
                               :sort   k/identity
                               :filter k/T}
                              (. impl groups)))
-  (var groups (-> entries
+  (var groups (-> (or entries [])
                   (k/arr-group-by (k/template-fn (. groupsImpl split))
                                   k/identity)
                   (k/obj-map (. itemsImpl sort))
@@ -277,7 +279,8 @@
   "creates a sheet"
   {:added "4.0"}
   [props]
-  (var #{impl
+  (var #{noHeader
+         impl
          entries} props)
   (var itemsImpl   (j/assign {:reverse false
                               :sort k/identity
@@ -289,7 +292,8 @@
   (cond isGrouped
         (do (var groups (-/groupEntries entries impl))
             (return [:% n/View
-                     (r/% -/SheetHeader props)
+                     (:? (not noHeader)
+                         (r/% -/SheetHeader props))
                      (j/map groups
                             (fn:> [[name entries]]
                               (r/% -/SheetGroupRows
@@ -303,7 +307,8 @@
         
         :else
         (do (return [:% n/View
-                     (r/% -/SheetHeader props)
+                     (:? (not noHeader)
+                         (r/% -/SheetHeader props))
                      (r/% -/SheetBasicRows (j/assignNew props {:entries (. itemsImpl (sort entries))}))])))
   
   

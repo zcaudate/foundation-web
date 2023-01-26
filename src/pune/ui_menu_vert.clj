@@ -172,6 +172,7 @@
       setRouteKey
       (:= design {})
       (:= items [])]}]
+  (:= items (j/filter items k/identity))
   (var [visible setVisible] (r/local false))
   (var itemFn
        (fn [mini]
@@ -197,8 +198,9 @@
                     :overflow "hidden"
                     :flexDirection "row"
                     :justifyContent "space-between"}]}
-          (j/map (j/filter items (k/key-fn "mini"))
-                 (itemFn true))
+          (-> items
+              (j/filter (k/key-fn "mini"))
+              (j/map    (itemFn true)))
           [:% -/MainMenuMiniContext
            #{design visible setVisible}
            [:% ui-static/Div

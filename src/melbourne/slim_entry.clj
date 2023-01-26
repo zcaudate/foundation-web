@@ -18,6 +18,7 @@
              [melbourne.slim-number :as slim-number]
              [melbourne.slim-select :as slim-select]
              [melbourne.slim-submit :as slim-submit]
+             [melbourne.slim-time :as slim-time]
              [melbourne.slim-link :as slim-link]
              [melbourne.base-font :as base-font]
              [melbourne.base-palette :as base-palette]
@@ -355,7 +356,7 @@
           :text   (:? textInput (format textInput))
           :image  imageInput
           :styleText  (:? text  (k/get-in props ["custom" (. text key)]))
-          :styleImage (:? image (k/get-in props ["custom" (. image key)]))
+          :styleImage (:? (k/not-empty? image) (k/get-in props ["custom" (. image key)]))
           :style  [{:margin 5}
                    (:? (and (k/not-nil? color)
                             (k/nil? imageInput))
@@ -404,8 +405,10 @@
   {:toggle      slim-common/FormToggleButton
    :switch      slim-common/FormToggleSwitch
    :input       slim-common/FormInput
+   
    :input-xl    slim-common/FormInputXL
    :text        slim-common/FormTextArea
+   
    :readonly    slim-common/FormReadOnly
    :enum-single slim-common/FormEnumSingle
    :enum-multi  slim-common/FormEnumMulti
@@ -417,6 +420,8 @@
    :picker      slim-select/FormPicker
    :slider      slim-number/FormSlider
    :spinner     slim-number/FormSpinner
+
+   :time        slim-time/FormTime
    
    :link-readonly slim-link/FormLinkEntryReadOnly
    :link-dropdown slim-link/FormLinkDropdown})
@@ -563,9 +568,6 @@
   (when (not controlType)
     (return (fn:>)))
   
-  #_(when (k/fn? controlType)
-    (return controlType))
-  
   (when (== controlType "back")
     (return
      (fn []
@@ -581,7 +583,7 @@
              (do (. control (setShowCreate false))
                  (. control (setShowDetail nil)))))))
   (var onControl   (-/entryControlFn control controlType props))
-  (return (-/entryOnSubmit onControl nil entry props)))
+  (return (-/entryOnSubmit onControl onControl entry props)))
 
 (defn.js EntryContentControl
   "creates an control button"
@@ -597,10 +599,7 @@
           submit
           popup
           (:.. iprops)]} impl)
-  
-
-  
-  (var onSubmit (-/entryOnControl control submit entry props))
+  (var onSubmit  (-/entryOnControl control submit entry props))
   (var fprops (or (k/get-in props ["custom" key])
                   {}))
   
@@ -878,7 +877,9 @@
                   {}))
   (var fprops (or (k/get-in props ["custom" key])
                   {}))
-  (var submitFn  (. actions [submit]))
+  (var submitFn  (:? (k/fn? submit)
+                     submit
+                     (. actions [submit])))
   (:= submitType (-/entrySubmitType submit submitType))
   (var onSubmit  (-/entryOnSubmit submitFn submitType entry form props args))
   (:=  onSuccess (or onSuccess

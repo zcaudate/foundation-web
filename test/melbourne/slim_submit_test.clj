@@ -4,21 +4,20 @@
             [std.lib :as h]))
 
 (l/script :js
-  {:runtime :websocket
-   :config {:id :test/web-main
-            :bench false
-            :emit {:native {:suppress true}
-                   :lang/jsx false}
-            :notify {:type :webpage :path "dev/notify"}}
-   :require [[js.core :as j]
-             [js.react :as r :include [:fn]]
-             [js.react-native :as n :include [:fn]]
-             [js.react.ext-form :as ext-form]
-             [melbourne.slim-submit :as slim-submit]
-             [melbourne.base-validators :as validators]
-             [xt.lang.event-form :as event-form]
-             ]
-   :export [MODULE]})
+          {:runtime :websocket
+           :config {:id :test/web-main
+                    :bench false
+                    :emit {:native {:suppress true}
+                           :lang/jsx false}
+                    :notify {:type :webpage :path "dev/notify"}}
+           :require [[js.core :as j]
+                     [js.react :as r :include [:fn]]
+                     [js.react-native :as n :include [:fn]]
+                     [js.react.ext-form :as ext-form]
+                     [melbourne.slim-submit :as slim-submit]
+                     [melbourne.base-validators :as validators]
+                     [xt.lang.event-form :as event-form]]
+           :export [MODULE]})
 
 ^{:refer melbourne.slim-submit/useSubmit :adopt true :added "0.1"}
 (fact "constructs a waiting flag"
@@ -27,18 +26,18 @@
   (defn.js UseSubmitDemo
     []
     (var onSubmit (fn:>
-                   (j/future-delayed [200]
-                     (return
-                      {:status "error"
-                       :body {:tag "user.account/incorrect_password"}}))))
+                    (j/future-delayed [200]
+                                      (return
+                                       {:status "error"
+                                        :body {:tag "user.account/incorrect_password"}}))))
     (var [result setResult] (r/local (fn:>)))
     (var #{waiting setWaiting
            onAction} (r/useSubmit #{setResult
                                     onSubmit}))
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-submit/useSubmit"} 
-[:% n/Row
+      {:label "melbourne.slim-submit/useSubmit"} 
+      [:% n/Row
        [:% n/View
         {:style {:backgroundColor "#eee"
                  :padding 10
@@ -52,7 +51,7 @@
           {:title "Clear"
            :onPress (fn:> (setResult nil))}]
          [:% n/Text " "]]]] 
-[:% n/TextDisplay
+      [:% n/TextDisplay
        {:content (n/format-entry #{waiting
                                    result})}]))))
 
@@ -66,8 +65,8 @@
     (return
      [:% n/Isolation
       (n/EnclosedCode 
-{:label "melbourne.slim-submit/SubmitButton"} 
-[:% n/Row
+       {:label "melbourne.slim-submit/SubmitButton"} 
+       [:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :padding 10}}
@@ -117,8 +116,8 @@
     (return
      [:% n/Isolation
       (n/EnclosedCode 
-{:label "melbourne.slim-submit/SubmitLine"} 
-[:% n/Row
+       {:label "melbourne.slim-submit/SubmitLine"} 
+       [:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :padding 10}}
@@ -141,8 +140,8 @@
     (return
      [:% n/Isolation
       (n/EnclosedCode 
-{:label "melbourne.slim-submit/SubmitLineActions"} 
-[:% n/Row
+       {:label "melbourne.slim-submit/SubmitLineActions"} 
+       [:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :padding 10}}
@@ -165,21 +164,21 @@
                                           (validators/is-valid-email)]}))
     (var email  (ext-form/listenFieldValue form "email"))
     (var validation (ext-form/listenFieldResult form "email"
-                                             {:custom "VALIDATION"}))
+                                                {:custom "VALIDATION"}))
     (var submitProps
          (slim-submit/useSubmitField
           #{form
             {:field "email"
              :onSubmit (fn:>
-                        (j/future-delayed [500]
-                          (return {:status "error"
-                                   :tag "user.account/incorrect_password"})))
+                         (j/future-delayed [500]
+                                           (return {:status "error"
+                                                    :tag "user.account/incorrect_password"})))
              :explicit false}}))
     (return
      [:% n/Isolation
       (n/EnclosedCode 
-{:label "melbourne.slim-submit/useSubmitField"} 
-[:% n/Row
+       {:label "melbourne.slim-submit/useSubmitField"} 
+       [:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :padding 10}}
@@ -201,7 +200,7 @@
           #{[:design {:type "dark"}
              :errorProps {:row true}
              (:.. submitProps)]}]]] 
-[:% n/TextDisplay
+       [:% n/TextDisplay
         {:content (n/format-entry
                    #{submitProps
                      validation})}])]))
@@ -231,15 +230,15 @@
            setResult} (slim-submit/useSubmitForm
                        #{form
                          {:onSubmit (fn:>
-                                     (j/future-delayed [500]
-                                       (return {:status "error"
-                                                :tag "user.account/incorrect_password"})))
+                                      (j/future-delayed [500]
+                                                        (return {:status "error"
+                                                                 :tag "user.account/incorrect_password"})))
                           :explicit false}}))
     (return
      [:% n/Isolation
       (n/EnclosedCode 
-{:label "melbourne.slim-submit/useSubmitForm"} 
-[:% n/Row
+       {:label "melbourne.slim-submit/useSubmitForm"} 
+       [:% n/Row
         [:% n/View
          {:style {:backgroundColor "#eee"
                   :padding 10}}
@@ -261,9 +260,10 @@
              setWaiting
              result
              setResult]}]]] 
-[:% n/TextDisplay
+       [:% n/TextDisplay
         {:content (n/format-entry
                    #{errored waiting result
                      validation})}])]))
   
   (def.js MODULE (!:module)))
+  

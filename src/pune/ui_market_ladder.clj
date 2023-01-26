@@ -38,9 +38,9 @@
      control
      amount
      rate}]
-  (var #{fraction
-         prediction
-         decimal} control)
+  (var #{[(:= fraction 1)
+          (:= prediction "yes")
+          (:= decimal 0)]} control)
   (var [prevAmount setPrevAmount] (r/local amount))
   (var isMounted (r/useIsMounted))
   (r/watch [amount]
@@ -76,12 +76,13 @@
           (:= decimal 0)
           (:= trade "buy")
           (:= prediction "yes")
-          fraction
+          (:= fraction 1)
           rate
           setRate]} control)
   (var offers   (base-market/live-offers-rate market
                                               allotment
-                                              prediction 15))
+                                              prediction
+                                              15))
   (var segment   (base-market/segment-price rate offers))
   (var lineFn
        (fn [[rate amount] i]

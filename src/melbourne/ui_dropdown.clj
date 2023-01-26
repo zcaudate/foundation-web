@@ -139,8 +139,7 @@
                 [:% n/Text (format (. items [index]) index)]
                 [:% n/Fill {:style {:minWidth 10}}]
                 [:% n/Icon
-                 {:name "chevron-down"
-                  }]]
+                 {:name "chevron-down"}]]
          :style [{:marginVertical 0
                   :borderRadius 0
                   :paddingVertical 6

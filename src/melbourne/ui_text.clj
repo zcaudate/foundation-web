@@ -195,8 +195,10 @@
           (:= size 40)
           (:= imageProps {})
           (:= textProps {})]} props)
+  
   (when (k/is-string? image)
     (:= image (k/js-decode image)))
+  
   (var imageElem (:? (k/not-empty? image)
                      [:% n/Image
                       #{[:style [{:height size
@@ -205,6 +207,7 @@
                                  styleImage]
                          :source (. image url)
                          (:.. imageProps)]}]
+                     
                      [:% ui-static/Text
                       #{[:design design
                          :variant (j/assign {:fg {:key "background"}}

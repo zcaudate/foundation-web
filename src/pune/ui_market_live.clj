@@ -28,8 +28,9 @@
          (var [pos vol] pair)
          (return [(base-market/position-to-rate prediction allotment pos)
                   vol])))
-  (var #{ask bid} (or market {:ask []
-                              :bid []}))
+  (var #{ask bid} (j/assign {:ask []
+                             :bid []}
+                            market))
   (var [buy sell] (:? (== prediction "yes")
                       [bid ask]
                       [ask bid]))
@@ -134,8 +135,8 @@
   (var lookup   (k/arr-juxt published k/id-fn k/identity))
   (var fraction (j/pow 10 (- decimal)))
   (var priorities    (-/live-priority-rate market
-                                       allotment
-                                       prediction))
+                                           allotment
+                                           prediction))
   (var lineFn
        (fn [[rate priority] i]
          (return

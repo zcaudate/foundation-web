@@ -39,18 +39,18 @@
                                      (fn [args]
                                        (return
                                         (j/future-delayed [100]
-                                          (return
-                                           (-> (k/arr-range 5)
-                                               (k/arr-map (fn:> [i]
-                                                            {:id   (+ "id-" i)
-                                                             :name (+ "name-" i)
-                                                             :balance (k/random)})))))))})}))
+                                                          (return
+                                                           (-> (k/arr-range 5)
+                                                               (k/arr-map (fn:> [i]
+                                                                            {:id   (+ "id-" i)
+                                                                             :name (+ "name-" i)
+                                                                             :balance (k/random)})))))))})}))
     (return
      [:% n/Isolation
       (n/EnclosedCode 
-{:label "melbourne.slim-link/FormLinkDropdown"
+       {:label "melbourne.slim-link/FormLinkDropdown"
         :style {:height 200}} 
-[:% n/Row
+       [:% n/Row
         (r/% slim-link/FormLinkDropdown
              (j/assign #{form views}
                        {:design {:type "light"}

@@ -14,8 +14,7 @@
              [js.core :as j]
              [melbourne.base-palette :as base-palette]
              [pune.ui-sparkline :as ui-sparkline]
-             [xt.lang.base-lib :as k]
-             #_[pune.common.data-market :as base-market]]
+             [xt.lang.base-lib :as k]]
    :export [MODULE]})
 
 (defn.js get-depth-histogram
@@ -94,11 +93,12 @@
           (:= trade "buy")
           (:= prediction "yes")
           fraction]} control)
-
-  #_(var offers   (base-market/live-offers-rate market
-                                                allotment
-                                                prediction
-                                              20))
+  
+  #_
+  (:= offers (or offers (base-market/live-offers-rate market
+                                                      allotment
+                                                      prediction
+                                                      20)))
   (var m (-/get-depth-data offers))
   (var #{max-depth buy-hist sell-hist} m)
   (return

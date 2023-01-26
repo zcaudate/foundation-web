@@ -111,7 +111,7 @@
                 :panDirection (:? mini
                                   "horizontal"
                                   "vertical")
-                :panStride  10
+                :panStride  15
                 (:.. -/styleLargeDigit)]}])]
          (:? (not mini)
              [:% ui-spinner/SpinnerControls
