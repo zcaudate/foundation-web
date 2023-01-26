@@ -11,6 +11,7 @@
              [xt.lang.event-form :as event-form]
              [melbourne.slim-common :as slim-common]
              [melbourne.ui-picker :as ui-picker]
+             [melbourne.ui-picker-basic :as ui-picker-basic]
              [melbourne.ui-dropdown :as ui-dropdown]
              [xt.lang.base-lib :as k]]
    :export [MODULE]})
@@ -61,6 +62,54 @@
        #{[design variant data value
           :setValue setValue
           (:.. fieldProps)]}]]]]))
+
+(defn.js FormPickerBasic
+  "creates a PickerBasic"
+  {:added "0.1"}
+  [#{[design
+      variant
+      mini
+      form
+      meta
+      label
+      styleLabel
+      labelHide labelNone
+      field
+      fieldProps
+      data
+      minWidth]}]
+  (var #{value result} (ext-form/listenField form field
+                                          (j/assign {:slim/type "picker"
+                                                     :fn/type   "field"}
+                                                    meta)))
+  (var setValue (r/const (fn [v]
+                           (event-form/set-field form field v)
+                           (event-form/validate-field form field))))
+  (return 
+   [:% slim-common/FormEnclosed
+    #{design
+      mini
+      {:variant (k/get-in design ["variant" "label"])}
+      styleLabel
+      labelHide labelNone
+      label
+      minWidth}
+    [:% n/Row
+     {:style {:marginTop 5}}
+     [:% ui-picker-basic/PickerControls
+      #{design
+        {:style {:paddingHorizontal 5
+                 :marginHorizontal 2}
+         #_#_:style {:paddingHorizontal 0
+                 :paddingVertical 2
+                     }
+         :value value
+         :setValue setValue}}
+      [:% ui-picker-basic/PickerBasic
+       #{[design variant data value
+          :setValue setValue
+          (:.. fieldProps)]}]]]]))
+
 
 (defn.js FormDropdown
   "creates a Dropdown"

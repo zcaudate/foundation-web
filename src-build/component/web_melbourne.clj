@@ -28,8 +28,10 @@
              
              [melbourne.ui-radio-test :as ui-radio-test]
              [melbourne.ui-picker-test :as ui-picker-test]
+             [melbourne.ui-picker-basic-test :as ui-picker-basic-test]
              [melbourne.ui-section-test :as ui-section-test]
              [melbourne.ui-spinner-test :as ui-spinner-test]
+             [melbourne.ui-spinner-basic-test :as ui-spinner-basic-test]
              [melbourne.ui-stepper-test :as ui-stepper-test]
              [melbourne.ui-slider-test :as ui-slider-test]
              [melbourne.ui-swiper-test :as ui-swiper-test]
@@ -206,6 +208,16 @@
     [:% ui-spinner-test/SpinnerValuesDemo]
     [:% ui-spinner-test/SpinnerDemo]]))
 
+(defn.js SpinnerBasicExamples
+  []
+  (return
+   [:<>
+    #_#_
+    [:% ui-spinner-test/SpinnerPaddingDemo]
+    [:% ui-spinner-test/SpinnerDigitDemo]
+    [:% ui-spinner-basic-test/SpinnerBasicControlsDemo]
+    [:% ui-spinner-basic-test/SpinnerBasicDemo]]))
+
 (defn.js DropdownExamples
   []
   (return
@@ -243,6 +255,13 @@
     [:% ui-picker-test/PickerValuesDemo]
     [:% ui-picker-test/PickerIndexedDemo]
     [:% ui-picker-test/PickerDemo]]))
+
+(defn.js PickerBasicExamples
+  []
+  (return
+   [:<>
+    [:% ui-picker-basic-test/PickerBasicIndexedDemo]
+    [:% ui-picker-basic-test/PickerBasicDemo]]))
 
 
 (defn.js SwiperExamples
@@ -511,9 +530,11 @@
         ["206d-chip-input"   -/ChipInputExamples]
         ["206e-color-input"  -/ColorInputExamples]
 
-        ["207-spinner"       -/SpinnerExamples]
+        ["207-spinner"        -/SpinnerExamples]
+        ["207a-spinner-basic" -/SpinnerBasicExamples]
         ["208-stepper"       -/StepperExamples]
         ["209-picker"        -/PickerExamples]
+        ["209a-picker-basic"  -/PickerBasicExamples]
         ["210-swiper"        -/SwiperExamples]
         ["211-image"         -/ImageExamples]
         ["212-text"          -/TextExamples]

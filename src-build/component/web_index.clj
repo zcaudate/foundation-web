@@ -32,8 +32,8 @@
 (defglobal.js Global
   (base-box/make-box
    {:init false
-    :l0 "03-pune-frame"
-    :l1 "101-sidemenu"}))
+    :l0 "01-melbourne"
+    :l1 "207a-spinner-basic"}))
 
 (defglobal.js Screens
   (base-box/make-box {}))

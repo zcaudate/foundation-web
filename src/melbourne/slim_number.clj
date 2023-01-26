@@ -10,6 +10,7 @@
              [xt.lang.event-form :as event-form]
              [melbourne.slim-common :as slim-common]
              [melbourne.ui-spinner :as ui-spinner]
+             [melbourne.ui-spinner-basic :as ui-spinner-basic]
              [melbourne.ui-slider :as ui-slider]
              [xt.lang.base-lib :as k]]
    :export [MODULE]})
@@ -58,6 +59,62 @@
          step
          :style {:paddingHorizontal 5}]}
       [:% ui-spinner/Spinner
+      #{[design
+         variant
+         :style {:marginHorizontal 5
+                 #_#_:padding 3}
+         :value value
+         :setValue (event-form/field-fn form field)
+         max
+         min
+         step
+         decimal
+         (:.. fieldProps)]}]]]]))
+
+(defn.js FormSpinnerBasic
+  "creates a SpinnerBasic"
+  {:added "0.1"}
+  [#{[design
+      mini
+      variant
+      form
+      meta
+      label
+      labelHide labelNone
+      styleLabel
+      labelWidth
+      field
+      fieldProps
+      minWidth
+      max
+      min
+      step
+      decimal]}]
+  (var #{value result} (ext-form/listenField form field
+                                          (j/assign {:slim/type "spinner"
+                                                     :fn/type   "field"}
+                                                    meta)))
+  (return 
+   [:% slim-common/FormEnclosed
+    #{design
+      mini
+      {:variant (k/get-in design ["variant" "label"])}
+      styleLabel
+      label
+      labelHide labelNone
+      minWidth}
+    [:% n/Row
+     {:style {:marginTop 5}}
+     [:% ui-spinner-basic/SpinnerBasicControls
+      #{[design
+         variant
+         :value value
+         :setValue (event-form/field-fn form field)
+         max
+         min
+         step
+         :style {:paddingHorizontal 5}]}
+      [:% ui-spinner-basic/SpinnerBasic
       #{[design
          variant
          :style {:marginHorizontal 5

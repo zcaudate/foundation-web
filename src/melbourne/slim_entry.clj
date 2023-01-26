@@ -417,11 +417,15 @@
    
    :image       slim-image/FormImage
    :dropdown    slim-select/FormDropdown
-   :picker      slim-select/FormPicker
+   :picker        slim-select/FormPicker
+   :picker-basic  slim-select/FormPickerBasic
    :slider      slim-number/FormSlider
    :spinner     slim-number/FormSpinner
+   :spinner-basic slim-number/FormSpinnerBasic
 
    :time        slim-time/FormTime
+   :date        slim-time/FormDate
+   :datetime    slim-time/FormDatetime
    
    :link-readonly slim-link/FormLinkEntryReadOnly
    :link-dropdown slim-link/FormLinkDropdown})
