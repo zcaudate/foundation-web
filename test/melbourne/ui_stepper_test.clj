@@ -32,7 +32,7 @@
                  :flex 1
                  :padding 30}}
         [:% ui-stepper/StepperTabs
-         #{[:brand {:type "light"}
+         #{[:design {:type "light"}
             :total 5
             index
             setIndex
@@ -43,7 +43,7 @@
                  :flex 1
                  :padding 30}}
         [:% ui-stepper/StepperTabs
-         #{[:brand {:type "dark"}
+         #{[:design {:type "dark"}
             :total 5
             index
             setIndex
@@ -69,7 +69,7 @@
                  :flex 1
                  :padding 30}}
         [:% ui-stepper/StepperTabs
-         #{[:brand {:type "light"}
+         #{[:design {:type "light"}
             :total 4
             index
             setIndex

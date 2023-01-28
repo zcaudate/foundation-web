@@ -4,7 +4,7 @@
 
 (l/script :js
   {:require [[js.core :as j]
-             [js.react :as r]
+             [js.react :as r :include [:fn]]
              [js.react-native :as n :include [:fn [:icon :entypo]]]
              [js.react.ext-view :as ext-view]
              [js.react.ext-form :as ext-form]
@@ -21,12 +21,30 @@
   {:added "4.0"}
   [props]
   (var #{views displayKey control} props)
+  #_(k/LOG! {:out (k/get-in views ["topic_archive"
+                                 "output"
+                                 "current"])
+           :remote (k/get-in views ["topic_archive"
+                                 "remote"
+                                 "current"])
+           :in  (k/get-in views ["topic_archive"
+                                 "input"
+                                 "current"
+                                 "data"])}
+          #_#{views displayKey control})
   (var entryId (or (. control showDetail)
                    (. control showModify)))
   (var entries (or (. props entries)
                    (ext-view/listenView (. views [(or displayKey "list")]) "success")
                    []))
+  (var remote-entries (or (k/get-in views [displayKey
+                                           "remote"
+                                           "current"])
+                          []))
+  (when (k/obj? remote-entries)
+    (:= remote-entries []))
   (var entry   (or (j/find entries (fn:> [e] (== entryId (. e id))))
+                   (j/find remote-entries (fn:> [e] (== entryId (. e id))))
                    {}))
   (return entry))
 
@@ -80,6 +98,21 @@
                          (j/assign init out)))
                       (j/assign {} props)))))
 
+(defn.js TableProgressBack
+  [props]
+  (var #{control
+         entry} props)
+  (r/useCountdown 1
+                  (fn []
+                    (when (k/is-empty? entry)
+                      (. control (setShowDetail nil)))))
+  (return
+   [:% n/View
+    {:style {:flex 1
+             :alignItems "center"
+             :justifyContent "center"}}
+    [:% n/ActivityIndicator]]))
+
 (defn.js tablePageView
   "displays the detail view"
   {:added "0.1"}
@@ -99,7 +132,6 @@
                                          displayKey
                                          control}))
                  (. props entry)))
-  
   (var impl (. display [page]))
   (var implForm  (k/get-in impl ["form"]))
   (var form (or (. props form)
@@ -117,7 +149,6 @@
                                  props
                                  #{entry})
                                 hooks))
-
   
   ;;
   ;; Short Circuit
@@ -126,11 +157,7 @@
   (if (and (k/is-empty? entry)
            (== page "detail"))
     (return
-     [:% n/View
-      {:style {:flex 1
-               :alignItems "center"
-               :justifyContent "center"}}
-      [:% n/ActivityIndicator]]))
+     (r/% -/TableProgressBack (j/assignNew props #{entry}))))
 
 
   ;;

@@ -54,7 +54,10 @@
                                            "primary"
                                            "flatten"))
                               :title "Yes"
-                              :priceScaleId "right"})))
+                              :priceScaleId "right"
+                              #_#_:autoscaleInfoProvider
+                              (fn:>
+                                {:priceRange {:minValue 0}})})))
     (. yesSeries (setData dataPriceYes))
     (. yesSeries (applyOptions
                     {:priceFormat
@@ -69,7 +72,10 @@
                                            "error"
                                            "flatten"))
                               :title "No"
-                                :priceScaleId "right"})))
+                              :priceScaleId "right"
+                              #_#_:autoscaleInfoProvider
+                              (fn:>
+                                {:priceRange {:minValue 0}})})))
     (. noSeries (setData dataPriceNo))
     (. noSeries (applyOptions
                     {:priceFormat

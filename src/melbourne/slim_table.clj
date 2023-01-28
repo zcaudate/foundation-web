@@ -77,6 +77,7 @@
         (:= routeComponent
             (or (. -/TableRouterLu [routeKey])
                 slim-table-common/TableDefaultNotFound)))
+
   (var routeElem
        [:% r/Suspense
         {:fallback [:% slim-table-common/TableDefaultIsLoading #{design}]}
