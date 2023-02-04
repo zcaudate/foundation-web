@@ -44,7 +44,6 @@
     (:= value {}))
   (when (k/is-string? value)
     (:= value (k/js-decode value)))
-
   
   
   (:= palette (base-palette/getPalette design palette))
@@ -53,8 +52,8 @@
   (var [photo setPhoto] (r/local))
   (var [blob setBlob]   (r/local))
   (var [waiting setWaiting] (r/local))
-  (var uri (or (and photo (. photo ["uri"]))
-               (and data
+  #_(var uri (or (and photo (. photo ["uri"]))
+               (and (k/not-empty? data)
                     (or (. data  ["url"])
                         (. data  ["thumbnailUrl"])))))
   (return 

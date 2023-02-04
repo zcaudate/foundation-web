@@ -69,6 +69,7 @@
      
      [:% n/Row
       {:style {:flexWrap "wrap"
+               :maxWidth 400
                :alignItems "center"}}
       (j/map values
              (fn:> [value i]

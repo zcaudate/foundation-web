@@ -40,6 +40,7 @@
 
 (defn.js TableDetailView
   [props]
+  
   (return
    (slim-table-common/tablePageView props "detail")))
 

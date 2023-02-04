@@ -28,13 +28,13 @@
   (when (not (pred body))
     (return [false]))
 (var #{msg-id
-       topic
+       op-tag
        op-level
        op-time
        message} body)
   (var t (k/now-ms))
   (var msg {:id (or msg-id (j/randomId 6))
-            :title  (j/toUpperCase (text/tag-string (or topic "")))
+            :title  (j/toUpperCase (text/tag-string (or op-tag "")))
             :message (or message (+ "" (new Date t)))
             ;;:sticky (== op-level "N")
             :time t})

@@ -79,8 +79,9 @@
   (var subSize (- size (* 2 border)))
   (var #{fgNormal
          bgNormal} (base-palette/designPalette design))
-  (var uri (or (and photo (. photo ["uri"]))
-               (and data
+  (var uri (or (and (k/not-empty? photo)
+                    (. photo ["uri"]))
+               (and (k/not-empty? data)
                     (or (. data  ["url"])
                         (. data  ["thumbnailUrl"])))))
   (var swipeElem
@@ -126,7 +127,7 @@
               :borderRadius 4}
              (css/centered)
              {:backgroundColor bgNormal}]}
-    (:? (k/nil? uri)
+    (:? (not uri)
         [:% ui-button/Button
          {:design design
           :onPress (fn:> (-/selectImage props))
