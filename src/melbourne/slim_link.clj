@@ -51,7 +51,7 @@
   [props]
   (var aprops (j/assignNew props (. props fieldProps)))
   (var #{views viewKey viewArgs viewOpts
-         viewTemplate
+         viewTemplate viewValueFn
          form field} aprops)
 
   (var #{links
