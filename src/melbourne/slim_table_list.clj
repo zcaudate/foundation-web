@@ -378,16 +378,33 @@
        (:? (k/get-in control ["setShowPage"])
            [(. control showPage) (. control setShowPage)]
            (r/local 1)))
-  (var entries (ext-view/listenView (. views [displayKey]) "success"))
-  (var output (ext-view/listenViewOutput (. views [displayKey])
-                                          ["pending"]))
-  
   (var args ((. page argsFn) [showPage (. page display)] props))
-  (ext-view/useRefreshArgs (. views [displayKey])
-                           args
-                           {:remote "always"
-                            ;;:with-pending true
-                            :meta #{displayKey}})
+  (var refresh-fn
+       (fn []
+         (ext-view/refreshArgsFn
+          (. views [displayKey])
+          args
+          {:remote "always"
+           ;;:with-pending true
+           :meta #{displayKey}})))
+  (var entries (ext-view/listenView (. views [displayKey])
+                                    "success"
+                                    {:resultFn
+                                     (fn [event]
+                                       (when (and (== "view.output" (. event type))
+                                                  (== "main" (. event data tag)))
+                                         (refresh-fn)))}
+                                    nil
+                                    "remote"))
+  (var output  (ext-view/listenViewOutput (. views [displayKey])
+                                          ["pending"]
+                                          {}
+                                          nil
+                                          "remote"))
+  (refresh-fn)
+  #_(k/LOG! entries views)
+  
+  
   
   (r/init []
     (return (fn []
