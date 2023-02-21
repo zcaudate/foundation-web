@@ -197,6 +197,17 @@
                          {:value entry})
                body)))
 
+(defn.js EntryLayoutFadeIn
+  "creates a debug view"
+  {:added "4.0"}
+  [#{[(:= impl {})
+      (:.. rprops)]}]
+  (var #{[body
+          (:.. iprops)]} impl)
+  (return (r/% ui-util/FadeIn
+               (j/assign rprops iprops)
+               body)))
+
 (defn.js EntryContentSeparator
   "creates a separator"
   {:added "4.0"}
@@ -712,10 +723,7 @@
   
   (var fprops (or (k/get-in props ["custom" key])
                   {}))
-  
-  (cond (or (not mini)
-            (>= 3 (or (k/get-in route ["length"])
-                      0)))
+  (cond (not mini)
         (do 
           (var ControlComponent (or (. {:minor  ui-text/TabsMinor
                                         :accent ui-text/TabsAccent}
@@ -877,6 +885,8 @@
           submitModify
           submitField
           (:.. iprops)]} impl)
+  (:= form    (or form (ext-form/makeForm (fn:> {})
+                                          {})))
   (var sprops (or (k/get-in props ["custom" submit])
                   {}))
   (var fprops (or (k/get-in props ["custom" key])
@@ -915,13 +925,13 @@
                                   (k/obj-pick (or entry {}) submitModify))
                      (k/eq-nested (. form data)
                                   entry))))
+  (var nprops (j/assign rprops
+                        #{form disabled}
+                        iprops
+                        fprops
+                        submitProps))
   (return
-   (r/% slim-submit/SubmitLineActions
-        (j/assign rprops
-                  #{form disabled}
-                  iprops
-                  fprops
-                  submitProps))))
+   (r/% slim-submit/SubmitLineActions nprops)))
 
 ;;
 ;;
@@ -1022,6 +1032,7 @@
    :scroll   -/EntryLayoutScroll
    :popup    -/EntryLayoutPopup
    :debug    -/EntryLayoutDebug
+   :fade_in  -/EntryLayoutFadeIn
 
    :control-layout   -/EntryLayoutControl
    :link-layout   -/EntryLayoutLink
@@ -1055,6 +1066,7 @@
   {:card           true
    :pair           true
    :form           true
+   :fade-in        true
    :form-fade      true
    :form-fold      true
    :enclosed       true

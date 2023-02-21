@@ -51,14 +51,15 @@
                :paddingHorizontal 15
                :paddingVertical 10
                :borderRadius 3}]}
-     [:% n/Row
-      [:% n/Text
-       {:style [base-font/fontH4
-                {:color (base-palette/getColor palette {:key "neutral"})
-                 :marginVertical 10}]}
-       title]
-      [:% n/Fill]
-      titleRight]
+     (:? title
+         [:% n/Row
+          [:% n/Text
+           {:style [base-font/fontH4
+                    {:color (base-palette/getColor palette {:key "neutral"})
+                     :marginVertical 10}]}
+           title]
+          [:% n/Fill]
+          titleRight])
      [:% n/View
       {:style {:flex 1
                :justifyContent "center"}}

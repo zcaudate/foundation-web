@@ -32,7 +32,7 @@
                           {:translateX 20}]}}
      [:% ui-static/Text
       #{design
-        {:style {:width 100}
+        {:style {:width 10}
          :variant {:font "h4"
                    :bg {:key "primary"
                         :mix "background"
@@ -50,6 +50,7 @@
       routeKey
       setRouteKey
       data
+      header
       children
       styleContainer
       floating
@@ -70,7 +71,7 @@
   
   (return
    [:% n/Row
-    {:style [{:width 140 #_(:? mini 160 140)
+    {:style [{:width 160 #_(:? mini 160 140)
               :minHeight 80}
              (:.. (j/arrayify styleContainer))]}
     [:% ui-static/Div
@@ -79,6 +80,7 @@
       :style {:paddingHorizontal 10
               :paddingVertical 5
               :flex 1}}
+     header
      [:% ui-group/List
       #{[:design __design
          :variant __variant
@@ -165,6 +167,7 @@
       data
       format
       narrowed
+      header
       children
       visible
       setVisible
@@ -176,6 +179,7 @@
           setRouteKey
           data
           format
+          header
           children}
         {:floating true
          :styleContainer {:padding 5
@@ -191,7 +195,8 @@
       tooltip
       visible
       setVisible
-      {:children (r/% -/TopMenuList listProps)}})))
+      {:children
+       (r/% -/TopMenuList listProps)}})))
 
 (def.js MODULE (!:module))
 

@@ -379,34 +379,39 @@
            [(. control showPage) (. control setShowPage)]
            (r/local 1)))
   (var args ((. page argsFn) [showPage (. page display)] props))
+  (var entriesUpdatedRef (r/ref))
   (var refresh-fn
        (fn []
+         (r/curr:set entriesUpdatedRef (k/now-ms))
          (ext-view/refreshArgsFn
           (. views [displayKey])
           args
           {:remote "always"
            ;;:with-pending true
            :meta #{displayKey}})))
-  (var entries (ext-view/listenView (. views [displayKey])
-                                    "success"
-                                    {:resultFn
-                                     (fn [event]
-                                       (when (and (== "view.output" (. event type))
-                                                  (== "main" (. event data tag)))
-                                         (refresh-fn)))}
-                                    nil
-                                    "remote"))
+  (var entries
+       (ext-view/listenView
+        (. views [displayKey])
+        "success"
+        {:resultFn
+         (fn [event]
+           (when (== "view.output" (. event type))
+             (when (== "main" (. event data tag))
+               (when (> (- (k/now-ms)
+                           (r/curr entriesUpdatedRef))
+                        5000)
+                 (refresh-fn)))))}
+        nil
+        "remote"))
   (var output  (ext-view/listenViewOutput (. views [displayKey])
                                           ["pending"]
                                           {}
                                           nil
                                           "remote"))
-  (refresh-fn)
-  #_(k/LOG! entries views)
-  
-  
-  
+  (r/watch [(k/js-encode args)]
+    (refresh-fn))
   (r/init []
+    (refresh-fn)
     (return (fn []
               (event-view/set-output (. views [displayKey])
                                      nil))))
@@ -449,6 +454,7 @@
          #{design}
          (r/% ListComponent
               (j/assignNew props #{entries}))])
+    
     (:? (> (. page total)
            (. page display))
         [:% ui-static/Div

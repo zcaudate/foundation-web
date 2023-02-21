@@ -69,7 +69,8 @@
               {:key "icon"
                :name icon
                :size 24}]
-       :tooltip {:text  label}
+       :tooltip {:text  label
+                 :position "top"}
        (:.. (j/assign rprops ritems))]}]))
 
 (defn.js MainMenuToggle
@@ -99,7 +100,8 @@
               {:key "icon"
                :name icon
                :size 24}]
-       :tooltip {:text  label}
+       :tooltip {:text  label
+                 :position "top"}
        (:.. (j/assign rprops ritems))]}]))
 
 (defn.js MainMenuRoute

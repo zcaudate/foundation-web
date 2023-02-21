@@ -9,6 +9,7 @@
              [js.react-native :as n :include [:fn]]
              [xt.lang.base-lib :as k]
              [melbourne.ui-input :as ui-input]
+             [melbourne.ui-input-xl :as ui-input-xl]
              [melbourne.base-palette :as base-palette]]
    :export [MODULE]})
 

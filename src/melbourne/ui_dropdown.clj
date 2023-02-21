@@ -102,6 +102,7 @@
   {:added "0.1"}
   ([#{[design
        variant
+       variantModal
        theme
        index
        setIndex
@@ -151,20 +152,20 @@
          :transformations {:bg nil}
          (:.. rprops)]}]
      [:% -/DropdownIndexedModal
-      #{design
-        variant
-        theme
-        items
-        setIndex
-        index
-        visible
-        setVisible
-        format
-        displayType
-        styleMenu
-        styleMenuItem
-        itemTransformations
-        hostRef}]])))
+      #{[design
+         :variant (or variantModal variant)
+         theme
+         items
+         setIndex
+         index
+         visible
+         setVisible
+         format
+         displayType
+         styleMenu
+         styleMenuItem
+         itemTransformations
+         hostRef]}]])))
 
 (defn.js Dropdown
   "creates a horizontal check"

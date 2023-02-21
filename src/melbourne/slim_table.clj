@@ -84,6 +84,16 @@
         {:fallback [:% slim-table-common/TableDefaultIsLoading #{design}]}
         (r/% routeComponent
              (j/assignNew props (. custom [routeKey])))])
+  
+  
+  #_(r/watch [(k/js-encode display)
+            routeKey
+            displayKey]
+     (k/LOG! {:display display
+              :routeKey routeKey
+              :displayKey displayKey
+              :scroll (and (== routeKey "list")
+                           (not= false (k/get-in display ["list" "scroll"])))}))
   (return
    (:? (and (== routeKey "list")
             (not= false (k/get-in display ["list" "scroll"])))

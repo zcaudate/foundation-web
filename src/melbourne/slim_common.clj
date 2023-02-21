@@ -400,11 +400,15 @@
       fieldProps
       minWidth
       (:= options [])]}]
-  (var #{value result} (ext-form/listenField form field
-                                          (j/assign {:slim/type "enum_single"
-                                                     :fn/type   "field"}
-                                                    meta)))
+  (var #{value result}
+       (ext-form/listenField form field
+                             (j/assign {:slim/type "enum_single"
+                                        :fn/type   "field"}
+                                       meta)))
   (var #{mainNeutral} (base-palette/designPalette design))
+  (var Component (or (k/get-in fieldProps
+                               ["component"])
+                     ui-text/TabsMinor))
   (return 
    [:% -/FormEnclosed
     #{design
@@ -412,9 +416,10 @@
       {:variant (k/get-in design ["variant" "label"])}
       styleLabel
       label
-      labelHide labelNone
+      labelHide
+      labelNone
       minWidth}
-    [:% ui-text/TabsMinor
+    [:% Component
      #{[design variant
         :styleContainer {:left -10}
         :style {:marginHorizontal 5
@@ -447,6 +452,9 @@
                                                      :fn/type   "field"}
                                                     meta)))
   (var #{mainNeutral} (base-palette/designPalette design))
+  (var Component (or (k/get-in fieldProps
+                               ["component"])
+                     ui-text/EnumMinor))
   (return 
    [:% -/FormEnclosed
     #{design
@@ -456,7 +464,7 @@
       label
       labelHide labelNone
       minWidth}
-    [:% ui-text/EnumMinor
+    [:% Component
      #{[design variant
         :style {}
         :data  options

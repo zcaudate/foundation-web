@@ -61,24 +61,25 @@
 (defn.js SubmitLine
   "creates a submit line (with button and error)"
   {:added "4.0"}
-  [#{[design
-      mini
-      variant
-      form
-      styleContainer
-      styleSubmit
-      submitText
-      
-      (:= errorProps {})
-      result
-      errored
-      onAction
-      onActionPress
-      onActionReset
-      (:= onActionCheck (fn:> true))
-      children
-      disabled
-      (:.. rprops)]}]
+  [props]
+  (var #{[design
+          mini
+          variant
+          form
+          styleContainer
+          styleSubmit
+          submitText
+          
+          (:= errorProps {})
+          result
+          errored
+          onAction
+          onActionPress
+          onActionReset
+          (:= onActionCheck (fn:> true))
+          children
+          disabled
+          (:.. rprops)]} props)
   (var #{row} errorProps)
   (var errorElem (:? errored
                      [:% slim-error/ErrorInfo

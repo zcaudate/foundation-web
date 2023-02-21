@@ -9,6 +9,7 @@
    :import  [["@metamask/onboarding" :as MetaMaskOnboarding]]
    :require [[melbourne.ui-text :as ui-text]
              [js.lib.eth-lib :as eth-lib :include [:fn]]
+             [js.react-native.ui-util :as ui-util]
              [js.react :as r :include [:fn]]
              [js.react-native :as n :include [:fn]]
              [js.core :as j]
@@ -125,26 +126,27 @@
       (setInstalled true)
       (stopNow)))
   (return
-   (:? (not installed)
+   (:? (or (!:G ethereum)
+           installed)
+       
+       (or children [:% n/View])
+       
        (or fallback
            [:% n/Row
+            {:style {:flex 1
+                     :justifyContent "center"
+                     :alignItems "center"}}
             [:% ui-text/ButtonAccent
              {:design design
-              :text  "Install"
+              :text  "Install Metamask"
               :style {:fontWeight 600}
               :onPress
               (fn []
                 (-/startOnboarding onboarding)
-                (-/stopOnboarding onboarding))}]])
-       
-       (or children [:% n/View]))))
+                (-/stopOnboarding onboarding))}]]))))
 
-(defn.js MetamaskEnsureConnected
-  [#{design
-     onChange
-     addresses
-     fallback
-     children}]
+(defn.js useEnsureConnected
+  [onChange]
   (var [accounts setAccounts] (r/local {}))
   (var setTable (r/const
                  (fn [arr]
@@ -164,6 +166,23 @@
     (return
      (fn []
        (-/removeListener "accountsChanged" setTable))))
+  (r/watch [accounts]
+    (when (k/nil? accounts)
+      (j/future-delayed [1000]
+        (requestFn))))
+  (return #{accounts
+            setAccounts
+            requestFn}))
+
+(defn.js MetamaskEnsureConnected
+  [#{design
+     onChange
+     fallback
+     children}]
+  (var #{accounts
+         setAccounts
+         requestFn}
+       (-/useEnsureConnected onChange))
   (return
    (:? (k/is-empty? accounts)
        (or fallback
@@ -177,6 +196,15 @@
 (defn.js useChainId
   []
   (var [chainId setChainId] (r/local))
+  (var chainIdRef (r/useFollowRef chainId))
+  (var interval (r/useInterval
+                 (fn []
+                   (when (not (r/curr chainIdRef))
+                     (. (-/request {:method "eth_chainId"} )
+                        (then (fn [res]
+                                (setChainId res)))
+                        (catch k/identity))))
+                 1000))
   (r/init []
     (. (-/request {:method "eth_chainId"} setChainId)
        (catch k/identity))
@@ -186,68 +214,66 @@
        (-/removeListener "chainChanged" setChainId))))
   (return chainId))
 
-
 (defn.js MetamaskEnsureChain
   [#{design
      chainId
      children}]
   (var [id setId] (r/local ""))
+  (var [visible setVisible] (r/local false))
   (r/init []
     (. (-/request {:method "eth_chainId"} setId)
        (catch k/identity))
     (-/on "chainChanged" setId)
+    (setVisible true)
     (return
      (fn []
        (-/removeListener "chainChanged" setId))))
   (return
    (:? (== chainId (j/toString id))
        (or children [:% n/View])
-       [:% n/Row
-        [:% ui-text/H5
-         {:design design
-          :variant {:fg {:key "error"}}}
-         "Metamask Incorrect Chain"]])))
+       [:% ui-util/Fade
+        {:visible visible}
+        [:% n/Row
+         [:% ui-text/H5
+          {:design design
+           #_#_:variant {:fg {:key "error"}}}
+          "Metamask Incorrect Chain"]]])))
 
 (defn.js MetamaskEnsureAddress
   [#{design
      addresses
      fallback
+     fallbackLink
+     fallbackProps
+     onChange
      children}]
-  (var [accounts setAccounts] (r/local {}))
-  (var setTable (r/const
-                 (fn:> [arr]
-                   (setAccounts
-                    (k/arr-juxt (or arr [])
-                                k/to-string
-                                k/T)))))
-  (var requestFn
-       (r/const (fn:>
-                  (. (-/request {:method "eth_requestAccounts"} setTable)
-                     (catch k/identity)))))
-  (r/init []
-    (requestFn)
-    (-/on "accountsChanged" setTable)
-    (return
-     (fn []
-       (-/removeListener "accountsChanged" setTable))))
+  (var #{accounts
+         setAccounts
+         requestFn}
+       (-/useEnsureConnected onChange))
   (return
    (:? (k/is-empty? accounts)
-       [:% n/Row
-        [:% ui-text/ButtonAccent
-         {:design design
-          :text  "Link Site"
-          :onPress requestFn}]]
+       (:? fallbackLink
+           (r/% fallbackLink
+                (j/assign #{design} fallbackProps))
+           [:% n/Row
+            [:% ui-text/ButtonAccent
+             {:design design
+              :text  "Link Site"
+              :onPress requestFn}]])
        
        (k/arr-some addresses (fn:> [addr] (. accounts [addr])))
        (or children [:% n/View])
        
        :else
        (:? fallback
-           (r/% fallback #{design accounts})
-           [:% n/Row
-            [:% ui-text/H5
-             {:design design}
-             "Metamask Incorrect Account"]]))))
+           (r/% fallback
+                (j/assign #{design accounts} fallbackProps))
+           [:% ui-util/FadeIn
+            [:% n/Row
+             [:% ui-text/H5
+              {:design design}
+              "Metamask Incorrect Account"]]]))))
 
 (def.js MODULE (!:module))
 
