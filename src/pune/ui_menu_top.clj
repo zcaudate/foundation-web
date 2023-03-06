@@ -184,7 +184,8 @@
         {:floating true
          :styleContainer {:padding 5
                           :borderRadius 3
-                          :paddingLeft 10}
+                          :paddingLeft 10
+                          :overflow "hidden"}
          :onChange (fn [s]
                      (setVisible false))}))
   (var listElem (r/% -/TopMenuList listProps))

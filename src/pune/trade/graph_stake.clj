@@ -28,6 +28,21 @@
      fraction}]
   (var chartRef (r/ref))
   (var palette (base-palette/designPalette design))
+
+  (var dataPriceYesNorm [])
+  (var dataPriceNoNorm [])
+  (k/for:index [i [0 (k/len dataPriceYes)]]
+    (var t  (k/get-in dataPriceYes  [i "time"]))
+    (var ye (k/get-in dataPriceYes [i "value"]))
+    (var ne (k/get-in dataPriceNo  [i "value"]))
+    
+    (var total (+ ye ne))
+    (x:arr-push dataPriceYesNorm
+                {:value (/ ye total)
+                 :time t})
+    (x:arr-push dataPriceNoNorm
+                {:value (/ ne total)
+                 :time t}))
   (r/watch [dataPriceYes
             dataPriceNo
             height
@@ -55,10 +70,11 @@
                                            "flatten"))
                               :title "Yes"
                               :priceScaleId "right"
-                              #_#_:autoscaleInfoProvider
+                              :autoscaleInfoProvider
                               (fn:>
-                                {:priceRange {:minValue 0}})})))
-    (. yesSeries (setData dataPriceYes))
+                                {:priceRange {:minValue 0
+                                              :maxValue 1}})})))
+    (. yesSeries (setData dataPriceYesNorm))
     (. yesSeries (applyOptions
                     {:priceFormat
                      {:type "price"
@@ -76,7 +92,7 @@
                               #_#_:autoscaleInfoProvider
                               (fn:>
                                 {:priceRange {:minValue 0}})})))
-    (. noSeries (setData dataPriceNo))
+    (. noSeries (setData dataPriceNoNorm))
     (. noSeries (applyOptions
                     {:priceFormat
                      {:type "price"

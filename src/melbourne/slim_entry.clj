@@ -261,7 +261,7 @@
   (return
    (r/% (or component
             defaultComponent)
-        #{design variant style}
+        (j/assign oprops #{design variant style})
         children)))
 
 (defn.js EntryContentTitleH1
@@ -717,13 +717,15 @@
   (var #{[(:= component "minor")
           key
           submit
+          noMini
           (:.. iprops)]} impl)
   (var [route setRoute] [(. control [submit])
                          (. control [(+ "set" (k/capitalize submit))])])
   
   (var fprops (or (k/get-in props ["custom" key])
                   {}))
-  (cond (not mini)
+  (cond (or (not mini)
+            noMini)
         (do 
           (var ControlComponent (or (. {:minor  ui-text/TabsMinor
                                         :accent ui-text/TabsAccent}
@@ -1005,6 +1007,7 @@
   ["design"
    "variant"
    "mini"
+   "miniTablet"
    "entry"
    "display"
    "custom"

@@ -64,14 +64,16 @@
           (:= displayKey "list")
           (:= display {})
           (:= custom {})
-          (:= views {})]} props)
+          (:= views {})
+          entries]} props)
   (var #{routeKey} control)
   (var routeComponent slim-table-common/TableDefaultNotFound)
   (cond (. components [routeKey])
         (:= routeComponent (. components [routeKey]))
 
         (and (== routeKey "list")
-             (. views [displayKey]))
+             (or entries
+                 (. views [displayKey])))
         (:= routeComponent slim-table-list/TableList)
 
         (. display [routeKey])
@@ -84,8 +86,6 @@
         {:fallback [:% slim-table-common/TableDefaultIsLoading #{design}]}
         (r/% routeComponent
              (j/assignNew props (. custom [routeKey])))])
-  
-  
   #_(r/watch [(k/js-encode display)
             routeKey
             displayKey]

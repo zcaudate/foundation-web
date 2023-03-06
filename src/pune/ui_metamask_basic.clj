@@ -82,8 +82,8 @@
 
 
 (defn.js format-address-string
-  [s]
-  (return (+ "0x" (j/substring s 2 20) "...")))
+  [s len]
+  (return (+ "0x" (j/substring s 2 (or len 20)) "...")))
 
 (defn.js format-chain-id
   [n]
@@ -233,8 +233,10 @@
        (or children [:% n/View])
        [:% ui-util/Fade
         {:visible visible}
-        [:% n/Row
-         [:% ui-text/H5
+        [:% n/View
+         {:style {:justifyContent "center"
+                  :alignItems "center"}}
+         [:% ui-text/H6
           {:design design
            #_#_:variant {:fg {:key "error"}}}
           "Metamask Incorrect Chain"]]])))
@@ -270,10 +272,17 @@
            (r/% fallback
                 (j/assign #{design accounts} fallbackProps))
            [:% ui-util/FadeIn
-            [:% n/Row
-             [:% ui-text/H5
+            [:% n/View
+             {:style {:justifyContent "center"
+                      :alignItems "center"}}
+             [:% ui-text/H6
               {:design design}
-              "Metamask Incorrect Account"]]]))))
+              "Metamask Incorrect Account"]
+             [:% ui-text/P
+              {:design design
+               :style {:fontSize 8}
+               :numberOfLines 1}
+              (k/first addresses)]]]))))
 
 (def.js MODULE (!:module))
 
