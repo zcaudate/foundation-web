@@ -403,6 +403,7 @@
                  (refresh-fn)))))}
         nil
         "remote"))
+  
   (var output  (ext-view/listenViewOutput (. views [displayKey])
                                           ["pending"]
                                           {}
