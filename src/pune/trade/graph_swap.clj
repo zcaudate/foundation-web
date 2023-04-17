@@ -85,7 +85,7 @@
     (. priceSeries (applyOptions
                     {:priceFormat
                      {:type "price"
-                      :precision decimal
+                      :precision (- decimal (k/log10 allotment))
                       :minMove fraction}}))
     
     (. chart (applyOptions

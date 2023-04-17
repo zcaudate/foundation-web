@@ -1,4 +1,4 @@
-(ns pune.ui-market-ladder
+(ns pune.ui-market-ladder-swap
   (:use code.test)
   (:require [std.lang :as  l]
             [std.lib :as h]))
@@ -12,34 +12,15 @@
              [pune.common.data-market :as base-market]]
    :export [MODULE]})
 
-(defn.js MarketLadderText
-  "market ladder text"
-  {:added "0.1"}
-  [#{[market
-      allotment
-      decimal
-      prediction]}]
-  (var frac (j/pow 10 (- decimal)))
-  (var offers   (base-market/live-offers-rate market
-                                              allotment
-                                              prediction 6))
-  (return
-   [:% ui-static/ScrollView
-    [:% n/Row
-     [:% n/TextDisplay
-      #{market}]
-     [:% n/TextDisplay
-      #{offers}]]]))
-
 (defn.js MarketLadderRow
   "market ladder row"
   {:added "0.1"}
   [#{design
      control
      amount
-     rate}]
+     position}]
   (var #{[(:= fraction 1)
-          (:= prediction "yes")
+          allotment
           (:= decimal 0)]} control)
   (var [prevAmount setPrevAmount] (r/local amount))
   (var isMounted (r/useIsMounted))
@@ -56,11 +37,13 @@
       :variant (:? (not= amount prevAmount)
                    {:font "h6"
                     :fg {:key "background"}
-                    :bg {:key (:? (== "no" prediction)
-                                  "error"
-                                  "primary")}}
+                    :bg {:key "primary"}}
                    {:font "h6"})}
-     (j/toFixed (* rate fraction) decimal)]
+     (j/toFixed (* position
+                   fraction
+                   allotment)
+                (- decimal
+                   (j/log10 allotment)))]
     [:% n/Fill]
     [:% ui-static/Text
      {:design design}
@@ -76,22 +59,20 @@
   (var #{[(:= allotment 100)
           (:= decimal 0)
           (:= trade "buy")
-          (:= prediction "yes")
           (:= fraction 1)
-          rate
-          setRate]} control)
+          position
+          setPosition]} control)
   (var offers   (base-market/live-offers-rate market
                                               allotment
-                                              prediction
+                                              "yes"
                                               steps))
-  (var segment   (base-market/segment-price rate offers))
   (var lineFn
-       (fn [[rate amount] i]
+       (fn [[position amount] i]
          (return
           [:% -/MarketLadderRow
-           #{{:key rate}
+           #{{:key position}
              amount
-             rate
+             position
              design
              control}])))
   (return
@@ -127,7 +108,7 @@
     {:added "0.1"}
     [#{[design
         market
-        rate
+        position
         (:= allotment 100)
         (:= decimal 0)
         (:= trade "buy")
@@ -136,7 +117,7 @@
      [:% n/TextDisplay
       #{design
         market
-        rate
+        position
         allotment
         decimal
         trade
