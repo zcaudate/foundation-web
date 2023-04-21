@@ -18,7 +18,7 @@
   {:added "0.1"}
   [#{[setValue
       value
-      step
+      (:= step 1)
       max
       min
       (:.. rprops)]}]
@@ -81,7 +81,6 @@
        max
        min
        decimal
-       step
        value
        setValue
        :styleDigit     [{:backgroundColor nil}
