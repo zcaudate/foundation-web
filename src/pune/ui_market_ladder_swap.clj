@@ -7,18 +7,23 @@
   {:require [[js.core :as j]
              [js.react :as r :include [:fn]]
              [js.react-native :as n :include [:fn]]
+             [melbourne.slim :as slim]
              [melbourne.ui-static :as ui-static]
              [melbourne.ui-section :as ui-section]
-             [pune.common.data-market :as base-market]]
+             [pune.common.data-market :as base-market]
+             [xt.lang.base-lib :as k]]
    :export [MODULE]})
 
 (defn.js MarketLadderRow
   "market ladder row"
   {:added "0.1"}
-  [#{design
-     control
-     amount
-     position}]
+  [props]
+  (var #{design
+         control
+         amount
+         position
+         side
+         onPressRow} props)
   (var #{[(:= fraction 1)
           allotment
           (:= decimal 0)]} control)
@@ -28,37 +33,42 @@
     (j/delayed [1000]
       (when (isMounted)
         (setPrevAmount amount))))
-  
+  (var price (j/toFixed (* position
+                           fraction
+                           allotment)
+                        (- decimal
+                           (j/log10 allotment))))  
   (return
-   [:% n/Row
-    {:style {:marginHorizontal 5}}
-    [:% ui-static/Text
-     {:design design
-      :variant (:? (not= amount prevAmount)
-                   {:font "h6"
-                    :fg {:key "background"}
-                    :bg {:key "primary"}}
-                   {:font "h6"})}
-     (j/toFixed (* position
-                   fraction
-                   allotment)
-                (- decimal
-                   (j/log10 allotment)))]
-    [:% n/Fill]
-    [:% ui-static/Text
-     {:design design}
-     amount]]))
+   (slim/entry
+    props
+    {:type "control_layout"
+     :submit (fn []
+               (when onPressRow
+                 (onPressRow
+                  #{position
+                    side})))
+     :body [{:type "h"
+             :style {:marginHorizontal 5}
+             :body [{:variant (:? (not= amount prevAmount)
+                                  {:font "h6"
+                                   :fg {:key "background"}
+                                   :bg {:key "primary"}}
+                                  {:font "h6"})
+                     :template price}
+                    {:type "fill"}
+                    {:template (or amount "")}]}]})))
 
 (defn.js MarketLadder
   "market ladder row"
   {:added "0.1"}
-  [#{[design
-      market
-      control
-      (:= steps 15)]}]
+  [props]
+  (var #{[design
+          market
+          control
+          (:= steps 15)
+          onPressRow]} props)
   (var #{[(:= allotment 100)
           (:= decimal 0)
-          (:= trade "buy")
           (:= fraction 1)
           position
           setPosition]} control)
@@ -67,14 +77,18 @@
                                               "yes"
                                               steps))
   (var lineFn
-       (fn [[position amount] i]
+       (fn [side]
          (return
-          [:% -/MarketLadderRow
-           #{{:key position}
-             amount
-             position
-             design
-             control}])))
+          (fn [[position amount] i]
+            (return
+             [:% -/MarketLadderRow
+              #{{:key position}
+                amount
+                position
+                design
+                control
+                side
+                onPressRow}])))))
   (return
    [:% n/View
     {:style {:padding 3
@@ -85,7 +99,7 @@
               :flexDirection "column-reverse"
               :overflow "hidden"}}
      (j/map (j/reverse [(:.. (. offers buy))])
-            lineFn)]
+            (lineFn "ask"))]
     [:% ui-section/SectionSeparator
      {:design design
       :variant {:fg {:key "neutral"}}
@@ -96,7 +110,7 @@
               :flexDirection "column"
               :overflow "hidden"}}
      (j/map (. offers sell)
-            lineFn)]]))
+            (lineFn "bid"))]]))
 
 
 (def.js MODULE (!:module))

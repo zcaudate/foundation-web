@@ -38,6 +38,7 @@
       theme
       max
       min
+      decimal
       step
       value
       setValue
@@ -79,6 +80,7 @@
                (:.. (j/arrayify style))]
        max
        min
+       decimal
        step
        value
        setValue

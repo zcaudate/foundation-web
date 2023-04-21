@@ -143,7 +143,7 @@
                     :marginHorizontal 10}
             :onPress (fn:> (event-form/reset-all form))
             :text  "Cancel"}]]]]])))
-
+    
   (defn.js InputDarkExamples
     []
     (var form (ext-form/makeForm
@@ -153,8 +153,8 @@
     (var #{data result} (ext-form/listenForm form))
     (return
      (n/EnclosedCode 
-{:label "melbourne.ui-input/Input.Dark"} 
-[:% n/View
+      {:label "melbourne.ui-input/Input.Dark"} 
+      [:% n/View
        {:style {:borderRadius 10
                 :width 350
                 :overflow "hidden"}}
@@ -220,5 +220,4 @@
             :onPress (fn:> (event-form/reset-all form))
             :text  "Cancel"}]]]]])))
 
-  (def.js MODULE (!:module))
-  )
+  (def.js MODULE (!:module)))

@@ -216,7 +216,8 @@
     [:% ui-spinner-test/SpinnerPaddingDemo]
     [:% ui-spinner-test/SpinnerDigitDemo]
     [:% ui-spinner-basic-test/SpinnerBasicControlsDemo]
-    [:% ui-spinner-basic-test/SpinnerBasicDemo]]))
+    [:% ui-spinner-basic-test/SpinnerBasicDemo]
+    [:% ui-spinner-basic-test/SpinnerBasicEditDemo]]))
 
 (defn.js DropdownExamples
   []
