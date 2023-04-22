@@ -32,24 +32,29 @@
   (var [editText  setEditText] (r/local
                                 (j/toFixed (/ value
                                               (j/pow 10 decimal))
-                                           decimal)))
+                                           (j/max 0 decimal))))
   (var setEditTextNumber
        (fn [v]
+         (var isEnding (k/first (or (j/match v #"0\.0+$")
+                                    [])))
          (var hasDot (== "." (k/last v)))
          (var isZero (or (k/nil? v)
-                         (k/not-empty? (j/match v #"^0\.0+$"))))
+                         (k/not-empty? )))
          (var num (j/parseFloat v))
          (cond (k/is-empty? v)
                (setEditText "0")
 
-               isZero
+               isEnding
                (setEditText v)
+
+               (k/nil? num)
+               (setEditText editText)
                
                (k/not-nil? num)
                (setEditText
                 (+ (j/toString num)
                    (:? hasDot "." "")))
-
+               
                :else
                (setEditText
                 (+ editText
@@ -59,12 +64,18 @@
                  (setEditText
                   (j/toFixed (/ value
                                 (j/pow 10 decimal))
-                             decimal))
+                             (j/max 0 decimal)))
                  :else
-                 (setValue
-                  (k/round
-                   (* (k/to-number editText)
-                      (j/pow 10 decimal))))))
+                 (do (var val (k/round
+                               (* (k/to-number editText)
+                                  (j/pow 10 decimal))))
+                     (:= val (:? (k/not-nil? min)
+                                 (k/max min val)
+                                 val))
+                     (:= val (:? (k/not-nil? max)
+                                 (k/min max val)
+                                 val))
+                     (setValue val))))
   (return
    [:% n/Row
     {:style {:alignItems "center"
@@ -75,7 +86,7 @@
            design
            variant
            theme
-           {:styleDigitText {:fontSize 28
+           {:styleDigitText {:fontSize 24
                              :marginRight 5}
             :style {:borderWidth 0
                     :borderRadius 3
@@ -107,7 +118,7 @@
                              :width  130
                              :height 40}
             :style {:textAlign "right"
-                    :fontSize 28
+                    :fontSize 24
                     #_#_:fontWeight 600
                     :marginTop 0
                     :marginBottom 0}}}])
@@ -120,7 +131,7 @@
                    {:bg {:key "background"
                          :mix "neutral"
                          :ratio 3}}
-                   {:bg {:key "primary"}})
+                   {:bg {:key "neutral"}})
       :onPress (fn []
                  (setEditShow (not editShow)))
       :icon {:name "edit"}}]]))
