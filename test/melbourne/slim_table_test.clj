@@ -459,8 +459,8 @@
     (var design {:type "light"})
     (return
      (n/EnclosedCode 
-{:label "melbourne.slim-table/Table"} 
-[:% n/Row
+      {:label "melbourne.slim-table/Table"} 
+      [:% n/Row
        [:% ui-text/ToggleMinor
         #{design
           {:text "Create"
@@ -471,7 +471,7 @@
           {:text "List"
            :selected showList
            :onPress (fn:> (setShowList (not showList)))}}]] 
-[:% n/Row
+      [:% n/Row
        [:% slim-table/Table
         #{{:design {:type "light"}
            :display {:create {:type "fold"}}}

@@ -11,6 +11,26 @@
   (return ["is-true" {:message (or message "Always true.")
                       :check (fn:> true)}]))
 
+(defn.js is-integer
+  "creates an is-integer validator"
+  {:added "0.1"}
+  [message]
+  (return ["is-integer" {:message (or message "Must be integer.")
+                         :check (fn [v rec]
+                                  (var n (k/to-number v))
+                                  (return
+                                   (and (k/is-number? n)
+                                        (== n (k/round n)))))}]))
+
+(defn.js is-number
+  "creates an is-number validator"
+  {:added "0.1"}
+  [message]
+  (return ["is-number" {:message (or message "Must be number.")
+                        :check (fn [v rec]
+                                 (var n (k/to-number v))
+                                 (return (k/is-number? n)))}]))
+
 (defn.js is-accepted
   "creates an is-accepted validator"
   {:added "0.1"}
