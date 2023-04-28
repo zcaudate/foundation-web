@@ -35,7 +35,7 @@
                                            (j/max 0 decimal))))
   (var setEditTextNumber
        (fn [v]
-         (var isEnding (k/first (or (j/match v #"0\.0+$")
+         (var isEnding (k/first (or (j/match v #"\.0+$")
                                     [])))
          (var hasDot (== "." (k/last v)))
          (var isZero (or (k/nil? v)
@@ -51,9 +51,10 @@
                (setEditText editText)
                
                (k/not-nil? num)
-               (setEditText
-                (+ (j/toString num)
-                   (:? hasDot "." "")))
+               (do (setEditText
+                    (+ (j/toString num)
+                       (:? hasDot "." "")))
+                   (setValue num))
                
                :else
                (setEditText
