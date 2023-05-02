@@ -231,7 +231,9 @@
               :impl (. display [page])})))
   (return
    [:% ui-static/Div
-    {:style {:flex 1}
+    {:style {:flex 1
+             #_#_:backgroundColor (:? (== page "detail")
+                                  "red")}
      :design design}
     
     (:? (. control showHeader)

@@ -33,6 +33,19 @@
                                 (j/toFixed (/ value
                                               (j/pow 10 decimal))
                                            (j/max 0 decimal))))
+  (var calcValue
+       (fn [num]
+         (var val (k/round
+                   (* num 
+                      (j/pow 10 decimal))))
+         (:= val (:? (k/not-nil? min)
+                     (k/max min val)
+                     val))
+         (:= val (:? (k/not-nil? max)
+                     (k/min max val)
+                     val))
+         (return val)))
+  
   (var setEditTextNumber
        (fn [v]
          (var isEnding (k/first (or (j/match v #"\.0+$")
@@ -54,29 +67,21 @@
                (do (setEditText
                     (+ (j/toString num)
                        (:? hasDot "." "")))
-                   (setValue num))
+                   (setValue (calcValue num)))
                
                :else
                (setEditText
                 (+ editText
                    (:? hasDot "." ""))))))
   (r/watch [editShow]
-           (cond editShow
-                 (setEditText
-                  (j/toFixed (/ value
-                                (j/pow 10 decimal))
-                             (j/max 0 decimal)))
-                 :else
-                 (do (var val (k/round
-                               (* (k/to-number editText)
-                                  (j/pow 10 decimal))))
-                     (:= val (:? (k/not-nil? min)
-                                 (k/max min val)
-                                 val))
-                     (:= val (:? (k/not-nil? max)
-                                 (k/min max val)
-                                 val))
-                     (setValue val))))
+    (cond editShow
+          (setEditText
+           (j/toFixed (/ value
+                         (j/pow 10 decimal))
+                      (j/max 0 decimal)))
+          :else
+          (setValue
+           (calcValue (k/to-number editText)))))
   (return
    [:% n/Row
     {:style {:alignItems "center"

@@ -193,9 +193,8 @@
               :onPress requestFn}]])
        (or children [:% n/View]))))
 
-(defn.js useChainId
-  []
-  (var [chainId setChainId] (r/local))
+(defn.js useChainIdExternal
+  [chainId setChainId]
   (var chainIdRef (r/useFollowRef chainId))
   (var interval (r/useInterval
                  (fn []
@@ -211,7 +210,12 @@
     (-/on "chainChanged" setChainId)
     (return
      (fn []
-       (-/removeListener "chainChanged" setChainId))))
+       (-/removeListener "chainChanged" setChainId)))))
+
+(defn.js useChainId
+  []
+  (var [chainId setChainId] (r/local))
+  (-/useChainIdExternal chainId setChainId)
   (return chainId))
 
 (defn.js MetamaskEnsureChain
