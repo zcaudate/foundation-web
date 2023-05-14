@@ -15,11 +15,13 @@
              [js.react-native.helper-color :as c]
              [js.lib.lw-charts :as lw]
              [xt.lang.base-lib :as k]
+             [pune.common.data-swap :as data-swap]
              [melbourne.base-palette :as base-palette]]
    :export [MODULE]})
 
 (defn.js GraphSwap
   [#{design
+     history
      dataPrice
      dataVolume
      height
@@ -33,6 +35,10 @@
             dataVolume
             height
             design]
+    (var precision
+         (data-swap/position-to-fdecimal
+          (or (k/get-in history [0 "p_start"])
+              510000)))
     (var chart
          (lw/createChart
           (r/curr chartRef)
@@ -47,18 +53,17 @@
                       :height (. (r/curr chartRef)
                                  clientHeight)}))))
     (. chart (timeScale) (fitContent))
-
     (var volumeSeries (. chart (addHistogramSeries
                                 {:color (c/toRGB
                                          (base-palette/getColorRaw
                                           palette
-                                          "primary"
+                                          "neutral"
                                           "mix"
                                           "background"
-                                          7))
+                                          5))
                                  :title "Volume"
                                  :priceScaleId "left"
-                                 :autoscaleInfoProvider
+                                 #_#_:autoscaleInfoProvider
                                  (fn:>
                                    {:priceRange {:minValue 0
                                                  :maxValue 10000}})})))
@@ -85,8 +90,8 @@
     (. priceSeries (applyOptions
                     {:priceFormat
                      {:type "price"
-                      :precision (- decimal (k/log10 allotment))
-                      :minMove fraction}}))
+                      :precision precision
+                      :minMove (/ 1 (k/pow 10 precision))}}))
     
     (. chart (applyOptions
               {:layout {:background {:color (base-palette/getColorRaw
@@ -105,13 +110,13 @@
                                           "flatten")}}
                :leftPriceScale
                {:visible false
-                :scaleMargins {:top 0.3
-                               :bottom 0.3}}
+                :scaleMargins {:top 0.8
+                               :bottom 0}}
                
                :rightPriceScale
                {:visible true
-                :scaleMargins {:top 0.02
-                               :bottom 0}}
+                #_#_:scaleMargins {:top 0.02
+                                   :bottom 0}}
                :timeScale {:visible true
                            :timeVisible true
                            :secondsVisible true

@@ -11,6 +11,7 @@
              [melbourne.ui-static :as ui-static]
              [melbourne.ui-section :as ui-section]
              [pune.common.data-market :as base-market]
+             [pune.common.data-swap :as base-swap]
              [xt.lang.base-lib :as k]]
    :export [MODULE]})
 
@@ -21,6 +22,7 @@
   (var #{design
          control
          amount
+         amountMax
          position
          side
          onPressRow} props)
@@ -33,11 +35,7 @@
     (j/delayed [1000]
       (when (isMounted)
         (setPrevAmount amount))))
-  (var price (j/toFixed (* position
-                           fraction
-                           allotment)
-                        (- decimal
-                           (j/log10 allotment))))  
+  (var price (base-swap/position-to-fstr position))  
   (return
    (slim/entry
     props
@@ -48,15 +46,36 @@
                   #{position
                     side})))
      :body [{:type "h"
-             :style {:marginHorizontal 5}
-             :body [{:variant (:? (not= amount prevAmount)
+             :style {:alignItems "center"
+                     :height 13}
+             :body [{:type "bold"
+                     :style {:fontSize 8
+                             :padding 1
+                             :opacity 0.7}
+                     :variant (:? (not= amount prevAmount)
                                   {:font "h6"
                                    :fg {:key "background"}
                                    :bg {:key "primary"}}
-                                  {:font "h6"})
+                                  {:font "h6"
+                                   :bg {:key "background"}})
+                     
                      :template price}
                     {:type "fill"}
-                    {:template (or amount "")}]}]})))
+                    {:type "title"
+                     :style    {:fontSize 7
+                                :borderRadius 2
+                                :textAlign "right"
+                                :minWidth (+ 30 (* 30 (/ amount
+                                                         amountMax)))
+                                :padding 2
+                                :paddingHorizontal 5}
+                     :variant {:bg  {:key "primary"
+                                     :mix "background"
+                                     :ratio 4}
+                               :fg  {:key "neutral"}}
+                     :template (or (k/to-fixed (* 0.001 amount)
+                                               1)
+                                   "")}]}]})))
 
 (defn.js MarketLadder
   "market ladder row"
@@ -67,15 +86,14 @@
           control
           (:= steps 15)
           onPressRow]} props)
-  (var #{[(:= allotment 100)
-          (:= decimal 0)
-          (:= fraction 1)
-          position
+  (var #{[position
           setPosition]} control)
   (var offers   (base-market/live-offers-rate market
-                                              allotment
+                                              nil
                                               "yes"
                                               steps))
+  (var amountMax (k/max (:.. (k/arr-map (. offers buy) k/second))
+                        (:.. (k/arr-map (. offers sell) k/second))))
   (var lineFn
        (fn [side]
          (return
@@ -84,6 +102,7 @@
              [:% -/MarketLadderRow
               #{{:key position}
                 amount
+                amountMax
                 position
                 design
                 control
@@ -111,7 +130,6 @@
               :overflow "hidden"}}
      (j/map (. offers sell)
             (lineFn "bid"))]]))
-
 
 (def.js MODULE (!:module))
 

@@ -80,6 +80,7 @@
                (:.. (j/arrayify style))]
        max
        min
+       step
        decimal
        value
        setValue
