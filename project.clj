@@ -2,47 +2,49 @@
 (cemerick.pomegranate.aether/register-wagon-factory!
  "http" #(org.apache.maven.wagon.providers.http.HttpWagon.))
  
-(defproject tahto/foundation-web "4.0.1"
+(defproject xyz.zcaudate/foundation-web "4.0.3"
   :description "web libraries for foundation"
   :url "https://www.github.com/zcaudate/foundation-web"
   
   :aliases
   {"publish"     ["exec" "-ep" "(use 'code.doc)     (deploy-template :all) (publish :all)"]
    "incomplete"  ["exec" "-ep" "(use 'code.manage)  (incomplete :all) (System/exit 0)"]
-   "install"     ["exec" "-ep" "(use 'code.maven)  (install :all {:tag :all}) (System/exit 0)"]
+   "install"     ["exec" "-ep" "(use 'code.maven)   (install :all {:tag :all}) (System/exit 0)"]
+   "deploy"      ["exec" "-ep" "(use 'code.maven)   (deploy :all {:tag :all}) (System/exit 0)"]
+   "deploy-lein" ["exec" "-ep" "(use 'code.maven)   (deploy-lein :all {:tag :all}) (System/exit 0)"]
    "push-web-code"  ["run" "-m" "component.task-web-index"]}
   
   :dependencies [[org.clojure/clojure "1.11.1"]
-                 [foundation/code.test           "4.0.1"]
-                 [foundation/code.manage         "4.0.1"]
-                 [foundation/code.java           "4.0.1"]
-                 [foundation/code.maven          "4.0.1"]
-                 [foundation/code.doc            "4.0.1"]
-                 [foundation/code.dev            "4.0.1"]
+                 [xyz.zcaudate/code.test           "4.0.4"]
+                 [xyz.zcaudate/code.manage         "4.0.4"]
+                 [xyz.zcaudate/code.java           "4.0.4"]
+                 [xyz.zcaudate/code.maven          "4.0.4"]
+                 [xyz.zcaudate/code.doc            "4.0.4"]
+                 [xyz.zcaudate/code.dev            "4.0.4"]
                  
-                 [foundation/js.core             "4.0.1"]
-                 [foundation/js.cell             "4.0.1"]
-                 [foundation/js.lib.datetime     "4.0.1"]
-                 [foundation/js.lib.ethereum     "4.0.1"]
-                 [foundation/js.lib.rn           "4.0.1"]
-                 [foundation/js.lib.lw-charts    "4.0.1"]
-                 [foundation/js.lib.valtio       "4.0.1"]
-                 [foundation/js.react            "4.0.1"]
-                 [foundation/js.react-ext        "4.0.1"]
-                 [foundation/js.react-native     "4.0.1"]
+                 [xyz.zcaudate/js.core             "4.0.4"]
+                 [xyz.zcaudate/js.cell             "4.0.4"]
+                 [xyz.zcaudate/js.lib.datetime     "4.0.4"]
+                 [xyz.zcaudate/js.lib.ethereum     "4.0.4"]
+                 [xyz.zcaudate/js.lib.rn           "4.0.4"]
+                 [xyz.zcaudate/js.lib.lw-charts    "4.0.4"]
+                 [xyz.zcaudate/js.lib.valtio       "4.0.4"]
+                 [xyz.zcaudate/js.react            "4.0.4"]
+                 [xyz.zcaudate/js.react-ext        "4.0.4"]
+                 [xyz.zcaudate/js.react-native     "4.0.4"]
                  
-                 [foundation/jvm                 "4.0.1"]
-                 [foundation/net.http            "4.0.1"]
+                 [xyz.zcaudate/jvm                 "4.0.4"]
+                 [xyz.zcaudate/net.http            "4.0.4"]
 
-                 [foundation/rt.basic            "4.0.1"]
+                 [xyz.zcaudate/rt.basic            "4.0.4"]
                  
-                 [foundation/script.css          "4.0.1"]
-                 [foundation/script.sql          "4.0.1"]
-                 [foundation/std.lib             "4.0.1"]
-                 [foundation/std.log             "4.0.1"]
-                 [foundation/std.lang            "4.0.1"]
-                 [foundation/std.text            "4.0.1"]
-                 [foundation/xtalk.lang          "4.0.1"]]
+                 [xyz.zcaudate/script.css          "4.0.4"]
+                 [xyz.zcaudate/script.sql          "4.0.4"]
+                 [xyz.zcaudate/std.lib             "4.0.4"]
+                 [xyz.zcaudate/std.log             "4.0.4"]
+                 [xyz.zcaudate/std.lang            "4.0.4"]
+                 [xyz.zcaudate/std.text            "4.0.4"]
+                 [xyz.zcaudate/xtalk.lang          "4.0.4"]]
   :profiles {:dev {:plugins [[lein-ancient "0.6.15"]
                              [lein-exec "0.3.7"]
                              [lein-cljfmt "0.7.0"]
